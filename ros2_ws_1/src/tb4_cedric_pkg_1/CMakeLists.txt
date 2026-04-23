@@ -8,7 +8,8 @@ endif()
 
 # Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
+  set(CMAKE_CXX_STANDARD 17)
+  set(CMAKE_CXX_STANDARD_REQUIRED ON)
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -47,5 +48,18 @@ add_executable(test_node src/test_node.cpp)
 ament_target_dependencies(test_node rclcpp nav_msgs)
 
 install(TARGETS test_node DESTINATION lib/${PROJECT_NAME})
+
+find_package(Eigen3 REQUIRED)
+
+# Bei deinen Executables (z.B. dem test_node oder später kf_node):
+target_link_libraries(test_node Eigen3::Eigen)
+
+add_executable(recorder_node src/recorder_node.cpp)
+ament_target_dependencies(recorder_node rclcpp nav_msgs)
+
+install(TARGETS recorder_node DESTINATION lib/${PROJECT_NAME})
+
+# Launch-Ordner installieren
+install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
 
 ament_package()

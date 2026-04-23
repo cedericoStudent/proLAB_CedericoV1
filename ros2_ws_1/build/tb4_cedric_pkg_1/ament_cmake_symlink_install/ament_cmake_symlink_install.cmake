@@ -316,6 +316,12 @@ ament_cmake_symlink_install_directory("/home/cedric/Desktop/PROLAB/proLAB_Cederi
 # install("TARGETS" "test_node" "DESTINATION" "lib/tb4_cedric_pkg_1")
 include("/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
+# install("TARGETS" "recorder_node" "DESTINATION" "lib/tb4_cedric_pkg_1")
+include("/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1/ament_cmake_symlink_install_targets_1_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+
+# install(DIRECTORY "launch" "DESTINATION" "share/tb4_cedric_pkg_1")
+ament_cmake_symlink_install_directory("/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1" DIRECTORY "launch" "DESTINATION" "share/tb4_cedric_pkg_1")
+
 # install(FILES "/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/tb4_cedric_pkg_1" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1" FILES "/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/tb4_cedric_pkg_1" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 

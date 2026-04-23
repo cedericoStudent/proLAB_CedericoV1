@@ -53,6 +53,7 @@ CMAKE_BINARY_DIR = /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/recorder_node.dir/all
 all: CMakeFiles/test_node.dir/all
 
 .PHONY : all
@@ -63,11 +64,39 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/recorder_node.dir/clean
 clean: CMakeFiles/test_node.dir/clean
 clean: CMakeFiles/tb4_cedric_pkg_1_uninstall.dir/clean
 clean: CMakeFiles/uninstall.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/recorder_node.dir
+
+# All Build rule for target.
+CMakeFiles/recorder_node.dir/all:
+	$(MAKE) -f CMakeFiles/recorder_node.dir/build.make CMakeFiles/recorder_node.dir/depend
+	$(MAKE) -f CMakeFiles/recorder_node.dir/build.make CMakeFiles/recorder_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/build/CMakeFiles --progress-num=1,2 "Built target recorder_node"
+.PHONY : CMakeFiles/recorder_node.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/recorder_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/recorder_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/build/CMakeFiles 0
+.PHONY : CMakeFiles/recorder_node.dir/rule
+
+# Convenience name for target.
+recorder_node: CMakeFiles/recorder_node.dir/rule
+
+.PHONY : recorder_node
+
+# clean rule for target.
+CMakeFiles/recorder_node.dir/clean:
+	$(MAKE) -f CMakeFiles/recorder_node.dir/build.make CMakeFiles/recorder_node.dir/clean
+.PHONY : CMakeFiles/recorder_node.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/test_node.dir
@@ -76,7 +105,7 @@ clean: CMakeFiles/uninstall.dir/clean
 CMakeFiles/test_node.dir/all:
 	$(MAKE) -f CMakeFiles/test_node.dir/build.make CMakeFiles/test_node.dir/depend
 	$(MAKE) -f CMakeFiles/test_node.dir/build.make CMakeFiles/test_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/build/CMakeFiles --progress-num=1,2 "Built target test_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/build/CMakeFiles --progress-num=3,4 "Built target test_node"
 .PHONY : CMakeFiles/test_node.dir/all
 
 # Build rule for subdir invocation for target.

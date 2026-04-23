@@ -168,6 +168,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named recorder_node
+
+# Build rule for target.
+recorder_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 recorder_node
+.PHONY : recorder_node
+
+# fast build rule for target.
+recorder_node/fast:
+	$(MAKE) -f CMakeFiles/recorder_node.dir/build.make CMakeFiles/recorder_node.dir/build
+.PHONY : recorder_node/fast
+
+#=============================================================================
 # Target rules for targets named test_node
 
 # Build rule for target.
@@ -205,6 +218,33 @@ uninstall: cmake_check_build_system
 uninstall/fast:
 	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
+
+src/recorder_node.o: src/recorder_node.cpp.o
+
+.PHONY : src/recorder_node.o
+
+# target to build an object file
+src/recorder_node.cpp.o:
+	$(MAKE) -f CMakeFiles/recorder_node.dir/build.make CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o
+.PHONY : src/recorder_node.cpp.o
+
+src/recorder_node.i: src/recorder_node.cpp.i
+
+.PHONY : src/recorder_node.i
+
+# target to preprocess a source file
+src/recorder_node.cpp.i:
+	$(MAKE) -f CMakeFiles/recorder_node.dir/build.make CMakeFiles/recorder_node.dir/src/recorder_node.cpp.i
+.PHONY : src/recorder_node.cpp.i
+
+src/recorder_node.s: src/recorder_node.cpp.s
+
+.PHONY : src/recorder_node.s
+
+# target to generate assembly for a file
+src/recorder_node.cpp.s:
+	$(MAKE) -f CMakeFiles/recorder_node.dir/build.make CMakeFiles/recorder_node.dir/src/recorder_node.cpp.s
+.PHONY : src/recorder_node.cpp.s
 
 src/test_node.o: src/test_node.cpp.o
 
@@ -246,9 +286,13 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... recorder_node"
 	@echo "... test_node"
 	@echo "... tb4_cedric_pkg_1_uninstall"
 	@echo "... uninstall"
+	@echo "... src/recorder_node.o"
+	@echo "... src/recorder_node.i"
+	@echo "... src/recorder_node.s"
 	@echo "... src/test_node.o"
 	@echo "... src/test_node.i"
 	@echo "... src/test_node.s"
