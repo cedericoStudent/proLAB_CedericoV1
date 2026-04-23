@@ -168,6 +168,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test_node
+
+# Build rule for target.
+test_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_node
+.PHONY : test_node
+
+# fast build rule for target.
+test_node/fast:
+	$(MAKE) -f CMakeFiles/test_node.dir/build.make CMakeFiles/test_node.dir/build
+.PHONY : test_node/fast
+
+#=============================================================================
 # Target rules for targets named tb4_cedric_pkg_1_uninstall
 
 # Build rule for target.
@@ -193,6 +206,33 @@ uninstall/fast:
 	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
 
+src/test_node.o: src/test_node.cpp.o
+
+.PHONY : src/test_node.o
+
+# target to build an object file
+src/test_node.cpp.o:
+	$(MAKE) -f CMakeFiles/test_node.dir/build.make CMakeFiles/test_node.dir/src/test_node.cpp.o
+.PHONY : src/test_node.cpp.o
+
+src/test_node.i: src/test_node.cpp.i
+
+.PHONY : src/test_node.i
+
+# target to preprocess a source file
+src/test_node.cpp.i:
+	$(MAKE) -f CMakeFiles/test_node.dir/build.make CMakeFiles/test_node.dir/src/test_node.cpp.i
+.PHONY : src/test_node.cpp.i
+
+src/test_node.s: src/test_node.cpp.s
+
+.PHONY : src/test_node.s
+
+# target to generate assembly for a file
+src/test_node.cpp.s:
+	$(MAKE) -f CMakeFiles/test_node.dir/build.make CMakeFiles/test_node.dir/src/test_node.cpp.s
+.PHONY : src/test_node.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -206,8 +246,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... test_node"
 	@echo "... tb4_cedric_pkg_1_uninstall"
 	@echo "... uninstall"
+	@echo "... src/test_node.o"
+	@echo "... src/test_node.i"
+	@echo "... src/test_node.s"
 .PHONY : help
 
 

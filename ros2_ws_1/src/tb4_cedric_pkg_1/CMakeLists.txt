@@ -43,4 +43,9 @@ install(DIRECTORY
   DESTINATION share/${PROJECT_NAME}
 )
 
+add_executable(test_node src/test_node.cpp)
+ament_target_dependencies(test_node rclcpp nav_msgs)
+
+install(TARGETS test_node DESTINATION lib/${PROJECT_NAME})
+
 ament_package()

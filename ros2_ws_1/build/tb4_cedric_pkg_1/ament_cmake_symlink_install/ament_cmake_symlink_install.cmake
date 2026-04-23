@@ -313,6 +313,9 @@ message(STATUS "Execute custom install script")
 # install(DIRECTORY "launch" "config" "maps" "DESTINATION" "share/tb4_cedric_pkg_1")
 ament_cmake_symlink_install_directory("/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1" DIRECTORY "launch" "config" "maps" "DESTINATION" "share/tb4_cedric_pkg_1")
 
+# install("TARGETS" "test_node" "DESTINATION" "lib/tb4_cedric_pkg_1")
+include("/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+
 # install(FILES "/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/tb4_cedric_pkg_1" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1" FILES "/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/tb4_cedric_pkg_1" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 

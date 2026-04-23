@@ -2250,6 +2250,30 @@
 			"value" : "/opt/ros/foxy/bin/ament_copyright"
 		},
 		{
+			"name" : "ament_cppcheck_BIN",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a program."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/opt/ros/foxy/bin/ament_cppcheck"
+		},
+		{
+			"name" : "ament_cpplint_BIN",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a program."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/opt/ros/foxy/bin/ament_cpplint"
+		},
+		{
 			"name" : "ament_index_cpp_DIR",
 			"properties" : 
 			[
@@ -2296,6 +2320,18 @@
 			],
 			"type" : "PATH",
 			"value" : "/opt/ros/foxy/share/ament_lint_common/cmake"
+		},
+		{
+			"name" : "ament_uncrustify_BIN",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a program."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/opt/ros/foxy/bin/ament_uncrustify"
 		},
 		{
 			"name" : "ament_xmllint_BIN",

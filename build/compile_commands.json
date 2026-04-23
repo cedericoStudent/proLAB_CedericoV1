@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/build",
+  "command": "/usr/bin/g++  -DDEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp -DRCUTILS_ENABLE_FAULT_INJECTION -DSPDLOG_COMPILED_LIB -isystem /opt/ros/foxy/include  -g   -Wall -Wextra -Wpedantic -std=gnu++14 -o CMakeFiles/test_node.dir/src/test_node.cpp.o -c /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/test_node.cpp",
+  "file": "/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/test_node.cpp"
+}
+]
