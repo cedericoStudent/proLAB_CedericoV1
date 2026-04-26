@@ -4468,6 +4468,22 @@
 		},
 		{
 			"isExternal" : true,
+			"path" : "/opt/ros/foxy/share/ament_index_cpp/cmake/ament_index_cppConfig-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/foxy/share/ament_index_cpp/cmake/ament_index_cppConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/foxy/share/nav_msgs/cmake/nav_msgsConfig-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/ros/foxy/share/nav_msgs/cmake/nav_msgsConfig.cmake"
+		},
+		{
+			"isExternal" : true,
 			"path" : "/opt/ros/foxy/share/ament_cmake_core/cmake/environment/ament_cmake_environment_package_hook.cmake"
 		},
 		{

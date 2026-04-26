@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "recorder_node"
+			"path" : "test_node"
 		}
 	],
 	"backtrace" : 1,
@@ -29,13 +29,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 57,
+				"line" : 47,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 58,
+				"line" : 48,
 				"parent" : 0
 			},
 			{
@@ -55,6 +55,12 @@
 				"file" : 1,
 				"line" : 141,
 				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 57,
+				"parent" : 0
 			}
 		]
 	},
@@ -103,6 +109,11 @@
 					"backtrace" : 5,
 					"isSystem" : true,
 					"path" : "/opt/ros/foxy/include"
+				},
+				{
+					"backtrace" : 6,
+					"isSystem" : true,
+					"path" : "/usr/include/eigen3"
 				}
 			],
 			"language" : "CXX",
@@ -112,7 +123,7 @@
 			]
 		}
 	],
-	"id" : "recorder_node::@6890427a1f51a3e7e1df",
+	"id" : "test_node::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -370,8 +381,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "recorder_node",
-	"nameOnDisk" : "recorder_node",
+	"name" : "test_node",
+	"nameOnDisk" : "test_node",
 	"paths" : 
 	{
 		"build" : ".",
@@ -392,7 +403,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/recorder_node.cpp",
+			"path" : "src/test_node.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

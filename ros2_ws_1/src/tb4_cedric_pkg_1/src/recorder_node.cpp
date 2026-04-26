@@ -1,23 +1,35 @@
 #include "rclcpp/rclcpp.hpp"
 #include "nav_msgs/msg/odometry.hpp"
+#include "ament_index_cpp/get_package_share_directory.hpp" // Erforderlich für Paket-Pfad
 #include <fstream>
 #include <string>
+#include <filesystem>
+
+namespace fs = std::filesystem;
 
 class DataRecorder : public rclcpp::Node {
 public:
     DataRecorder() : Node("data_recorder") {
-        // Relativer Pfad zu deinem existierenden Ordner
-        // WICHTIG: Starten aus ~/Desktop/PROLAB/proLAB_CedericoV1/
-        std::string file_path = "trajectories/robot_path.csv";
-        
-        output_file_.open(file_path);
-        
-        if (output_file_.is_open()) {
-            output_file_ << "x,y\n";
-            RCLCPP_INFO(this->get_logger(), "Datei erfolgreich geöffnet: %s", file_path.c_str());
-        } else {
-            RCLCPP_ERROR(this->get_logger(), "FEHLER: Datei konnte nicht geöffnet werden!");
-            RCLCPP_ERROR(this->get_logger(), "Prüfe, ob du im Root-Verzeichnis deines Repos bist.");
+        try {
+            // 1. Finde den Pfad zum "share"-Verzeichnis deines Pakets
+            std::string pkg_share_dir = ament_index_cpp::get_package_share_directory("tb4_cedric_pkg_1");
+            
+            // 2. Navigiere zum trajectories-Ordner
+            // Da wir uns im install-Ordner befinden, gehen wir davon aus, dass trajectories dort mit-installiert wurde
+            fs::path path = fs::path(pkg_share_dir) / "trajectories" / "robot_path1.csv";
+            
+            std::string file_path = path.string();
+            
+            output_file_.open(file_path);
+            
+            if (output_file_.is_open()) {
+                output_file_ << "x,y\n";
+                RCLCPP_INFO(this->get_logger(), "CSV wird gespeichert in: %s", file_path.c_str());
+            } else {
+                RCLCPP_ERROR(this->get_logger(), "Konnte Datei nicht öffnen! Pfad: %s", file_path.c_str());
+            }
+        } catch (const std::exception & e) {
+            RCLCPP_ERROR(this->get_logger(), "Fehler beim Finden des Pakets: %s", e.what());
         }
 
         subscription_ = this->create_subscription<nav_msgs::msg::Odometry>(

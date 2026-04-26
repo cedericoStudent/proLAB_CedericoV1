@@ -11,6 +11,7 @@
 		"commands" : 
 		[
 			"add_executable",
+			"install",
 			"target_link_libraries",
 			"ament_target_dependencies",
 			"add_compile_options",
@@ -33,33 +34,39 @@
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 1,
+				"file" : 0,
+				"line" : 50,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
 				"file" : 0,
 				"line" : 48,
 				"parent" : 0
 			},
 			{
-				"command" : 1,
+				"command" : 2,
 				"file" : 1,
 				"line" : 145,
-				"parent" : 2
+				"parent" : 3
 			},
 			{
-				"command" : 3,
+				"command" : 4,
 				"file" : 0,
 				"line" : 16,
 				"parent" : 0
 			},
 			{
-				"command" : 4,
+				"command" : 5,
 				"file" : 1,
 				"line" : 141,
-				"parent" : 2
+				"parent" : 3
 			},
 			{
-				"command" : 1,
+				"command" : 2,
 				"file" : 0,
-				"line" : 55,
+				"line" : 57,
 				"parent" : 0
 			}
 		]
@@ -70,18 +77,18 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : " "
+					"fragment" : "-g  "
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"fragment" : "-Wall"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"fragment" : "-Wextra"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 5,
 					"fragment" : "-Wpedantic"
 				},
 				{
@@ -91,27 +98,27 @@
 			"defines" : 
 			[
 				{
-					"backtrace" : 3,
+					"backtrace" : 4,
 					"define" : "DEFAULT_RMW_IMPLEMENTATION=rmw_fastrtps_cpp"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 4,
 					"define" : "RCUTILS_ENABLE_FAULT_INJECTION"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 4,
 					"define" : "SPDLOG_COMPILED_LIB"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"isSystem" : true,
 					"path" : "/opt/ros/foxy/include"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 7,
 					"isSystem" : true,
 					"path" : "/usr/include/eigen3"
 				}
@@ -124,40 +131,58 @@
 		}
 	],
 	"id" : "test_node::@6890427a1f51a3e7e1df",
+	"install" : 
+	{
+		"destinations" : 
+		[
+			{
+				"backtrace" : 2,
+				"path" : "lib/tb4_cedric_pkg_1"
+			}
+		],
+		"prefix" : 
+		{
+			"path" : "/usr/local"
+		}
+	},
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
 				"fragment" : "",
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/opt/ros/foxy/lib",
+				"fragment" : "-Wl,-rpath,/opt/ros/foxy/lib:",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 3,
+				"backtrace" : 4,
 				"fragment" : "/opt/ros/foxy/lib/librclcpp.so",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 3,
+				"backtrace" : 4,
 				"fragment" : "/opt/ros/foxy/lib/libnav_msgs__rosidl_typesupport_introspection_c.so",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 3,
+				"backtrace" : 4,
 				"fragment" : "/opt/ros/foxy/lib/libnav_msgs__rosidl_typesupport_c.so",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 3,
+				"backtrace" : 4,
 				"fragment" : "/opt/ros/foxy/lib/libnav_msgs__rosidl_typesupport_introspection_cpp.so",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 3,
+				"backtrace" : 4,
 				"fragment" : "/opt/ros/foxy/lib/libnav_msgs__rosidl_typesupport_cpp.so",
 				"role" : "libraries"
 			},
@@ -282,7 +307,7 @@
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 3,
+				"backtrace" : 4,
 				"fragment" : "/opt/ros/foxy/lib/libnav_msgs__rosidl_generator_c.so",
 				"role" : "libraries"
 			},

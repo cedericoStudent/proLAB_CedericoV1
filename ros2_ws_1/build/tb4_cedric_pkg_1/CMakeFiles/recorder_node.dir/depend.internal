@@ -3,6 +3,8 @@
 
 CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o
  /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/recorder_node.cpp
+ /opt/ros/foxy/include/ament_index_cpp/get_package_share_directory.hpp
+ /opt/ros/foxy/include/ament_index_cpp/visibility_control.h
  /opt/ros/foxy/include/builtin_interfaces/msg/detail/duration__builder.hpp
  /opt/ros/foxy/include/builtin_interfaces/msg/detail/duration__struct.hpp
  /opt/ros/foxy/include/builtin_interfaces/msg/detail/duration__traits.hpp
