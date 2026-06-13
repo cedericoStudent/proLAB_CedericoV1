@@ -32,7 +32,7 @@ public:
             "/odom", 10, std::bind(&DataRecorder::odom_callback, this, std::placeholders::_1));
 
         subscription_kf_ = this->create_subscription<geometry_msgs::msg::PoseWithCovarianceStamped>(
-            "/kf_estimated_pose", 10, std::bind(&DataRecorder::kf_callback, this, std::placeholders::_1));
+            "/ekf_estimated_pose", 10, std::bind(&DataRecorder::kf_callback, this, std::placeholders::_1));
     }
 
     ~DataRecorder() {

@@ -51,11 +51,11 @@ def generate_launch_description():
             output='screen'
         ),
 
-        # 6. Kalman Filter Node
+        # 6. Kalman Filter Node bzw. Extended Kalman Filter Node bzw. Particle Filter Node
         Node(
             package='tb4_cedric_pkg_1',
-            executable='kalman_filter_node',
-            name='kalman_filter_node',
+            executable='extended_kalman_filter_node',
+            name='extended_kalman_filter_node',
             output='screen'
         )
     ])

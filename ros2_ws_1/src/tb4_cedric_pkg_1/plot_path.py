@@ -25,7 +25,6 @@ def plot_cov_ellipse(x, y, p_xx, p_xy, p_yy, ax, n_std=2.0, edgecolor='red', **k
 
 def plot_robot_data():
     # --- KONFIGURATION ---
-    # Hier kannst du einstellen, jeder wievielte Eintrag geplottet wird
     step_size = 100 
     # ---------------------
 
@@ -33,11 +32,13 @@ def plot_robot_data():
         package_name = 'tb4_cedric_pkg_1'
         pkg_share_path = get_package_share_directory(package_name)
         
+        # NEUE DATEINAMEN HIER INTEGRIERT
         file_path_gt = os.path.join(pkg_share_path, 'trajectories', 'robot_path_GT_EKF.csv')
         file_path_kf = os.path.join(pkg_share_path, 'trajectories', 'ekf_path1.csv')
         
         if not os.path.exists(file_path_gt) or not os.path.exists(file_path_kf):
-            print("Fehler: Mindestens eine der CSV-Dateien fehlt!")
+            print("Fehler: Mindestens eine der neuen CSV-Dateien fehlt!")
+            print(f"Gesucht unter:\nGT: {file_path_gt}\nEKF: {file_path_kf}")
             return
 
         data_gt = pd.read_csv(file_path_gt)
@@ -47,25 +48,22 @@ def plot_robot_data():
             print("Eine der CSV-Dateien ist leer!")
             return
 
-        # Daten extrahieren
         x_gt, y_gt = data_gt['x'].to_numpy(), data_gt['y'].to_numpy()
         x_kf, y_kf = data_kf['x'].to_numpy(), data_kf['y'].to_numpy()
         p_xx = data_kf['p_xx'].to_numpy()
         p_xy = data_kf['p_xy'].to_numpy()
         p_yy = data_kf['p_yy'].to_numpy()
 
-        # Erstelle ein ungleiches Layout: Oben die Trajektorie, unten die Kovarianz über Zeit
         fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 12), gridspec_kw={'height_ratios': [2, 1]})
         
         # ==========================================
-        # PLOT 1: TRAJEKTORIE MIT ELLIPSEN
+        # PLOT 1: TRAJEKTORIE MIT EKF ELLIPSEN
         # ==========================================
         ax1.plot(x_gt, y_gt, label='Ground Truth (Gazebo)', color='green', linewidth=2)
         ax1.plot(x_kf, y_kf, label='Extended Kalman-Filter (EKF)', color='blue', linewidth=2, linestyle='--')
         
-        # Ellipsen basierend auf der variablen Schrittweite zeichnen
         for i in range(0, len(x_kf), step_size):
-            lbl = '$2\sigma$ Unsicherheit' if i == 0 else ""
+            lbl = '$2\sigma$ Unsicherheit (EKF)' if i == 0 else ""
             plot_cov_ellipse(x_kf[i], y_kf[i], p_xx[i], p_xy[i], p_yy[i], 
                              ax1, n_std=2.0, edgecolor='red', alpha=0.5, linewidth=1, label=lbl)
 
@@ -80,26 +78,22 @@ def plot_robot_data():
         ax1.axis('equal')
 
         # ==========================================
-        # PLOT 2: KOVARIANZ ÜBER DIE ZEIT (Schrittweite berücksichtigt)
+        # PLOT 2: KOVARIANZ ÜBER DIE ZEIT
         # ==========================================
-        # Indizes für die reduzierte Darstellung erzeugen
         indices = np.arange(0, len(p_xx), step_size)
         
-        # Plot der Varianzen für x und y
         ax2.plot(indices, p_xx[indices], label='Varianz X ($P_{xx}$)', color='darkorange', linewidth=2)
         ax2.plot(indices, p_yy[indices], label='Varianz Y ($P_{yy}$)', color='purple', linewidth=2, linestyle=':')
-        
-        # Optional: Zeige auch die Kreuzkovarianz (sollte beim KF gegen 0 gehen) jetzt haben EKF
         ax2.plot(indices, p_xy[indices], label='Kreuzkovarianz XY ($P_{xy}$)', color='gray', alpha=0.5)
 
-        ax2.set_title(f'Entwicklung der Filterunsicherheit über die Zeit (Jeder {step_size}. Eintrag)')
+        ax2.set_title(f'Entwicklung der EKF-Filterunsicherheit über die Zeit (Jeder {step_size}. Eintrag)')
         ax2.set_xlabel('Messschritt (Index)')
         ax2.set_ylabel('Varianz $[m^2]$')
         ax2.legend()
         ax2.grid(True, linestyle='--', alpha=0.5)
 
         plt.tight_layout()
-        print("Erfolg! Beide Plots wurden generiert.")
+        print("Erfolg! Beide EKF-Plots wurden generiert.")
         plt.show()
 
     except Exception as e:
