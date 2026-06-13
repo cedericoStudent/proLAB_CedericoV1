@@ -57,5 +57,13 @@ def generate_launch_description():
             executable='extended_kalman_filter_node',
             name='extended_kalman_filter_node',
             output='screen'
+        ),
+
+        #Landmark testen
+        Node(
+            package='tb4_cedric_pkg_1',
+            executable='landmark_test_node',
+            name='landmark_test_node',
+            output='screen'
         )
     ])
