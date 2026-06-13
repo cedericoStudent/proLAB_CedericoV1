@@ -19,12 +19,12 @@ CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geom
 CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/point__traits.hpp
 CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/pose__struct.hpp
 CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/pose__traits.hpp
-CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/pose_stamped__builder.hpp
-CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/pose_stamped__struct.hpp
-CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/pose_stamped__traits.hpp
-CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/pose_stamped__type_support.hpp
 CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/pose_with_covariance__struct.hpp
 CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/pose_with_covariance__traits.hpp
+CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/pose_with_covariance_stamped__builder.hpp
+CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/pose_with_covariance_stamped__struct.hpp
+CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/pose_with_covariance_stamped__traits.hpp
+CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/pose_with_covariance_stamped__type_support.hpp
 CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/quaternion__struct.hpp
 CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/quaternion__traits.hpp
 CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/twist__struct.hpp
@@ -33,7 +33,7 @@ CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geom
 CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/twist_with_covariance__traits.hpp
 CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/vector3__struct.hpp
 CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/detail/vector3__traits.hpp
-CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/pose_stamped.hpp
+CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/pose_with_covariance_stamped.hpp
 CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
 CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/libstatistics_collector/collector/collector.hpp
 CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o: /opt/ros/foxy/include/libstatistics_collector/collector/generate_statistics_message.hpp

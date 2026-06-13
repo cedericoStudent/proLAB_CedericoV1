@@ -4,7 +4,7 @@
 #include "rclcpp/rclcpp.hpp"
 #include "nav_msgs/msg/odometry.hpp"
 #include "geometry_msgs/msg/twist.hpp"
-#include "geometry_msgs/msg/pose_stamped.hpp"
+#include "geometry_msgs/msg/pose_with_covariance_stamped.hpp"
 #include <Eigen/Dense>
 
 using namespace std;
@@ -50,7 +50,7 @@ int main(int argc, char * argv[])
     Eigen::Vector2d u_input = Eigen::Vector2d::Zero(); // [u_x, u_y]^T
 
     // Publisher für geschätzte Pose
-    auto filter_pose_pub = node->create_publisher<geometry_msgs::msg::PoseStamped>("/kf_estimated_pose", 10);
+    auto filter_pose_pub = node->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("/kf_estimated_pose", 10);
 
     // 1. Subscriber: Verrauschte Odometrie für die KORREKTUR (Measurement)
     Eigen::Vector4d z_meas = Eigen::Vector4d::Zero();
@@ -124,11 +124,19 @@ int main(int argc, char * argv[])
         }
 
         // --- PUBLISH ---
-        geometry_msgs::msg::PoseStamped pose_msg;
+        geometry_msgs::msg::PoseWithCovarianceStamped pose_msg;
         pose_msg.header.stamp = current_time;
         pose_msg.header.frame_id = "odom";
-        pose_msg.pose.position.x = x_hat(0);
-        pose_msg.pose.position.y = x_hat(1);
+        pose_msg.pose.pose.position.x = x_hat(0);
+        pose_msg.pose.pose.position.y = x_hat(1);
+
+        // Die 2x2 Positions-Kovarianz in das 6x6 ROS-Array (flach, 36 Elemente) mappen
+        pose_msg.pose.covariance[0]  = P(0,0); // P_xx (Zeile 0, Spalte 0)
+        pose_msg.pose.covariance[1]  = P(0,1); // P_xy (Zeile 0, Spalte 1)
+        pose_msg.pose.covariance[6]  = P(1,0); // P_yx (Zeile 1, Spalte 0)
+        pose_msg.pose.covariance[7]  = P(1,1); // P_yy (Zeile 1, Spalte 1)
+
+
         filter_pose_pub->publish(pose_msg);
     });
 

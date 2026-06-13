@@ -1,0 +1,11 @@
+[01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/kalman_filter_node.cpp:[m[K In lambda function:
+[01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/kalman_filter_node.cpp:130:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing _pose_type = struct geometry_msgs::msg::PoseWithCovariance_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct geometry_msgs::msg::PoseWithCovariance_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kposition[m[K’
+  130 |         pose_msg.pose.[01;31m[Kposition[m[K.x = x_hat(0);
+      |                       [01;31m[K^~~~~~~~[m[K
+[01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/kalman_filter_node.cpp:131:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing _pose_type = struct geometry_msgs::msg::PoseWithCovariance_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct geometry_msgs::msg::PoseWithCovariance_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kposition[m[K’
+  131 |         pose_msg.pose.[01;31m[Kposition[m[K.y = x_hat(1);
+      |                       [01;31m[K^~~~~~~~[m[K
+make[2]: *** [CMakeFiles/kalman_filter_node.dir/build.make:63: CMakeFiles/kalman_filter_node.dir/src/kalman_filter_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:167: CMakeFiles/kalman_filter_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [Makefile:141: all] Error 2
