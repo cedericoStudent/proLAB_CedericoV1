@@ -13,8 +13,8 @@ public:
     DataRecorder() : Node("data_recorder") {
         try {
             std::string pkg_share_dir = ament_index_cpp::get_package_share_directory("tb4_cedric_pkg_1");
-            fs::path path_gt = fs::path(pkg_share_dir) / "trajectories" / "robot_path1.csv";
-            fs::path path_kf = fs::path(pkg_share_dir) / "trajectories" / "kf_path1.csv";
+            fs::path path_gt = fs::path(pkg_share_dir) / "trajectories" / "robot_path_GT_EKF.csv";
+            fs::path path_kf = fs::path(pkg_share_dir) / "trajectories" / "ekf_path1.csv";
             
             output_file_gt_.open(path_gt.string());
             if (output_file_gt_.is_open()) output_file_gt_ << "x,y\n";

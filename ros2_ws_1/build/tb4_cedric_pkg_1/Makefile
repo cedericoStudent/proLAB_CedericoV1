@@ -68,6 +68,18 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -122,18 +134,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -207,6 +207,19 @@ recorder_node/fast:
 .PHONY : recorder_node/fast
 
 #=============================================================================
+# Target rules for targets named extended_kalman_filter_node
+
+# Build rule for target.
+extended_kalman_filter_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 extended_kalman_filter_node
+.PHONY : extended_kalman_filter_node
+
+# fast build rule for target.
+extended_kalman_filter_node/fast:
+	$(MAKE) -f CMakeFiles/extended_kalman_filter_node.dir/build.make CMakeFiles/extended_kalman_filter_node.dir/build
+.PHONY : extended_kalman_filter_node/fast
+
+#=============================================================================
 # Target rules for targets named kalman_filter_node
 
 # Build rule for target.
@@ -257,6 +270,33 @@ noisy_odometry_node: cmake_check_build_system
 noisy_odometry_node/fast:
 	$(MAKE) -f CMakeFiles/noisy_odometry_node.dir/build.make CMakeFiles/noisy_odometry_node.dir/build
 .PHONY : noisy_odometry_node/fast
+
+src/extended_kalman_filter_node.o: src/extended_kalman_filter_node.cpp.o
+
+.PHONY : src/extended_kalman_filter_node.o
+
+# target to build an object file
+src/extended_kalman_filter_node.cpp.o:
+	$(MAKE) -f CMakeFiles/extended_kalman_filter_node.dir/build.make CMakeFiles/extended_kalman_filter_node.dir/src/extended_kalman_filter_node.cpp.o
+.PHONY : src/extended_kalman_filter_node.cpp.o
+
+src/extended_kalman_filter_node.i: src/extended_kalman_filter_node.cpp.i
+
+.PHONY : src/extended_kalman_filter_node.i
+
+# target to preprocess a source file
+src/extended_kalman_filter_node.cpp.i:
+	$(MAKE) -f CMakeFiles/extended_kalman_filter_node.dir/build.make CMakeFiles/extended_kalman_filter_node.dir/src/extended_kalman_filter_node.cpp.i
+.PHONY : src/extended_kalman_filter_node.cpp.i
+
+src/extended_kalman_filter_node.s: src/extended_kalman_filter_node.cpp.s
+
+.PHONY : src/extended_kalman_filter_node.s
+
+# target to generate assembly for a file
+src/extended_kalman_filter_node.cpp.s:
+	$(MAKE) -f CMakeFiles/extended_kalman_filter_node.dir/build.make CMakeFiles/extended_kalman_filter_node.dir/src/extended_kalman_filter_node.cpp.s
+.PHONY : src/extended_kalman_filter_node.cpp.s
 
 src/joint_noise_node.o: src/joint_noise_node.cpp.o
 
@@ -400,9 +440,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
+	@echo "... install/local"
 	@echo "... tb4_cedric_pkg_1_uninstall"
 	@echo "... test_node"
 	@echo "... recorder_node"
+	@echo "... extended_kalman_filter_node"
 	@echo "... kalman_filter_node"
 	@echo "... joint_noise_node"
 	@echo "... uninstall"
@@ -412,7 +454,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... list_install_components"
 	@echo "... install"
-	@echo "... install/local"
+	@echo "... src/extended_kalman_filter_node.o"
+	@echo "... src/extended_kalman_filter_node.i"
+	@echo "... src/extended_kalman_filter_node.s"
 	@echo "... src/joint_noise_node.o"
 	@echo "... src/joint_noise_node.i"
 	@echo "... src/joint_noise_node.s"

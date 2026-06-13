@@ -33,8 +33,8 @@ def plot_robot_data():
         package_name = 'tb4_cedric_pkg_1'
         pkg_share_path = get_package_share_directory(package_name)
         
-        file_path_gt = os.path.join(pkg_share_path, 'trajectories', 'robot_path1.csv')
-        file_path_kf = os.path.join(pkg_share_path, 'trajectories', 'kf_path1.csv')
+        file_path_gt = os.path.join(pkg_share_path, 'trajectories', 'robot_path_GT_EKF.csv')
+        file_path_kf = os.path.join(pkg_share_path, 'trajectories', 'ekf_path1.csv')
         
         if not os.path.exists(file_path_gt) or not os.path.exists(file_path_kf):
             print("Fehler: Mindestens eine der CSV-Dateien fehlt!")
@@ -61,7 +61,7 @@ def plot_robot_data():
         # PLOT 1: TRAJEKTORIE MIT ELLIPSEN
         # ==========================================
         ax1.plot(x_gt, y_gt, label='Ground Truth (Gazebo)', color='green', linewidth=2)
-        ax1.plot(x_kf, y_kf, label='Kalman-Filter (KF)', color='blue', linewidth=2, linestyle='--')
+        ax1.plot(x_kf, y_kf, label='Extended Kalman-Filter (EKF)', color='blue', linewidth=2, linestyle='--')
         
         # Ellipsen basierend auf der variablen Schrittweite zeichnen
         for i in range(0, len(x_kf), step_size):
@@ -72,7 +72,7 @@ def plot_robot_data():
         ax1.scatter(x_gt[0], y_gt[0], color='red', s=100, label='Start', zorder=5)
         ax1.scatter(x_gt[-1], y_gt[-1], color='black', marker='X', s=100, label='Ende', zorder=5)
         
-        ax1.set_title('KF Trajektorie mit Kovarianzellipsen')
+        ax1.set_title('EKF Trajektorie mit Kovarianzellipsen')
         ax1.set_xlabel('X Position [m]')
         ax1.set_ylabel('Y Position [m]')
         ax1.legend()
@@ -89,7 +89,7 @@ def plot_robot_data():
         ax2.plot(indices, p_xx[indices], label='Varianz X ($P_{xx}$)', color='darkorange', linewidth=2)
         ax2.plot(indices, p_yy[indices], label='Varianz Y ($P_{yy}$)', color='purple', linewidth=2, linestyle=':')
         
-        # Optional: Zeige auch die Kreuzkovarianz (sollte beim KF gegen 0 gehen)
+        # Optional: Zeige auch die Kreuzkovarianz (sollte beim KF gegen 0 gehen) jetzt haben EKF
         ax2.plot(indices, p_xy[indices], label='Kreuzkovarianz XY ($P_{xy}$)', color='gray', alpha=0.5)
 
         ax2.set_title(f'Entwicklung der Filterunsicherheit über die Zeit (Jeder {step_size}. Eintrag)')
