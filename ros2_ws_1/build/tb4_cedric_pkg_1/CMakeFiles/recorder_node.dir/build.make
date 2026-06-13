@@ -85,6 +85,10 @@ recorder_node: /opt/ros/foxy/lib/libnav_msgs__rosidl_typesupport_c.so
 recorder_node: /opt/ros/foxy/lib/libnav_msgs__rosidl_typesupport_introspection_cpp.so
 recorder_node: /opt/ros/foxy/lib/libnav_msgs__rosidl_typesupport_cpp.so
 recorder_node: /opt/ros/foxy/lib/libament_index_cpp.so
+recorder_node: /opt/ros/foxy/lib/libsensor_msgs__rosidl_typesupport_introspection_c.so
+recorder_node: /opt/ros/foxy/lib/libsensor_msgs__rosidl_typesupport_c.so
+recorder_node: /opt/ros/foxy/lib/libsensor_msgs__rosidl_typesupport_introspection_cpp.so
+recorder_node: /opt/ros/foxy/lib/libsensor_msgs__rosidl_typesupport_cpp.so
 recorder_node: /opt/ros/foxy/lib/liblibstatistics_collector.so
 recorder_node: /opt/ros/foxy/lib/liblibstatistics_collector_test_msgs__rosidl_typesupport_introspection_c.so
 recorder_node: /opt/ros/foxy/lib/liblibstatistics_collector_test_msgs__rosidl_generator_c.so
@@ -115,6 +119,7 @@ recorder_node: /opt/ros/foxy/lib/libstatistics_msgs__rosidl_typesupport_introspe
 recorder_node: /opt/ros/foxy/lib/libstatistics_msgs__rosidl_typesupport_cpp.so
 recorder_node: /opt/ros/foxy/lib/libtracetools.so
 recorder_node: /opt/ros/foxy/lib/libnav_msgs__rosidl_generator_c.so
+recorder_node: /opt/ros/foxy/lib/libsensor_msgs__rosidl_generator_c.so
 recorder_node: /opt/ros/foxy/lib/libgeometry_msgs__rosidl_typesupport_introspection_c.so
 recorder_node: /opt/ros/foxy/lib/libgeometry_msgs__rosidl_generator_c.so
 recorder_node: /opt/ros/foxy/lib/libgeometry_msgs__rosidl_typesupport_c.so

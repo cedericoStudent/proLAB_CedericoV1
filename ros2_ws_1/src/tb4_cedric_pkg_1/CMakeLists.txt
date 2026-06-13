@@ -58,14 +58,22 @@ target_link_libraries(test_node Eigen3::Eigen)
 
 
 add_executable(recorder_node src/recorder_node.cpp)
-ament_target_dependencies(recorder_node rclcpp nav_msgs ament_index_cpp)
+ament_target_dependencies(recorder_node rclcpp nav_msgs ament_index_cpp geometry_msgs sensor_msgs)
 
 add_executable(joint_noise_node src/joint_noise_node.cpp)
 ament_target_dependencies(joint_noise_node rclcpp sensor_msgs)
 
+add_executable(noisy_odometry_node src/noisy_odometry_node.cpp)
+ament_target_dependencies(noisy_odometry_node rclcpp sensor_msgs nav_msgs)
+
+add_executable(kalman_filter_node src/kalman_filter_node.cpp)
+ament_target_dependencies(kalman_filter_node rclcpp nav_msgs geometry_msgs)
+target_include_directories(kalman_filter_node SYSTEM PRIVATE ${EIGEN3_INCLUDE_DIRS})
 
 install(TARGETS
   joint_noise_node
+  noisy_odometry_node
+  kalman_filter_node
   DESTINATION lib/${PROJECT_NAME}
 )
 

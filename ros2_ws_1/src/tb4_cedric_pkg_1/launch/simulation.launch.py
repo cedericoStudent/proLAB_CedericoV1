@@ -41,5 +41,21 @@ def generate_launch_description():
         ExecuteProcess(
             cmd=['xterm', '-e', 'ros2', 'run', 'turtlebot3_teleop', 'teleop_keyboard'],
             output='screen'
+        ),
+
+        # 5. Noisy Odometry Node
+        Node(
+            package='tb4_cedric_pkg_1',
+            executable='noisy_odometry_node',
+            name='noisy_odometry_node',
+            output='screen'
+        ),
+
+        # 6. Kalman Filter Node
+        Node(
+            package='tb4_cedric_pkg_1',
+            executable='kalman_filter_node',
+            name='kalman_filter_node',
+            output='screen'
         )
     ])

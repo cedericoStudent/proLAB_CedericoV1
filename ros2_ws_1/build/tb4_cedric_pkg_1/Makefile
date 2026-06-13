@@ -68,17 +68,48 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target install
 install: preinstall
@@ -92,48 +123,17 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,30 +168,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named joint_noise_node
+# Target rules for targets named tb4_cedric_pkg_1_uninstall
 
 # Build rule for target.
-joint_noise_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 joint_noise_node
-.PHONY : joint_noise_node
+tb4_cedric_pkg_1_uninstall: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tb4_cedric_pkg_1_uninstall
+.PHONY : tb4_cedric_pkg_1_uninstall
 
 # fast build rule for target.
-joint_noise_node/fast:
-	$(MAKE) -f CMakeFiles/joint_noise_node.dir/build.make CMakeFiles/joint_noise_node.dir/build
-.PHONY : joint_noise_node/fast
-
-#=============================================================================
-# Target rules for targets named recorder_node
-
-# Build rule for target.
-recorder_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 recorder_node
-.PHONY : recorder_node
-
-# fast build rule for target.
-recorder_node/fast:
-	$(MAKE) -f CMakeFiles/recorder_node.dir/build.make CMakeFiles/recorder_node.dir/build
-.PHONY : recorder_node/fast
+tb4_cedric_pkg_1_uninstall/fast:
+	$(MAKE) -f CMakeFiles/tb4_cedric_pkg_1_uninstall.dir/build.make CMakeFiles/tb4_cedric_pkg_1_uninstall.dir/build
+.PHONY : tb4_cedric_pkg_1_uninstall/fast
 
 #=============================================================================
 # Target rules for targets named test_node
@@ -207,17 +194,43 @@ test_node/fast:
 .PHONY : test_node/fast
 
 #=============================================================================
-# Target rules for targets named tb4_cedric_pkg_1_uninstall
+# Target rules for targets named recorder_node
 
 # Build rule for target.
-tb4_cedric_pkg_1_uninstall: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tb4_cedric_pkg_1_uninstall
-.PHONY : tb4_cedric_pkg_1_uninstall
+recorder_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 recorder_node
+.PHONY : recorder_node
 
 # fast build rule for target.
-tb4_cedric_pkg_1_uninstall/fast:
-	$(MAKE) -f CMakeFiles/tb4_cedric_pkg_1_uninstall.dir/build.make CMakeFiles/tb4_cedric_pkg_1_uninstall.dir/build
-.PHONY : tb4_cedric_pkg_1_uninstall/fast
+recorder_node/fast:
+	$(MAKE) -f CMakeFiles/recorder_node.dir/build.make CMakeFiles/recorder_node.dir/build
+.PHONY : recorder_node/fast
+
+#=============================================================================
+# Target rules for targets named kalman_filter_node
+
+# Build rule for target.
+kalman_filter_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 kalman_filter_node
+.PHONY : kalman_filter_node
+
+# fast build rule for target.
+kalman_filter_node/fast:
+	$(MAKE) -f CMakeFiles/kalman_filter_node.dir/build.make CMakeFiles/kalman_filter_node.dir/build
+.PHONY : kalman_filter_node/fast
+
+#=============================================================================
+# Target rules for targets named joint_noise_node
+
+# Build rule for target.
+joint_noise_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 joint_noise_node
+.PHONY : joint_noise_node
+
+# fast build rule for target.
+joint_noise_node/fast:
+	$(MAKE) -f CMakeFiles/joint_noise_node.dir/build.make CMakeFiles/joint_noise_node.dir/build
+.PHONY : joint_noise_node/fast
 
 #=============================================================================
 # Target rules for targets named uninstall
@@ -231,6 +244,19 @@ uninstall: cmake_check_build_system
 uninstall/fast:
 	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
+
+#=============================================================================
+# Target rules for targets named noisy_odometry_node
+
+# Build rule for target.
+noisy_odometry_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 noisy_odometry_node
+.PHONY : noisy_odometry_node
+
+# fast build rule for target.
+noisy_odometry_node/fast:
+	$(MAKE) -f CMakeFiles/noisy_odometry_node.dir/build.make CMakeFiles/noisy_odometry_node.dir/build
+.PHONY : noisy_odometry_node/fast
 
 src/joint_noise_node.o: src/joint_noise_node.cpp.o
 
@@ -258,6 +284,60 @@ src/joint_noise_node.s: src/joint_noise_node.cpp.s
 src/joint_noise_node.cpp.s:
 	$(MAKE) -f CMakeFiles/joint_noise_node.dir/build.make CMakeFiles/joint_noise_node.dir/src/joint_noise_node.cpp.s
 .PHONY : src/joint_noise_node.cpp.s
+
+src/kalman_filter_node.o: src/kalman_filter_node.cpp.o
+
+.PHONY : src/kalman_filter_node.o
+
+# target to build an object file
+src/kalman_filter_node.cpp.o:
+	$(MAKE) -f CMakeFiles/kalman_filter_node.dir/build.make CMakeFiles/kalman_filter_node.dir/src/kalman_filter_node.cpp.o
+.PHONY : src/kalman_filter_node.cpp.o
+
+src/kalman_filter_node.i: src/kalman_filter_node.cpp.i
+
+.PHONY : src/kalman_filter_node.i
+
+# target to preprocess a source file
+src/kalman_filter_node.cpp.i:
+	$(MAKE) -f CMakeFiles/kalman_filter_node.dir/build.make CMakeFiles/kalman_filter_node.dir/src/kalman_filter_node.cpp.i
+.PHONY : src/kalman_filter_node.cpp.i
+
+src/kalman_filter_node.s: src/kalman_filter_node.cpp.s
+
+.PHONY : src/kalman_filter_node.s
+
+# target to generate assembly for a file
+src/kalman_filter_node.cpp.s:
+	$(MAKE) -f CMakeFiles/kalman_filter_node.dir/build.make CMakeFiles/kalman_filter_node.dir/src/kalman_filter_node.cpp.s
+.PHONY : src/kalman_filter_node.cpp.s
+
+src/noisy_odometry_node.o: src/noisy_odometry_node.cpp.o
+
+.PHONY : src/noisy_odometry_node.o
+
+# target to build an object file
+src/noisy_odometry_node.cpp.o:
+	$(MAKE) -f CMakeFiles/noisy_odometry_node.dir/build.make CMakeFiles/noisy_odometry_node.dir/src/noisy_odometry_node.cpp.o
+.PHONY : src/noisy_odometry_node.cpp.o
+
+src/noisy_odometry_node.i: src/noisy_odometry_node.cpp.i
+
+.PHONY : src/noisy_odometry_node.i
+
+# target to preprocess a source file
+src/noisy_odometry_node.cpp.i:
+	$(MAKE) -f CMakeFiles/noisy_odometry_node.dir/build.make CMakeFiles/noisy_odometry_node.dir/src/noisy_odometry_node.cpp.i
+.PHONY : src/noisy_odometry_node.cpp.i
+
+src/noisy_odometry_node.s: src/noisy_odometry_node.cpp.s
+
+.PHONY : src/noisy_odometry_node.s
+
+# target to generate assembly for a file
+src/noisy_odometry_node.cpp.s:
+	$(MAKE) -f CMakeFiles/noisy_odometry_node.dir/build.make CMakeFiles/noisy_odometry_node.dir/src/noisy_odometry_node.cpp.s
+.PHONY : src/noisy_odometry_node.cpp.s
 
 src/recorder_node.o: src/recorder_node.cpp.o
 
@@ -320,20 +400,28 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install/local"
-	@echo "... install"
-	@echo "... list_install_components"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... joint_noise_node"
-	@echo "... recorder_node"
-	@echo "... test_node"
 	@echo "... tb4_cedric_pkg_1_uninstall"
+	@echo "... test_node"
+	@echo "... recorder_node"
+	@echo "... kalman_filter_node"
+	@echo "... joint_noise_node"
 	@echo "... uninstall"
+	@echo "... test"
+	@echo "... noisy_odometry_node"
+	@echo "... edit_cache"
+	@echo "... rebuild_cache"
+	@echo "... list_install_components"
+	@echo "... install"
+	@echo "... install/local"
 	@echo "... src/joint_noise_node.o"
 	@echo "... src/joint_noise_node.i"
 	@echo "... src/joint_noise_node.s"
+	@echo "... src/kalman_filter_node.o"
+	@echo "... src/kalman_filter_node.i"
+	@echo "... src/kalman_filter_node.s"
+	@echo "... src/noisy_odometry_node.o"
+	@echo "... src/noisy_odometry_node.i"
+	@echo "... src/noisy_odometry_node.s"
 	@echo "... src/recorder_node.o"
 	@echo "... src/recorder_node.i"
 	@echo "... src/recorder_node.s"
