@@ -1,0 +1,8 @@
+[01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/extended_kalman_filter_node.cpp:[m[K In member function ‘[01m[Kvoid ExtendedKalmanFilterNode::filter_loop()[m[K’:
+[01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/extended_kalman_filter_node.cpp:94:9:[m[K [01;31m[Kerror: [m[K‘[01m[KP[m[K’ was not declared in this scope; did you mean ‘[01m[KP_[m[K’?
+   94 |         [01;31m[KP[m[K = F * P_ * F.transpose() + Q_;
+      |         [01;31m[K^[m[K
+      |         [32m[KP_[m[K
+make[2]: *** [CMakeFiles/extended_kalman_filter_node.dir/build.make:63: CMakeFiles/extended_kalman_filter_node.dir/src/extended_kalman_filter_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:169: CMakeFiles/extended_kalman_filter_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2
