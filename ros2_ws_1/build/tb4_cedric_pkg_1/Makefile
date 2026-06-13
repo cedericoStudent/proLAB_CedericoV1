@@ -168,6 +168,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named joint_noise_node
+
+# Build rule for target.
+joint_noise_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 joint_noise_node
+.PHONY : joint_noise_node
+
+# fast build rule for target.
+joint_noise_node/fast:
+	$(MAKE) -f CMakeFiles/joint_noise_node.dir/build.make CMakeFiles/joint_noise_node.dir/build
+.PHONY : joint_noise_node/fast
+
+#=============================================================================
 # Target rules for targets named recorder_node
 
 # Build rule for target.
@@ -218,6 +231,33 @@ uninstall: cmake_check_build_system
 uninstall/fast:
 	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
 .PHONY : uninstall/fast
+
+src/joint_noise_node.o: src/joint_noise_node.cpp.o
+
+.PHONY : src/joint_noise_node.o
+
+# target to build an object file
+src/joint_noise_node.cpp.o:
+	$(MAKE) -f CMakeFiles/joint_noise_node.dir/build.make CMakeFiles/joint_noise_node.dir/src/joint_noise_node.cpp.o
+.PHONY : src/joint_noise_node.cpp.o
+
+src/joint_noise_node.i: src/joint_noise_node.cpp.i
+
+.PHONY : src/joint_noise_node.i
+
+# target to preprocess a source file
+src/joint_noise_node.cpp.i:
+	$(MAKE) -f CMakeFiles/joint_noise_node.dir/build.make CMakeFiles/joint_noise_node.dir/src/joint_noise_node.cpp.i
+.PHONY : src/joint_noise_node.cpp.i
+
+src/joint_noise_node.s: src/joint_noise_node.cpp.s
+
+.PHONY : src/joint_noise_node.s
+
+# target to generate assembly for a file
+src/joint_noise_node.cpp.s:
+	$(MAKE) -f CMakeFiles/joint_noise_node.dir/build.make CMakeFiles/joint_noise_node.dir/src/joint_noise_node.cpp.s
+.PHONY : src/joint_noise_node.cpp.s
 
 src/recorder_node.o: src/recorder_node.cpp.o
 
@@ -286,10 +326,14 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... joint_noise_node"
 	@echo "... recorder_node"
 	@echo "... test_node"
 	@echo "... tb4_cedric_pkg_1_uninstall"
 	@echo "... uninstall"
+	@echo "... src/joint_noise_node.o"
+	@echo "... src/joint_noise_node.i"
+	@echo "... src/joint_noise_node.s"
 	@echo "... src/recorder_node.o"
 	@echo "... src/recorder_node.i"
 	@echo "... src/recorder_node.s"

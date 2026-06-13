@@ -53,15 +53,27 @@ find_package(Eigen3 REQUIRED)
 find_package(ament_index_cpp REQUIRED)
 find_package(nav_msgs REQUIRED)
 
-# Bei deinen Executables (z.B. dem test_node oder später kf_node):
 target_link_libraries(test_node Eigen3::Eigen)
+
+
 
 add_executable(recorder_node src/recorder_node.cpp)
 ament_target_dependencies(recorder_node rclcpp nav_msgs ament_index_cpp)
 
+add_executable(joint_noise_node src/joint_noise_node.cpp)
+ament_target_dependencies(joint_noise_node rclcpp sensor_msgs)
+
+
+install(TARGETS
+  joint_noise_node
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 install(TARGETS recorder_node DESTINATION lib/${PROJECT_NAME})
 
-# Launch-Ordner installieren
+
+
+
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
 
 install(DIRECTORY trajectories DESTINATION share/${PROJECT_NAME})

@@ -1,0 +1,115 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="cedric_landmark_world">
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <include>
+      <name>turtlebot3_waffle</name>
+      <uri>model://turtlebot3_waffle</uri>
+      <pose>0.0 0.0 0.01 0.0 0.0 0.0</pose>
+    </include>
+
+    <model name="square_walls">
+      <static>true</static>
+      
+      <link name="wall_north">
+        <pose>0 2 0.25 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>4.1 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>4.1 0.1 0.5</size></box></geometry>
+          <material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material>
+        </visual>
+      </link>
+
+      <link name="wall_south">
+        <pose>0 -2 0.25 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>4.1 0.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>4.1 0.1 0.5</size></box></geometry>
+          <material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material>
+        </visual>
+      </link>
+
+      <link name="wall_east">
+        <pose>2 0 0.25 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>0.1 4.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.1 4.1 0.5</size></box></geometry>
+          <material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material>
+        </visual>
+      </link>
+
+      <link name="wall_west">
+        <pose>-2 0 0.25 0 0 0</pose>
+        <collision name="collision">
+          <geometry><box><size>0.1 4.1 0.5</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.1 4.1 0.5</size></box></geometry>
+          <material><ambient>0.7 0.7 0.7 1</ambient><diffuse>0.7 0.7 0.7 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="landmark_large">
+      <static>true</static>
+      <link name="link">
+        <pose>1.2 1.2 0.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry><cylinder><radius>0.3</radius><length>1.0</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.3</radius><length>1.0</length></cylinder></geometry>
+          <material><ambient>0.1 0.8 0.1 1</ambient><diffuse>0.1 0.8 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="landmark_medium">
+      <static>true</static>
+      <link name="link">
+        <pose>-1.2 1.2 0.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry><cylinder><radius>0.2</radius><length>1.0</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.2</radius><length>1.0</length></cylinder></geometry>
+          <material><ambient>0.1 0.1 0.8 1</ambient><diffuse>0.1 0.1 0.8 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="landmark_small">
+      <static>true</static>
+      <link name="link">
+        <pose>0.0 -1.2 0.5 0 0 0</pose>
+        <collision name="collision">
+          <geometry><cylinder><radius>0.1</radius><length>1.0</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.1</radius><length>1.0</length></cylinder></geometry>
+          <material><ambient>0.8 0.1 0.1 1</ambient><diffuse>0.8 0.1 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>

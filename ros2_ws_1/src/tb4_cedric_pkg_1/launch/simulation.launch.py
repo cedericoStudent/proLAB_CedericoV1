@@ -6,13 +6,14 @@ from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
-    pkg_tb3_gazebo = get_package_share_directory('turtlebot3_gazebo')
+    # Pfad zu DEINEM eigenen Welt-Launchfile auflösen
+    pkg_cedric = get_package_share_directory('tb4_cedric_pkg_1')
 
     return LaunchDescription([
-        # 1. Gazebo mit TurtleBot 3 Waffle
+        # 1. DEIN EIGENES LAUNCHFILE AUFRUFEN (Ersetzt turtlebot3_world.launch.py)
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
-                os.path.join(pkg_tb3_gazebo, 'launch', 'turtlebot3_world.launch.py')
+                os.path.join(pkg_cedric, 'launch', 'my_turtlebot3_world.launch.py')
             )
         ),
 
@@ -24,7 +25,19 @@ def generate_launch_description():
             output='screen'
         ),
 
-        # 3. Teleop Keyboard in einem neuen Fenster
+        # 3. Joint State Noiser Node (Verrauscht die Encoder)
+        Node(
+            package='tb4_cedric_pkg_1',
+            executable='joint_noise_node',
+            name='joint_noise_node',
+            output='screen',
+            parameters=[{
+                'noise_std_dev_vel': 0.08,
+                'noise_std_dev_pos': 0.02
+            }]
+        ),
+
+        # 4. Teleop Keyboard in einem neuen Fenster
         ExecuteProcess(
             cmd=['xterm', '-e', 'ros2', 'run', 'turtlebot3_teleop', 'teleop_keyboard'],
             output='screen'

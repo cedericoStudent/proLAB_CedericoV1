@@ -18,7 +18,8 @@
 						0,
 						1,
 						2,
-						3
+						3,
+						4
 					]
 				}
 			],
@@ -36,7 +37,8 @@
 						0,
 						1,
 						2,
-						3
+						3,
+						4
 					]
 				}
 			],
@@ -44,8 +46,15 @@
 			[
 				{
 					"directoryIndex" : 0,
+					"id" : "joint_noise_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-joint_noise_node-53fb5fdeb0b8ff60f958.json",
+					"name" : "joint_noise_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
 					"id" : "recorder_node::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-recorder_node-107f3cb44083545fce35.json",
+					"jsonFile" : "target-recorder_node-24d055a70465342fe73d.json",
 					"name" : "recorder_node",
 					"projectIndex" : 0
 				},
@@ -59,7 +68,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "test_node::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-test_node-9b5df33126413bd53c2c.json",
+					"jsonFile" : "target-test_node-e85d1a3deca7d450a475.json",
 					"name" : "test_node",
 					"projectIndex" : 0
 				},
