@@ -1,0 +1,282 @@
+#include <memory>
+#include <chrono>
+#include <cmath>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include "rclcpp/rclcpp.hpp"
+#include "nav_msgs/msg/odometry.hpp"
+#include "sensor_msgs/msg/laser_scan.hpp"
+#include "geometry_msgs/msg/twist.hpp"
+#include "geometry_msgs/msg/pose_with_covariance_stamped.hpp"
+#include <Eigen/Dense>
+
+using namespace std;
+using namespace std::chrono_literals;
+
+// Struktur für globale Landmarken-Karte
+struct Landmark {
+    int id;
+    double x;
+    double y;
+    double radius;
+};
+
+class EKFWithLandmarksNode : public rclcpp::Node {
+public:
+    EKFWithLandmarksNode() : Node("ekf_landmark_node") {
+        RCLCPP_INFO(this->get_logger(), "EKF mit Landmarken-Korrektur gestartet.");
+
+        // Parameter
+        this->declare_parameter<double>("q_var_pos", 0.03);
+        this->declare_parameter<double>("q_var_theta", 0.015);
+        this->declare_parameter<double>("r_var_odom", 0.06);
+        this->declare_parameter<double>("r_var_landmark_range", 0.04);  // Rauschen Distanzmessung
+        this->declare_parameter<double>("r_var_landmark_bearing", 0.03); // Rauschen Winkelmessung
+
+        q_pos_ = this->get_parameter("q_var_pos").as_double();
+        q_theta_ = this->get_parameter("q_var_theta").as_double();
+        double r_odom = this->get_parameter("r_var_odom").as_double();
+        r_range_ = this->get_parameter("r_var_landmark_range").as_double();
+        r_bearing_ = this->get_parameter("r_var_landmark_bearing").as_double();
+
+        // Zustand & Kovarianz initialisieren
+        x_hat_ = Eigen::Vector3d::Zero();
+        P_ = Eigen::Matrix3d::Identity() * 0.1;
+
+        R_odom_ = Eigen::Matrix2d::Identity() * r_odom;
+
+        // Globale Landmarken-Karte definieren
+        map_.push_back({1, 0.0, -1.2, 0.1});  // Kleiner Zylinder bei (0.0, -1.2)
+        map_.push_back({2, -1.2, 1.2, 0.2}); // Mittlerer Zylinder bei (-1.2, 1.2)
+        map_.push_back({3, 1.2, 1.2, 0.3});  // Großer Zylinder bei (1.2, 1.2)
+
+        // Subscriber & Publisher
+        cmd_sub_ = this->create_subscription<geometry_msgs::msg::Twist>(
+            "/cmd_vel", 10, [&](const geometry_msgs::msg::Twist::SharedPtr msg) {
+                u_input_(0) = msg->linear.x;
+                u_input_(1) = msg->angular.z;
+            });
+
+        odom_sub_ = this->create_subscription<nav_msgs::msg::Odometry>(
+            "/odom_noisy", 10, [&](const nav_msgs::msg::Odometry::SharedPtr msg) {
+                z_odom_(0) = msg->pose.pose.position.x;
+                z_odom_(1) = msg->pose.pose.position.y;
+                fresh_odom_ = true;
+            });
+
+        scan_sub_ = this->create_subscription<sensor_msgs::msg::LaserScan>(
+            "/scan", 10, std::bind(&EKFWithLandmarksNode::scan_callback, this, std::placeholders::_1));
+
+        filter_pose_pub_ = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("/ekf_estimated_pose", 10);
+        last_time_ = this->get_clock()->now();
+        filter_timer_ = this->create_wall_timer(20ms, std::bind(&EKFWithLandmarksNode::filter_loop, this));
+    }
+
+private:
+    void scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg) {
+        // Geometrische Extraktion (Analog zu deiner funktionierenden Test-Node)
+        size_t num_points = msg->ranges.size();
+        std::vector<Eigen::Vector2d> local_points(num_points);
+        std::vector<bool> valid(num_points, false);
+
+        for (size_t i = 0; i < num_points; ++i) {
+            double r = msg->ranges[i];
+            if (r > msg->range_min && r < msg->range_max && !std::isnan(r) && !std::isinf(r)) {
+                double angle = msg->angle_min + i * msg->angle_increment;
+                local_points[i] = Eigen::Vector2d(r * std::cos(angle), r * std::sin(angle));
+                valid[i] = true;
+            }
+        }
+
+        int stride = 4;
+        std::vector<Eigen::Vector2d> raw_centers;
+
+        for (size_t i = 0; i + 2 * stride < num_points; i += 2) {
+            if (!valid[i] || !valid[i + stride] || !valid[i + 2 * stride]) continue;
+            auto p1 = local_points[i]; auto p2 = local_points[i + stride]; auto p3 = local_points[i + 2 * stride];
+
+            double a = (p2 - p3).norm(); double b = (p1 - p3).norm(); double c = (p1 - p2).norm();
+            double area = 0.5 * std::abs(p1.x() * (p2.y() - p3.y()) + p2.x() * (p3.y() - p1.y()) + p3.x() * (p1.y() - p2.y()));
+            if (area < 0.001) continue;
+
+            double R = (a * b * c) / (4.0 * area);
+
+            // Prüfen, ob der Radius zu irgendeinem Zylinder der Karte passt (+/- 3cm Toleranz)
+            bool match = false;
+            for (const auto& lm : map_) {
+                if (std::abs(R - lm.radius) < 0.03) { match = true; break; }
+            }
+
+            if (match) {
+                double d = 2.0 * (p1.x() * (p2.y() - p3.y()) + p2.x() * (p3.y() - p1.y()) + p3.x() * (p1.y() - p2.y()));
+                if (std::abs(d) < 0.001) continue;
+                double cx = ((p1.squaredNorm()) * (p2.y() - p3.y()) + (p2.squaredNorm()) * (p3.y() - p1.y()) + (p3.squaredNorm()) * (p1.y() - p2.y())) / d;
+                double cy = ((p1.squaredNorm()) * (p3.x() - p2.x()) + (p2.squaredNorm()) * (p1.x() - p3.x()) + (p3.squaredNorm()) * (p2.x() - p1.x())) / d;
+                raw_centers.push_back(Eigen::Vector2d(cx, cy));
+            }
+        }
+
+        // Clustering im Roboterframe
+        detected_landmarks_local_.clear();
+        for (const auto& center : raw_centers) {
+            bool added = false;
+            for (auto& clus : detected_landmarks_local_) {
+                if ((clus - center).norm() < 0.25) {
+                    clus = (clus + center) / 2.0;
+                    added = true;
+                    break;
+                }
+            }
+            if (!added) detected_landmarks_local_.push_back(center);
+        }
+    }
+
+    void filter_loop() {
+        auto current_time = this->get_clock()->now();
+        double dt = (current_time - last_time_).seconds();
+        last_time_ = current_time;
+        if (dt <= 0.0) return;
+
+        double theta = x_hat_(2);
+        double v = u_input_(0);
+        double omega = u_input_(1);
+
+        // =====================================================================
+        // 1. PRÄDIKTION
+        // =====================================================================
+        x_hat_(0) += v * std::cos(theta) * dt;
+        x_hat_(1) += v * std::sin(theta) * dt;
+        x_hat_(2) += omega * dt;
+        x_hat_(2) = std::atan2(std::sin(x_hat_(2)), std::cos(x_hat_(2)));
+
+        Eigen::Matrix3d F = Eigen::Matrix3d::Identity();
+        F(0, 2) = -v * std::sin(theta) * dt;
+        F(1, 2) =  v * std::cos(theta) * dt;
+
+        Eigen::Matrix3d Q_local = Eigen::Matrix3d::Zero();
+        Q_local(0,0) = q_pos_; Q_local(1,1) = q_pos_ * 0.1; Q_local(2,2) = q_theta_;
+        Eigen::Matrix3d R_track = Eigen::Matrix3d::Identity();
+        R_track(0,0) = std::cos(theta); R_track(0,1) = -std::sin(theta);
+        R_track(1,0) = std::sin(theta); R_track(1,1) =  std::cos(theta);
+        Eigen::Matrix3d Q_global = R_track * Q_local * R_track.transpose();
+
+        P_ = F * P_ * F.transpose() + Q_global;
+
+        // =====================================================================
+        // 2. KORREKTUR ODOMETRIE
+        // =====================================================================
+        if (fresh_odom_) {
+            Eigen::Matrix<double, 2, 3> H_odom = Eigen::Matrix<double, 2, 3>::Zero();
+            H_odom(0, 0) = 1.0; H_odom(1, 1) = 1.0;
+            Eigen::Vector2d y_res = z_odom_ - H_odom * x_hat_;
+            Eigen::Matrix2d S = H_odom * P_ * H_odom.transpose() + R_odom_;
+            Eigen::Matrix<double, 3, 2> K = P_ * H_odom.transpose() * S.inverse();
+            x_hat_ = x_hat_ + K * y_res;
+            P_ = (Eigen::Matrix3d::Identity() - K * H_odom) * P_;
+            fresh_odom_ = false;
+        }
+
+        // =====================================================================
+        // 3. KORREKTUR LANDMARKEN (Datenassoziation & EKF Update)
+        // =====================================================================
+        for (const auto& local_lm : detected_landmarks_local_) {
+            // Berechne gemessene Distanz und Winkel relativ zum Roboter
+            double z_range = local_lm.norm();
+            double z_bearing = std::atan2(local_lm.y(), local_lm.x());
+
+            // Datenassoziation (Nearest Neighbor zur Karte)
+            double min_dist = 999.0;
+            Landmark best_match;
+            bool found_match = false;
+
+            // Transformiere lokale Messung temporär in die Weltkarte via aktuellen x_hat
+            double global_x_est = x_hat_(0) + z_range * std::cos(theta + z_bearing);
+            double global_y_est = x_hat_(1) + z_range * std::sin(theta + z_bearing);
+
+            for (const auto& map_lm : map_) {
+                double dist = std::hypot(map_lm.x - global_x_est, map_lm.y - global_y_est);
+                if (dist < min_dist && dist < 0.6) { // 60cm Zuordnungs-Radius
+                    min_dist = dist;
+                    best_match = map_lm;
+                    found_match = true;
+                }
+            }
+
+            if (found_match) {
+                // Erwartete Messung h(x) berechnen
+                double dx = best_match.x - x_hat_(0);
+                double dy = best_match.y - x_hat_(1);
+                double r_est = std::hypot(dx, dy);
+                double phi_est = std::atan2(dy, dx) - x_hat_(2);
+                phi_est = std::atan2(std::sin(phi_est), std::cos(phi_est));
+
+                Eigen::Vector2d z_meas(z_range, z_bearing);
+                Eigen::Vector2d z_est(r_est, phi_est);
+                Eigen::Vector2d y_residual = z_meas - z_est;
+                y_residual(1) = std::atan2(std::sin(y_residual(1)), std::cos(y_residual(1)));
+
+                // Jacobi-Matrix H_lm aufbauen
+                Eigen::Matrix<double, 2, 3> H_lm = Eigen::Matrix<double, 2, 3>::Zero();
+                H_lm(0, 0) = -dx / r_est;  H_lm(0, 1) = -dy / r_est;  H_lm(0, 2) = 0.0;
+                H_lm(1, 0) =  dy / (r_est*r_est); H_lm(1, 1) = -dx / (r_est*r_est); H_lm(1, 2) = -1.0;
+
+                // Messrauschen R_lm
+                Eigen::Matrix2d R_lm = Eigen::Matrix2d::Zero();
+                R_lm(0,0) = r_range_; R_lm(1,1) = r_bearing_;
+
+                // EKF Update Schritte
+                Eigen::Matrix2d S = H_lm * P_ * H_lm.transpose() + R_lm;
+                Eigen::Matrix<double, 3, 2> K = P_ * H_lm.transpose() * S.inverse();
+
+                x_hat_ = x_hat_ + K * y_residual;
+                P_ = (Eigen::Matrix3d::Identity() - K * H_lm) * P_;
+                theta = x_hat_(2); // Aktualisieren für die nächste Landmarke in der Schleife
+            }
+        }
+
+        x_hat_(2) = std::atan2(std::sin(x_hat_(2)), std::cos(x_hat_(2)));
+
+        // =====================================================================
+        // 4. PUBLISH
+        // =====================================================================
+        geometry_msgs::msg::PoseWithCovarianceStamped pose_msg;
+        pose_msg.header.stamp = current_time;
+        pose_msg.header.frame_id = "odom";
+        pose_msg.pose.pose.position.x = x_hat_(0);
+        pose_msg.pose.pose.position.y = x_hat_(1);
+        pose_msg.pose.pose.orientation.z = std::sin(x_hat_(2) / 2.0);
+        pose_msg.pose.pose.orientation.w = std::cos(x_hat_(2) / 2.0);
+
+        pose_msg.pose.covariance[0] = P_(0,0); pose_msg.pose.covariance[1] = P_(0,1);
+        pose_msg.pose.covariance[6] = P_(1,0); pose_msg.pose.covariance[7] = P_(1,1);
+
+        filter_pose_pub_->publish(pose_msg);
+    }
+
+    rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr cmd_sub_;
+    rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr odom_sub_;
+    rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr scan_sub_;
+    rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr filter_pose_pub_;
+    rclcpp::TimerBase::SharedPtr filter_timer_;
+
+    Eigen::Vector3d x_hat_;
+    Eigen::Matrix3d P_;
+    Eigen::Matrix2d R_odom_;
+    double r_range_, r_bearing_, q_pos_, q_theta_;
+
+    Eigen::Vector2d u_input_ = Eigen::Vector2d::Zero();
+    Eigen::Vector2d z_odom_ = Eigen::Vector2d::Zero();
+    std::vector<Eigen::Vector2d> detected_landmarks_local_;
+    std::vector<Landmark> map_;
+
+    bool fresh_odom_ = false;
+    rclcpp::Time last_time_;
+};
+
+int main(int argc, char * argv[]) {
+    rclcpp::init(argc, argv);
+    rclcpp::spin(std::make_shared<EKFWithLandmarksNode>());
+    rclcpp::shutdown();
+    return 0;
+}

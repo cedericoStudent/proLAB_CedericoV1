@@ -1,0 +1,80 @@
+[0.026s] Invoking command in '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1 -- -j16 -l16
+[0.099s] [35m[1mScanning dependencies of target landmark_test_node[0m
+[0.105s] [35m[1mScanning dependencies of target recorder_node[0m
+[0.133s] [ 12%] Built target joint_noise_node
+[0.135s] [ 37%] Built target test_node
+[0.136s] [ 37%] Built target noisy_odometry_node
+[0.136s] [ 50%] Built target kalman_filter_node
+[0.141s] [ 56%] [32mBuilding CXX object CMakeFiles/landmark_test_node.dir/src/landmark_test_node.cpp.o[0m
+[0.141s] [ 81%] Built target extended_kalman_filter_node
+[0.142s] [ 81%] Built target ekf_landmark_node
+[0.153s] [ 87%] [32mBuilding CXX object CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o[0m
+[1.439s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:[m[K In member function ‘[01m[Kvoid LandmarkTestNode::scan_callback(sensor_msgs::msg::LaserScan_<std::allocator<void> >::SharedPtr)[m[K’:
+[1.439s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:46:17:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ was not declared in this scope
+[1.440s]    46 |     std::vector<[01;31m[KEigen[m[K::Vector2d> local_points(num_points);
+[1.440s]       |                 [01;31m[K^~~~~[m[K
+[1.440s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:46:32:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[1.440s]    46 |     std::vector<Eigen::Vector2d[01;31m[K>[m[K local_points(num_points);
+[1.440s]       |                                [01;31m[K^[m[K
+[1.441s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:46:32:[m[K [01;31m[Kerror: [m[Ktemplate argument 2 is invalid
+[1.441s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:53:27:[m[K [01;31m[Kerror: [m[Kinvalid types ‘[01m[Kint[size_t {aka long unsigned int}][m[K’ for array subscript
+[1.441s]    53 |             local_points[i[01;31m[K][m[K = Eigen::Vector2d(r * std::cos(angle), r * std::sin(angle));
+[1.441s]       |                           [01;31m[K^[m[K
+[1.441s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:53:31:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ is not a class, namespace, or enumeration
+[1.441s]    53 |             local_points[i] = [01;31m[KEigen[m[K::Vector2d(r * std::cos(angle), r * std::sin(angle));
+[1.441s]       |                               [01;31m[K^~~~~[m[K
+[1.442s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:60:9:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ does not name a type
+[1.442s]    60 |         [01;31m[KEigen[m[K::Vector2d center_sum = Eigen::Vector2d::Zero();
+[1.442s]       |         [01;31m[K^~~~~[m[K
+[1.443s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:77:36:[m[K [01;31m[Kerror: [m[Kinvalid types ‘[01m[Kint[size_t {aka long unsigned int}][m[K’ for array subscript
+[1.443s]    77 |         auto p1 = local_points[idx1[01;31m[K][m[K; auto p2 = local_points[idx2]; auto p3 = local_points[idx3];
+[1.443s]       |                                    [01;31m[K^[m[K
+[1.444s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:77:66:[m[K [01;31m[Kerror: [m[Kinvalid types ‘[01m[Kint[size_t {aka long unsigned int}][m[K’ for array subscript
+[1.444s]    77 |         auto p1 = local_points[idx1]; auto p2 = local_points[idx2[01;31m[K][m[K; auto p3 = local_points[idx3];
+[1.444s]       |                                                                  [01;31m[K^[m[K
+[1.444s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:77:96:[m[K [01;31m[Kerror: [m[Kinvalid types ‘[01m[Kint[size_t {aka long unsigned int}][m[K’ for array subscript
+[1.444s]    77 |         auto p1 = local_points[idx1]; auto p2 = local_points[idx2]; auto p3 = local_points[idx3[01;31m[K][m[K;
+[1.444s]       |                                                                                                [01;31m[K^[m[K
+[1.445s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:98:13:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ is not a class, namespace, or enumeration
+[1.445s]    98 |             [01;31m[KEigen[m[K::Vector2d new_center(cx, cy);
+[1.445s]       |             [01;31m[K^~~~~[m[K
+[1.445s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:103:17:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ is not a class, namespace, or enumeration
+[1.445s]   103 |                 [01;31m[KEigen[m[K::Vector2d current_center = clus.center_sum / clus.votes;
+[1.446s]       |                 [01;31m[K^~~~~[m[K
+[1.449s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:104:22:[m[K [01;31m[Kerror: [m[K‘[01m[Kcurrent_center[m[K’ was not declared in this scope
+[1.450s]   104 |                 if (([01;31m[Kcurrent_center[m[K - new_center).norm() < cluster_threshold) {
+[1.450s]       |                      [01;31m[K^~~~~~~~~~~~~~[m[K
+[1.452s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:104:39:[m[K [01;31m[Kerror: [m[K‘[01m[Knew_center[m[K’ was not declared in this scope
+[1.452s]   104 |                 if ((current_center - [01;31m[Knew_center[m[K).norm() < cluster_threshold) {
+[1.452s]       |                                       [01;31m[K^~~~~~~~~~[m[K
+[1.453s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:109:26:[m[K [01;31m[Kerror: [m[K‘[01m[Kstruct LandmarkTestNode::scan_callback(sensor_msgs::msg::LaserScan_<std::allocator<void> >::SharedPtr)::LandmarkCluster[m[K’ has no member named ‘[01m[Kcenter_sum[m[K’
+[1.453s]   109 |                     clus.[01;31m[Kcenter_sum[m[K += new_center;
+[1.453s]       |                          [01;31m[K^~~~~~~~~~[m[K
+[1.453s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:117:23:[m[K [01;31m[Kerror: [m[K‘[01m[Kstruct LandmarkTestNode::scan_callback(sensor_msgs::msg::LaserScan_<std::allocator<void> >::SharedPtr)::LandmarkCluster[m[K’ has no member named ‘[01m[Kcenter_sum[m[K’
+[1.453s]   117 |                 c_new.[01;31m[Kcenter_sum[m[K = new_center;
+[1.454s]       |                       [01;31m[K^~~~~~~~~~[m[K
+[1.456s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:117:36:[m[K [01;31m[Kerror: [m[K‘[01m[Knew_center[m[K’ was not declared in this scope
+[1.456s]   117 |                 c_new.center_sum = [01;31m[Knew_center[m[K;
+[1.457s]       |                                    [01;31m[K^~~~~~~~~~[m[K
+[1.457s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:96:20:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcx[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[1.457s]    96 |             double [01;35m[Kcx[m[K = ((p1.squaredNorm()) * (p2.y() - p3.y()) + (p2.squaredNorm()) * (p3.y() - p1.y()) + (p3.squaredNorm()) * (p1.y() - p2.y())) / d;
+[1.457s]       |                    [01;35m[K^~[m[K
+[1.457s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:97:20:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcy[m[K’ [[01;35m[K-Wunused-variable[m[K]
+[1.457s]    97 |             double [01;35m[Kcy[m[K = ((p1.squaredNorm()) * (p3.x() - p2.x()) + (p2.squaredNorm()) * (p1.x() - p3.x()) + (p3.squaredNorm()) * (p2.x() - p1.x())) / d;
+[1.457s]       |                    [01;35m[K^~[m[K
+[1.463s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:127:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kdetected_landmarks_local_[m[K’ was not declared in this scope
+[1.463s]   127 |     [01;31m[Kdetected_landmarks_local_[m[K.clear();
+[1.463s]       |     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.463s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:134:13:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen[m[K’ is not a class, namespace, or enumeration
+[1.463s]   134 |             [01;31m[KEigen[m[K::Vector2d final_center = clus.center_sum / clus.votes;
+[1.463s]       |             [01;31m[K^~~~~[m[K
+[1.466s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/landmark_test_node.cpp:135:49:[m[K [01;31m[Kerror: [m[K‘[01m[Kfinal_center[m[K’ was not declared in this scope
+[1.466s]   135 |             detected_landmarks_local_.push_back([01;31m[Kfinal_center[m[K);
+[1.466s]       |                                                 [01;31m[K^~~~~~~~~~~~[m[K
+[2.774s] make[2]: *** [CMakeFiles/landmark_test_node.dir/build.make:63: CMakeFiles/landmark_test_node.dir/src/landmark_test_node.cpp.o] Error 1
+[2.775s] make[1]: *** [CMakeFiles/Makefile2:335: CMakeFiles/landmark_test_node.dir/all] Error 2
+[2.775s] make[1]: *** Waiting for unfinished jobs....
+[5.884s] [ 93%] [32m[1mLinking CXX executable recorder_node[0m
+[6.240s] [ 93%] Built target recorder_node
+[6.243s] make: *** [Makefile:141: all] Error 2
+[6.249s] Invoked command in '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1 -- -j16 -l16

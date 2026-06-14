@@ -3,6 +3,10 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+
+// CRUCIAL: Eigen Header einbinden, sonst kennt der Compiler Eigen::Vector2d nicht!
+#include <Eigen/Dense> 
+
 #include "rclcpp/rclcpp.hpp"
 #include "sensor_msgs/msg/laser_scan.hpp"
 #include "geometry_msgs/msg/point.hpp"
@@ -20,8 +24,8 @@ public:
 
         // Parameter für die drei Zylinderradien (in Metern)
         this->declare_parameter<double>("radius_small", 0.1);   // Kleiner Zylinder
-        this->declare_parameter<double>("radius_medium", 0.2);  // Mittlerer Zylinder
-        this->declare_parameter<double>("radius_large", 0.3);   // Großer Zylinder
+        this->declare_parameter<double>("radius_medium", 0.25);  // Mittlerer Zylinder
+        this->declare_parameter<double>("radius_large", 0.4);   // Großer Zylinder
         this->declare_parameter<double>("tolerance", 0.02);      // Toleranzfenster: +/- 2cm
         this->declare_parameter<int>("stride", 4);               // Schrittweite im Dreierblock
         this->declare_parameter<int>("scan_skip", 2);            // Jeden X. Scan verarbeiten
@@ -43,96 +47,96 @@ private:
         if (scan_counter_ % scan_skip_ != 0) return;
 
         size_t num_points = msg->ranges.size();
-        std::vector<geometry_msgs::msg::Point> points(num_points);
-        std::vector<bool> valid_points(num_points, false);
+        std::vector<Eigen::Vector2d> local_points(num_points);
+        std::vector<bool> valid(num_points, false);
 
-        // 1. Polarkoordinaten in kartesische Roboterkoordinaten umrechnen
         for (size_t i = 0; i < num_points; ++i) {
             double r = msg->ranges[i];
             if (r > msg->range_min && r < msg->range_max && !std::isnan(r) && !std::isinf(r)) {
                 double angle = msg->angle_min + i * msg->angle_increment;
-                points[i].x = r * std::cos(angle);
-                points[i].y = r * std::sin(angle);
-                valid_points[i] = true;
+                local_points[i] = Eigen::Vector2d(r * std::cos(angle), r * std::sin(angle));
+                valid[i] = true;
             }
         }
 
-        std::vector<DetectedPoint> raw_detections;
+        // Struktur für erweiterte Cluster-Validierung
+        struct LandmarkCluster {
+            Eigen::Vector2d center_sum = Eigen::Vector2d::Zero();
+            int votes = 0;
+            std::string type = "";
+            double expected_r = 0.0;
+        };
 
-        // 2. Geometrische Suche über Dreierblöcke mit Stride
-        for (size_t i = 0; i + 2 * stride_ < num_points; i += 2) {
+        std::vector<LandmarkCluster> clusters;
+        const double cluster_threshold = 0.15; // 15cm Radius um Zentren zusammenzufassen
+        const double tight_tolerance = 0.018;   // Verschärfte Radien-Toleranz (~1.2cm)
+
+        // 1. Dreierblöcke prüfen und vorklassifizieren
+        for (size_t i = 0; i + 2 * stride_ < num_points; i += 1) { 
             size_t idx1 = i;
             size_t idx2 = i + stride_;
             size_t idx3 = i + 2 * stride_;
 
-            if (!valid_points[idx1] || !valid_points[idx2] || !valid_points[idx3]) continue;
+            if (!valid[idx1] || !valid[idx2] || !valid[idx3]) continue;
+            auto p1 = local_points[idx1]; auto p2 = local_points[idx2]; auto p3 = local_points[idx3];
 
-            auto p1 = points[idx1];
-            auto p2 = points[idx2];
-            auto p3 = points[idx3];
-
-            double a = std::hypot(p2.x - p3.x, p2.y - p3.y);
-            double b = std::hypot(p1.x - p3.x, p1.y - p3.y);
-            double c = std::hypot(p1.x - p2.x, p1.y - p2.y);
-
-            double area = 0.5 * std::abs(p1.x * (p2.y - p3.y) + p2.x * (p3.y - p1.y) + p3.x * (p1.y - p2.y));
-            if (area < 0.001) continue; // Wand-Ausschluss
+            double a = (p2 - p3).norm(); double b = (p1 - p3).norm(); double c = (p1 - p2).norm();
+            double area = 0.5 * std::abs(p1.x() * (p2.y() - p3.y()) + p2.x() * (p3.y() - p1.y()) + p3.x() * (p1.y() - p2.y()));
+            if (area < 0.001) continue;
 
             double R = (a * b * c) / (4.0 * area);
 
-            // Klassifizierung basierend auf dem Radius
-            std::string cylinder_type = "";
-            if (std::abs(R - r_small_) < tolerance_) {
-                cylinder_type = "KLEINER ZYLINDER (r=" + std::to_string(r_small_).substr(0,4) + "m)";
-            } else if (std::abs(R - r_medium_) < tolerance_) {
-                cylinder_type = "MITTLERER ZYLINDER (r=" + std::to_string(r_medium_).substr(0,4) + "m)";
-            } else if (std::abs(R - r_large_) < tolerance_) {
-                cylinder_type = "GROSSER ZYLINDER (r=" + std::to_string(r_large_).substr(0,4) + "m)";
-            }
+            std::string detected_type = "";
+            double target_r = 0.0;
 
-            // Wenn ein passender Radius gefunden wurde, berechne das Zentrum
-            if (!cylinder_type.empty()) {
-                double d = 2.0 * (p1.x * (p2.y - p3.y) + p2.x * (p3.y - p1.y) + p3.x * (p1.y - p2.y));
+            // Härteres Matching gegen deine exakten Radien
+            if (std::abs(R - 0.10) < tight_tolerance) { detected_type = "KLEIN"; target_r = 0.10; }
+            else if (std::abs(R - 0.25) < tight_tolerance) { detected_type = "MITTEL"; target_r = 0.25; }
+            else if (std::abs(R - 0.40) < tight_tolerance) { detected_type = "GROSS"; target_r = 0.40; }
+
+            if (!detected_type.empty()) {
+                double d = 2.0 * (p1.x() * (p2.y() - p3.y()) + p2.x() * (p3.y() - p1.y()) + p3.x() * (p1.y() - p2.y()));
                 if (std::abs(d) < 0.001) continue;
+                double cx = ((p1.squaredNorm()) * (p2.y() - p3.y()) + (p2.squaredNorm()) * (p3.y() - p1.y()) + (p3.squaredNorm()) * (p1.y() - p2.y())) / d;
+                double cy = ((p1.squaredNorm()) * (p3.x() - p2.x()) + (p2.squaredNorm()) * (p1.x() - p3.x()) + (p3.squaredNorm()) * (p2.x() - p1.x())) / d;
+                Eigen::Vector2d new_center(cx, cy);
 
-                double cx = ((p1.x*p1.x + p1.y*p1.y) * (p2.y - p3.y) + (p2.x*p2.x + p2.y*p2.y) * (p3.y - p1.y) + (p3.x*p3.x + p3.y*p3.y) * (p1.y - p2.y)) / d;
-                double cy = ((p1.x*p1.x + p1.y*p1.y) * (p3.x - p2.x) + (p2.x*p2.x + p2.y*p2.y) * (p1.x - p3.x) + (p3.x*p3.x + p3.y*p3.y) * (p2.x - p1.x)) / d;
-
-                raw_detections.push_back({cx, cy, cylinder_type});
-            }
-        }
-
-        // 3. Nachgelagertes Clustering, damit das Terminal lesbar bleibt
-        // Benachbarte Erkennungen desselben Zylinders werden fusioniert
-        std::vector<DetectedPoint> clustered_detections;
-        const double cluster_threshold = 0.25; // 25cm maximale Distanz zwischen Punkten im selben Cluster
-
-        for (const auto& raw : raw_detections) {
-            bool found_cluster = false;
-            for (auto& cluster : clustered_detections) {
-                if (cluster.type == raw.type) {
-                    double dist = std::hypot(cluster.x - raw.x, cluster.y - raw.y);
-                    if (dist < cluster_threshold) {
-                        // Fließender Mittelwert (Schwerpunkt) des Zylindermittelpunkts
-                        cluster.x = (cluster.x + raw.x) / 2.0;
-                        cluster.y = (cluster.y + raw.y) / 2.0;
-                        found_cluster = true;
+                // Zu existierendem Cluster hinzufügen oder neues eröffnen
+                bool assigned = false;
+                for (auto& clus : clusters) {
+                    Eigen::Vector2d current_center = clus.center_sum / clus.votes;
+                    if ((current_center - new_center).norm() < cluster_threshold) {
+                        if (clus.type != detected_type) {
+                            clus.type = "INVALID"; 
+                        }
+                        clus.center_sum += new_center;
+                        clus.votes++;
+                        assigned = true;
                         break;
                     }
                 }
-            }
-            if (!found_cluster) {
-                clustered_detections.push_back(raw);
+                if (!assigned) {
+                    LandmarkCluster c_new;
+                    c_new.center_sum = new_center;
+                    c_new.votes = 1;
+                    c_new.type = detected_type;
+                    c_new.expected_r = target_r;
+                    clusters.push_back(c_new);
+                }
             }
         }
 
-        // 4. "Alarm" schlagen im Terminal
-        if (!clustered_detections.empty()) {
-            RCLCPP_INFO(this->get_logger(), "--------------------------------------------------");
-            for (const auto& landmark : clustered_detections) {
-                RCLCPP_INFO(this->get_logger(), "🚨 LANDMARKE DETEKTIERT: %s", landmark.type.c_str());
-                RCLCPP_INFO(this->get_logger(), "   ↳ Position relativ zum Roboter: X = %.3f m, Y = %.3f m", landmark.x, landmark.y);
-                RCLCPP_INFO(this->get_logger(), "   ↳ Distanz zum Roboter: %.3f m", std::hypot(landmark.x, landmark.y));
+        // 2. Cluster filtern und finale Landmarken für den EKF bereitstellen
+        detected_landmarks_local_.clear();
+        
+        for (const auto& clus : clusters) {
+            if (clus.type != "INVALID" && clus.votes >= 4) {
+                Eigen::Vector2d final_center = clus.center_sum / clus.votes;
+                detected_landmarks_local_.push_back(final_center);
+                
+                // Stabiles Logging aktivieren, um den Erfolg im Terminal zu sehen:
+                RCLCPP_INFO(this->get_logger(), "✅ Stabile Landmarke verifiziert: %s bei X=%.3f m, Y=%.3f m (Votes: %d)", 
+                            clus.type.c_str(), final_center.x(), final_center.y(), clus.votes);
             }
         }
     }
@@ -141,6 +145,9 @@ private:
     double r_small_, r_medium_, r_large_, tolerance_;
     int stride_, scan_skip_;
     int scan_counter_ = 0;
+
+    // HIER GEFEHLT: Deklaration des lokalen Speicher-Vektors für detektierte Zentren
+    std::vector<Eigen::Vector2d> detected_landmarks_local_;
 };
 
 int main(int argc, char * argv[]) {

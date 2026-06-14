@@ -74,7 +74,7 @@
       <link name="link">
         <pose>1.2 1.2 0.5 0 0 0</pose>
         <collision name="collision">
-          <geometry><cylinder><radius>0.3</radius><length>1.0</length></cylinder></geometry>
+          <geometry><cylinder><radius>0.4</radius><length>1.0</length></cylinder></geometry>
         </collision>
         <visual name="visual">
           <geometry><cylinder><radius>0.3</radius><length>1.0</length></cylinder></geometry>
@@ -88,7 +88,7 @@
       <link name="link">
         <pose>-1.2 1.2 0.5 0 0 0</pose>
         <collision name="collision">
-          <geometry><cylinder><radius>0.2</radius><length>1.0</length></cylinder></geometry>
+          <geometry><cylinder><radius>0.25</radius><length>1.0</length></cylinder></geometry>
         </collision>
         <visual name="visual">
           <geometry><cylinder><radius>0.2</radius><length>1.0</length></cylinder></geometry>

@@ -1,0 +1,12 @@
+[35m[1mScanning dependencies of target landmark_test_node[0m
+[35m[1mScanning dependencies of target recorder_node[0m
+[ 12%] Built target joint_noise_node
+[ 37%] Built target test_node
+[ 37%] Built target noisy_odometry_node
+[ 50%] Built target kalman_filter_node
+[ 56%] [32mBuilding CXX object CMakeFiles/landmark_test_node.dir/src/landmark_test_node.cpp.o[0m
+[ 81%] Built target extended_kalman_filter_node
+[ 81%] Built target ekf_landmark_node
+[ 87%] [32mBuilding CXX object CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o[0m
+[ 93%] [32m[1mLinking CXX executable recorder_node[0m
+[ 93%] Built target recorder_node

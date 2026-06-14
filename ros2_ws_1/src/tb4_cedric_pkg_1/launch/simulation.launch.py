@@ -66,4 +66,11 @@ def generate_launch_description():
             name='landmark_test_node',
             output='screen'
         )
+
+        #Node(
+        #    package='tb4_cedric_pkg_1',
+        #    executable='ekf_landmark_node',
+        #    name='ekf_landmark_node',
+        #    output='screen'
+        #)
     ])

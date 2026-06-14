@@ -1,0 +1,48 @@
+[0.027s] Invoking command in '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1 -- -j16 -l16
+[0.103s] [35m[1mScanning dependencies of target landmark_test_node[0m
+[0.118s] [ 12%] Built target joint_noise_node
+[0.122s] [ 25%] Built target ekf_landmark_node
+[0.128s] [ 50%] Built target noisy_odometry_node
+[0.128s] [ 50%] Built target recorder_node
+[0.131s] [ 62%] Built target test_node
+[0.141s] [ 75%] Built target extended_kalman_filter_node
+[0.145s] [ 87%] Built target kalman_filter_node
+[0.169s] [ 93%] [32mBuilding CXX object CMakeFiles/landmark_test_node.dir/src/landmark_test_node.cpp.o[0m
+[5.499s] [100%] [32m[1mLinking CXX executable landmark_test_node[0m
+[5.814s] [100%] Built target landmark_test_node
+[5.843s] Invoked command in '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1 -- -j16 -l16
+[5.869s] Invoking command in '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1
+[5.891s] -- Install configuration: ""
+[5.891s] -- Execute custom install script
+[5.892s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/launch/my_turtlebot3_world.launch.py
+[5.892s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/launch/simulation.launch.py
+[5.892s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/test_node
+[5.893s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/joint_noise_node
+[5.893s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/noisy_odometry_node
+[5.893s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/kalman_filter_node
+[5.894s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/extended_kalman_filter_node
+[5.894s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/landmark_test_node
+[5.894s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/ekf_landmark_node
+[5.894s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/recorder_node
+[5.895s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/launch/my_turtlebot3_world.launch.py
+[5.895s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/launch/simulation.launch.py
+[5.895s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/trajectories/robot_path.csv
+[5.896s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/worlds/cedric_landmark_world.world
+[5.896s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/worlds/my_world.world
+[5.896s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/worlds/waffle.model
+[5.896s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/ament_index/resource_index/package_run_dependencies/tb4_cedric_pkg_1
+[5.897s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/ament_index/resource_index/parent_prefix_path/tb4_cedric_pkg_1
+[5.897s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/environment/ament_prefix_path.sh
+[5.897s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/environment/ament_prefix_path.dsv
+[5.897s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/environment/path.sh
+[5.897s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/environment/path.dsv
+[5.898s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/local_setup.bash
+[5.898s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/local_setup.sh
+[5.898s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/local_setup.zsh
+[5.898s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/local_setup.dsv
+[5.898s] -- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/package.dsv
+[5.915s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/ament_index/resource_index/packages/tb4_cedric_pkg_1
+[5.916s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/cmake/tb4_cedric_pkg_1Config.cmake
+[5.916s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/cmake/tb4_cedric_pkg_1Config-version.cmake
+[5.917s] -- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/package.xml
+[5.923s] Invoked command in '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --install /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1

@@ -92,6 +92,16 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -124,16 +134,6 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -272,6 +272,19 @@ noisy_odometry_node/fast:
 .PHONY : noisy_odometry_node/fast
 
 #=============================================================================
+# Target rules for targets named ekf_landmark_node
+
+# Build rule for target.
+ekf_landmark_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ekf_landmark_node
+.PHONY : ekf_landmark_node
+
+# fast build rule for target.
+ekf_landmark_node/fast:
+	$(MAKE) -f CMakeFiles/ekf_landmark_node.dir/build.make CMakeFiles/ekf_landmark_node.dir/build
+.PHONY : ekf_landmark_node/fast
+
+#=============================================================================
 # Target rules for targets named landmark_test_node
 
 # Build rule for target.
@@ -283,6 +296,33 @@ landmark_test_node: cmake_check_build_system
 landmark_test_node/fast:
 	$(MAKE) -f CMakeFiles/landmark_test_node.dir/build.make CMakeFiles/landmark_test_node.dir/build
 .PHONY : landmark_test_node/fast
+
+src/ekf_landmark.o: src/ekf_landmark.cpp.o
+
+.PHONY : src/ekf_landmark.o
+
+# target to build an object file
+src/ekf_landmark.cpp.o:
+	$(MAKE) -f CMakeFiles/ekf_landmark_node.dir/build.make CMakeFiles/ekf_landmark_node.dir/src/ekf_landmark.cpp.o
+.PHONY : src/ekf_landmark.cpp.o
+
+src/ekf_landmark.i: src/ekf_landmark.cpp.i
+
+.PHONY : src/ekf_landmark.i
+
+# target to preprocess a source file
+src/ekf_landmark.cpp.i:
+	$(MAKE) -f CMakeFiles/ekf_landmark_node.dir/build.make CMakeFiles/ekf_landmark_node.dir/src/ekf_landmark.cpp.i
+.PHONY : src/ekf_landmark.cpp.i
+
+src/ekf_landmark.s: src/ekf_landmark.cpp.s
+
+.PHONY : src/ekf_landmark.s
+
+# target to generate assembly for a file
+src/ekf_landmark.cpp.s:
+	$(MAKE) -f CMakeFiles/ekf_landmark_node.dir/build.make CMakeFiles/ekf_landmark_node.dir/src/ekf_landmark.cpp.s
+.PHONY : src/ekf_landmark.cpp.s
 
 src/extended_kalman_filter_node.o: src/extended_kalman_filter_node.cpp.o
 
@@ -482,6 +522,7 @@ help:
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... install"
+	@echo "... list_install_components"
 	@echo "... tb4_cedric_pkg_1_uninstall"
 	@echo "... test_node"
 	@echo "... recorder_node"
@@ -491,10 +532,13 @@ help:
 	@echo "... uninstall"
 	@echo "... test"
 	@echo "... noisy_odometry_node"
+	@echo "... ekf_landmark_node"
 	@echo "... edit_cache"
 	@echo "... landmark_test_node"
 	@echo "... rebuild_cache"
-	@echo "... list_install_components"
+	@echo "... src/ekf_landmark.o"
+	@echo "... src/ekf_landmark.i"
+	@echo "... src/ekf_landmark.s"
 	@echo "... src/extended_kalman_filter_node.o"
 	@echo "... src/extended_kalman_filter_node.i"
 	@echo "... src/extended_kalman_filter_node.s"
