@@ -24,11 +24,11 @@ public:
 
         // Parameter für die drei Zylinderradien (in Metern)
         this->declare_parameter<double>("radius_small", 0.1);   // Kleiner Zylinder
-        this->declare_parameter<double>("radius_medium", 0.25);  // Mittlerer Zylinder
-        this->declare_parameter<double>("radius_large", 0.4);   // Großer Zylinder
-        this->declare_parameter<double>("tolerance", 0.02);      // Toleranzfenster: +/- 2cm
+        this->declare_parameter<double>("radius_medium", 0.35);  // Mittlerer Zylinder
+        this->declare_parameter<double>("radius_large", 0.6);   // Großer Zylinder
+        this->declare_parameter<double>("tolerance", 0.015);      // Toleranzfenster: +/- 2cm
         this->declare_parameter<int>("stride", 4);               // Schrittweite im Dreierblock
-        this->declare_parameter<int>("scan_skip", 2);            // Jeden X. Scan verarbeiten
+        this->declare_parameter<int>("scan_skip", 1);            // Jeden X. Scan verarbeiten
 
         r_small_ = this->get_parameter("radius_small").as_double();
         r_medium_ = this->get_parameter("radius_medium").as_double();
@@ -68,8 +68,8 @@ private:
         };
 
         std::vector<LandmarkCluster> clusters;
-        const double cluster_threshold = 0.15; // 15cm Radius um Zentren zusammenzufassen
-        const double tight_tolerance = 0.018;   // Verschärfte Radien-Toleranz (~1.2cm)
+        const double cluster_threshold = 0.1; // 15cm Radius um Zentren zusammenzufassen
+        const double tight_tolerance = 0.015;   // Verschärfte Radien-Toleranz (~1.2cm)
 
         // 1. Dreierblöcke prüfen und vorklassifizieren
         for (size_t i = 0; i + 2 * stride_ < num_points; i += 1) { 
@@ -91,8 +91,8 @@ private:
 
             // Härteres Matching gegen deine exakten Radien
             if (std::abs(R - 0.10) < tight_tolerance) { detected_type = "KLEIN"; target_r = 0.10; }
-            else if (std::abs(R - 0.25) < tight_tolerance) { detected_type = "MITTEL"; target_r = 0.25; }
-            else if (std::abs(R - 0.40) < tight_tolerance) { detected_type = "GROSS"; target_r = 0.40; }
+            else if (std::abs(R - 0.35) < tight_tolerance) { detected_type = "MITTEL"; target_r = 0.35; }
+            else if (std::abs(R - 0.60) < tight_tolerance) { detected_type = "GROSS"; target_r = 0.60; }
 
             if (!detected_type.empty()) {
                 double d = 2.0 * (p1.x() * (p2.y() - p3.y()) + p2.x() * (p3.y() - p1.y()) + p3.x() * (p1.y() - p2.y()));

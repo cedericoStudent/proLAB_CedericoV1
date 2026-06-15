@@ -69,35 +69,35 @@
       </link>
     </model>
 
-    <model name="landmark_large">
+    <!--<model name="landmark_large">
       <static>true</static>
       <link name="link">
         <pose>1.2 1.2 0.5 0 0 0</pose>
         <collision name="collision">
-          <geometry><cylinder><radius>0.4</radius><length>1.0</length></cylinder></geometry>
+          <geometry><cylinder><radius>0.6</radius><length>1.0</length></cylinder></geometry>
         </collision>
         <visual name="visual">
-          <geometry><cylinder><radius>0.3</radius><length>1.0</length></cylinder></geometry>
+          <geometry><cylinder><radius>0.6</radius><length>1.0</length></cylinder></geometry>
           <material><ambient>0.1 0.8 0.1 1</ambient><diffuse>0.1 0.8 0.1 1</diffuse></material>
         </visual>
       </link>
-    </model>
+    </model>-->
 
     <model name="landmark_medium">
       <static>true</static>
       <link name="link">
         <pose>-1.2 1.2 0.5 0 0 0</pose>
         <collision name="collision">
-          <geometry><cylinder><radius>0.25</radius><length>1.0</length></cylinder></geometry>
+          <geometry><cylinder><radius>0.35</radius><length>1.0</length></cylinder></geometry>
         </collision>
         <visual name="visual">
-          <geometry><cylinder><radius>0.2</radius><length>1.0</length></cylinder></geometry>
+          <geometry><cylinder><radius>0.35</radius><length>1.0</length></cylinder></geometry>
           <material><ambient>0.1 0.1 0.8 1</ambient><diffuse>0.1 0.1 0.8 1</diffuse></material>
         </visual>
       </link>
     </model>
 
-    <model name="landmark_small">
+    <!--<model name="landmark_small">
       <static>true</static>
       <link name="link">
         <pose>0.0 -1.2 0.5 0 0 0</pose>
@@ -109,7 +109,7 @@
           <material><ambient>0.8 0.1 0.1 1</ambient><diffuse>0.8 0.1 0.1 1</diffuse></material>
         </visual>
       </link>
-    </model>
+    </model>-->
 
   </world>
 </sdf>
