@@ -82,6 +82,10 @@ add_executable(ekf_landmark_node src/ekf_landmark.cpp)
 ament_target_dependencies(ekf_landmark_node rclcpp sensor_msgs geometry_msgs nav_msgs)
 target_include_directories(ekf_landmark_node SYSTEM PRIVATE ${EIGEN3_INCLUDE_DIRS})
 
+add_executable(particle_filter_node src/particle_filter_node.cpp)
+ament_target_dependencies(particle_filter_node rclcpp nav_msgs sensor_msgs geometry_msgs)
+target_include_directories(particle_filter_node SYSTEM PRIVATE ${EIGEN3_INCLUDE_DIRS})
+
 install(TARGETS
   joint_noise_node
   noisy_odometry_node
@@ -89,6 +93,7 @@ install(TARGETS
   extended_kalman_filter_node
   landmark_test_node
   ekf_landmark_node
+  particle_filter_node
   DESTINATION lib/${PROJECT_NAME}
 )
 

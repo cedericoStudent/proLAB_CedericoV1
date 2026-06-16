@@ -41,7 +41,7 @@ def plot_cov_ellipse(x, y, p_xx, p_xy, p_yy, ax, n_std=2.0, edgecolor='red', **k
 def plot_robot_data():
     # --- INTERVALL FÜR DIE ELLIPSEN-ANZEIGE ---
     # Wert verkleinern (z.B. 50) für MEHR Ellipsen, vergrößern für WENIGER Verklammerung.
-    step_size = 80 
+    step_size = 450 
     # --------------------------------------------
 
     package_name = 'tb4_cedric_pkg_1'

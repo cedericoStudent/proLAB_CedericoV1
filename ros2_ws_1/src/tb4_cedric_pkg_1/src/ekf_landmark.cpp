@@ -25,20 +25,36 @@ struct Landmark {
 class EKFWithLandmarksNode : public rclcpp::Node {
 public:
     EKFWithLandmarksNode() : Node("ekf_landmark_node") {
-        RCLCPP_INFO(this->get_logger(), "EKF mit Landmarken-Korrektur gestartet.");
+        RCLCPP_INFO(this->get_logger(), "EKF mit spezifischer 35cm-Landmarken-Korrektur und Geister-Filter gestartet.");
 
-        // Parameter
+        // Parameter deklarieren
         this->declare_parameter<double>("q_var_pos", 0.03);
         this->declare_parameter<double>("q_var_theta", 0.015);
         this->declare_parameter<double>("r_var_odom", 0.06);
-        this->declare_parameter<double>("r_var_landmark_range", 0.04);  // Rauschen Distanzmessung
-        this->declare_parameter<double>("r_var_landmark_bearing", 0.03); // Rauschen Winkelmessung
+        this->declare_parameter<double>("r_var_landmark_range", 0.04);  
+        this->declare_parameter<double>("r_var_landmark_bearing", 0.03); 
+        
+        // Dynamische Parameter für die Laser-Geometrie und den Geister-Filter
+        this->declare_parameter<double>("target_radius", 0.35);      
+        this->declare_parameter<double>("tolerance", 0.015);          
+        this->declare_parameter<int>("stride", 4);                    
+        this->declare_parameter<int>("scan_skip", 1);                 
+        this->declare_parameter<int>("min_votes", 4);                 
+        this->declare_parameter<double>("max_jump_distance", 0.5);
 
+        // Parameter einlesen
         q_pos_ = this->get_parameter("q_var_pos").as_double();
         q_theta_ = this->get_parameter("q_var_theta").as_double();
         double r_odom = this->get_parameter("r_var_odom").as_double();
         r_range_ = this->get_parameter("r_var_landmark_range").as_double();
         r_bearing_ = this->get_parameter("r_var_landmark_bearing").as_double();
+        
+        target_radius_ = this->get_parameter("target_radius").as_double();
+        tolerance_ = this->get_parameter("tolerance").as_double();
+        stride_ = this->get_parameter("stride").as_int();
+        scan_skip_ = this->get_parameter("scan_skip").as_int();
+        min_votes_ = this->get_parameter("min_votes").as_int();
+        max_jump_distance_ = this->get_parameter("max_jump_distance").as_double();
 
         // Zustand & Kovarianz initialisieren
         x_hat_ = Eigen::Vector3d::Zero();
@@ -46,10 +62,12 @@ public:
 
         R_odom_ = Eigen::Matrix2d::Identity() * r_odom;
 
-        // Globale Landmarken-Karte definieren
-        map_.push_back({1, 0.0, -1.2, 0.1});  // Kleiner Zylinder bei (0.0, -1.2)
-        map_.push_back({2, -1.2, 1.2, 0.2}); // Mittlerer Zylinder bei (-1.2, 1.2)
-        map_.push_back({3, 1.2, 1.2, 0.3});  // Großer Zylinder bei (1.2, 1.2)
+        // Globale Landmarken-Karte: Nur noch der verlässliche mittlere Pfosten aktiv
+        map_.push_back({2, -1.2, 1.2, target_radius_}); // Mittlerer Zylinder bei (-1.2, 1.2), r=35cm
+
+        // Geister-Filter Status zurücksetzen
+        has_previous_prediction_ = false;
+        last_valid_center_ = Eigen::Vector2d::Zero();
 
         // Subscriber & Publisher
         cmd_sub_ = this->create_subscription<geometry_msgs::msg::Twist>(
@@ -75,7 +93,9 @@ public:
 
 private:
     void scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg) {
-        // Geometrische Extraktion (Analog zu deiner funktionierenden Test-Node)
+        scan_counter_++;
+        if (scan_counter_ % scan_skip_ != 0) return;
+
         size_t num_points = msg->ranges.size();
         std::vector<Eigen::Vector2d> local_points(num_points);
         std::vector<bool> valid(num_points, false);
@@ -89,12 +109,22 @@ private:
             }
         }
 
-        int stride = 4;
-        std::vector<Eigen::Vector2d> raw_centers;
+        struct LandmarkCluster {
+            Eigen::Vector2d center_sum = Eigen::Vector2d::Zero();
+            int votes = 0;
+        };
 
-        for (size_t i = 0; i + 2 * stride < num_points; i += 2) {
-            if (!valid[i] || !valid[i + stride] || !valid[i + 2 * stride]) continue;
-            auto p1 = local_points[i]; auto p2 = local_points[i + stride]; auto p3 = local_points[i + 2 * stride];
+        std::vector<LandmarkCluster> clusters;
+        const double cluster_threshold = 0.15; 
+
+        // 1. Geometrische Extraktion des 35cm Zylinders
+        for (size_t i = 0; i + 2 * stride_ < num_points; i += 1) {
+            size_t idx1 = i;
+            size_t idx2 = i + stride_;
+            size_t idx3 = i + 2 * stride_;
+
+            if (!valid[idx1] || !valid[idx2] || !valid[idx3]) continue;
+            auto p1 = local_points[idx1]; auto p2 = local_points[idx2]; auto p3 = local_points[idx3];
 
             double a = (p2 - p3).norm(); double b = (p1 - p3).norm(); double c = (p1 - p2).norm();
             double area = 0.5 * std::abs(p1.x() * (p2.y() - p3.y()) + p2.x() * (p3.y() - p1.y()) + p3.x() * (p1.y() - p2.y()));
@@ -102,33 +132,57 @@ private:
 
             double R = (a * b * c) / (4.0 * area);
 
-            // Prüfen, ob der Radius zu irgendeinem Zylinder der Karte passt (+/- 3cm Toleranz)
-            bool match = false;
-            for (const auto& lm : map_) {
-                if (std::abs(R - lm.radius) < 0.03) { match = true; break; }
-            }
-
-            if (match) {
+            // Abgleich gegen den dynamischen Zielradius
+            if (std::abs(R - target_radius_) < tolerance_) {
                 double d = 2.0 * (p1.x() * (p2.y() - p3.y()) + p2.x() * (p3.y() - p1.y()) + p3.x() * (p1.y() - p2.y()));
                 if (std::abs(d) < 0.001) continue;
                 double cx = ((p1.squaredNorm()) * (p2.y() - p3.y()) + (p2.squaredNorm()) * (p3.y() - p1.y()) + (p3.squaredNorm()) * (p1.y() - p2.y())) / d;
                 double cy = ((p1.squaredNorm()) * (p3.x() - p2.x()) + (p2.squaredNorm()) * (p1.x() - p3.x()) + (p3.squaredNorm()) * (p2.x() - p1.x())) / d;
-                raw_centers.push_back(Eigen::Vector2d(cx, cy));
+                Eigen::Vector2d new_center(cx, cy);
+
+                bool assigned = false;
+                for (auto& clus : clusters) {
+                    Eigen::Vector2d current_center = clus.center_sum / clus.votes;
+                    if ((current_center - new_center).norm() < cluster_threshold) {
+                        clus.center_sum += new_center;
+                        clus.votes++;
+                        assigned = true;
+                        break;
+                    }
+                }
+                if (!assigned) {
+                    LandmarkCluster c_new;
+                    c_new.center_sum = new_center;
+                    c_new.votes = 1;
+                    clusters.push_back(c_new);
+                }
             }
         }
 
-        // Clustering im Roboterframe
+        // 2. Cluster filtern & zeitliche Vorzeichen- und Sprungkonsistenz (Geister-Filter)
         detected_landmarks_local_.clear();
-        for (const auto& center : raw_centers) {
-            bool added = false;
-            for (auto& clus : detected_landmarks_local_) {
-                if ((clus - center).norm() < 0.25) {
-                    clus = (clus + center) / 2.0;
-                    added = true;
-                    break;
+        for (const auto& clus : clusters) {
+            if (clus.votes >= min_votes_) {
+                Eigen::Vector2d final_center = clus.center_sum / clus.votes;
+
+                if (has_previous_prediction_) {
+                    bool x_sign_changed = (std::signbit(final_center.x()) != std::signbit(last_valid_center_.x()));
+                    bool y_sign_changed = (std::signbit(final_center.y()) != std::signbit(last_valid_center_.y()));
+                    double jump_dist = (final_center - last_valid_center_).norm();
+
+                    // Wenn Vorzeichenwechsel stattfindet UND ein massiver Koordinatensprung vorliegt -> Geist!
+                    if ((x_sign_changed || y_sign_changed) && jump_dist > max_jump_distance_) {
+                        RCLCPP_WARN(this->get_logger(), "👻 EKF-Korrektur verweigert: Geisterwert detektiert bei X=%.2f, Y=%.2f (Sprung: %.2fm)", 
+                                    final_center.x(), final_center.y(), jump_dist);
+                        continue; 
+                    }
                 }
+
+                // Messung ist konsistent
+                detected_landmarks_local_.push_back(final_center);
+                last_valid_center_ = final_center;
+                has_previous_prediction_ = true;
             }
-            if (!added) detected_landmarks_local_.push_back(center);
         }
     }
 
@@ -178,25 +232,22 @@ private:
         }
 
         // =====================================================================
-        // 3. KORREKTUR LANDMARKEN (Datenassoziation & EKF Update)
+        // 3. KORREKTUR GEFILTERTE LANDMARKE (EKF Update)
         // =====================================================================
         for (const auto& local_lm : detected_landmarks_local_) {
-            // Berechne gemessene Distanz und Winkel relativ zum Roboter
             double z_range = local_lm.norm();
             double z_bearing = std::atan2(local_lm.y(), local_lm.x());
 
-            // Datenassoziation (Nearest Neighbor zur Karte)
             double min_dist = 999.0;
             Landmark best_match;
             bool found_match = false;
 
-            // Transformiere lokale Messung temporär in die Weltkarte via aktuellen x_hat
             double global_x_est = x_hat_(0) + z_range * std::cos(theta + z_bearing);
             double global_y_est = x_hat_(1) + z_range * std::sin(theta + z_bearing);
 
             for (const auto& map_lm : map_) {
                 double dist = std::hypot(map_lm.x - global_x_est, map_lm.y - global_y_est);
-                if (dist < min_dist && dist < 0.6) { // 60cm Zuordnungs-Radius
+                if (dist < min_dist && dist < 0.6) { 
                     min_dist = dist;
                     best_match = map_lm;
                     found_match = true;
@@ -204,7 +255,6 @@ private:
             }
 
             if (found_match) {
-                // Erwartete Messung h(x) berechnen
                 double dx = best_match.x - x_hat_(0);
                 double dy = best_match.y - x_hat_(1);
                 double r_est = std::hypot(dx, dy);
@@ -216,22 +266,19 @@ private:
                 Eigen::Vector2d y_residual = z_meas - z_est;
                 y_residual(1) = std::atan2(std::sin(y_residual(1)), std::cos(y_residual(1)));
 
-                // Jacobi-Matrix H_lm aufbauen
                 Eigen::Matrix<double, 2, 3> H_lm = Eigen::Matrix<double, 2, 3>::Zero();
                 H_lm(0, 0) = -dx / r_est;  H_lm(0, 1) = -dy / r_est;  H_lm(0, 2) = 0.0;
                 H_lm(1, 0) =  dy / (r_est*r_est); H_lm(1, 1) = -dx / (r_est*r_est); H_lm(1, 2) = -1.0;
 
-                // Messrauschen R_lm
                 Eigen::Matrix2d R_lm = Eigen::Matrix2d::Zero();
                 R_lm(0,0) = r_range_; R_lm(1,1) = r_bearing_;
 
-                // EKF Update Schritte
                 Eigen::Matrix2d S = H_lm * P_ * H_lm.transpose() + R_lm;
                 Eigen::Matrix<double, 3, 2> K = P_ * H_lm.transpose() * S.inverse();
 
                 x_hat_ = x_hat_ + K * y_residual;
                 P_ = (Eigen::Matrix3d::Identity() - K * H_lm) * P_;
-                theta = x_hat_(2); // Aktualisieren für die nächste Landmarke in der Schleife
+                theta = x_hat_(2); 
             }
         }
 
@@ -264,6 +311,13 @@ private:
     Eigen::Matrix3d P_;
     Eigen::Matrix2d R_odom_;
     double r_range_, r_bearing_, q_pos_, q_theta_;
+    
+    double target_radius_, tolerance_, max_jump_distance_;
+    int stride_, scan_skip_, min_votes_;
+    int scan_counter_ = 0;
+
+    bool has_previous_prediction_;
+    Eigen::Vector2d last_valid_center_;
 
     Eigen::Vector2d u_input_ = Eigen::Vector2d::Zero();
     Eigen::Vector2d z_odom_ = Eigen::Vector2d::Zero();

@@ -24,7 +24,8 @@
 						6,
 						7,
 						8,
-						9
+						9,
+						10
 					]
 				}
 			],
@@ -48,7 +49,8 @@
 						6,
 						7,
 						8,
-						9
+						9,
+						10
 					]
 				}
 			],
@@ -94,6 +96,13 @@
 					"id" : "noisy_odometry_node::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-noisy_odometry_node-77511a8ef71d6ab4c473.json",
 					"name" : "noisy_odometry_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "particle_filter_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-particle_filter_node-603bf577e4bb4f9ff7df.json",
+					"name" : "particle_filter_node",
 					"projectIndex" : 0
 				},
 				{
