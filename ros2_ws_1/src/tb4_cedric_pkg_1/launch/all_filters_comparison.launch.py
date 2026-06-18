@@ -68,7 +68,7 @@ def generate_launch_description():
             parameters=[{
                 'q_var_pos': 0.03, 'q_var_theta': 0.015,
                 'r_var_odom': 0.06, 'r_var_landmark_range': 0.04, 'r_var_landmark_bearing': 0.03,
-                'target_radius': 0.35, 'tolerance': 0.015, 'stride': 4, 'scan_skip': 1, 'min_votes': 4, 'max_jump_distance': 0.2
+                'target_radius': 0.35, 'tolerance': 0.015, 'stride': 4, 'scan_skip': 1, 'min_votes': 4, 'max_jump_distance': 0.4
             }]
         ),
 
@@ -81,7 +81,7 @@ def generate_launch_description():
             remappings=[('/pf_estimated_pose', '/pf_pose')],
             parameters=[{
                 'num_particles': 1200, 'q_var_pos': 0.005, 'q_var_theta': 0.005,
-                'target_radius': 0.35, 'tolerance': 0.01, 'stride': 4, 'scan_skip': 1, 'min_votes': 4, 'max_jump_distance': 0.8
+                'target_radius': 0.35, 'tolerance': 0.01, 'stride': 4, 'scan_skip': 1, 'min_votes': 4, 'max_jump_distance': 0.4
             }]
         ),
 
