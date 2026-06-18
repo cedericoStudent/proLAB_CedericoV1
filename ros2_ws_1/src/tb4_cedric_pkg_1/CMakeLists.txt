@@ -86,6 +86,12 @@ add_executable(particle_filter_node src/particle_filter_node.cpp)
 ament_target_dependencies(particle_filter_node rclcpp nav_msgs sensor_msgs geometry_msgs)
 target_include_directories(particle_filter_node SYSTEM PRIVATE ${EIGEN3_INCLUDE_DIRS})
 
+add_executable(multi_recorder_node src/multi_recorder_node.cpp)
+ament_target_dependencies(multi_recorder_node rclcpp nav_msgs geometry_msgs ament_index_cpp)
+install(TARGETS multi_recorder_node DESTINATION lib/${PROJECT_NAME})
+
+
+
 install(TARGETS
   joint_noise_node
   noisy_odometry_node

@@ -25,7 +25,8 @@
 						7,
 						8,
 						9,
-						10
+						10,
+						11
 					]
 				}
 			],
@@ -50,7 +51,8 @@
 						7,
 						8,
 						9,
-						10
+						10,
+						11
 					]
 				}
 			],
@@ -89,6 +91,13 @@
 					"id" : "landmark_test_node::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-landmark_test_node-f87ce1a8c77c9bf035c9.json",
 					"name" : "landmark_test_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "multi_recorder_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-multi_recorder_node-72b4bfb054dbc5fddc53.json",
+					"name" : "multi_recorder_node",
 					"projectIndex" : 0
 				},
 				{

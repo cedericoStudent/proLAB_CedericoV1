@@ -86,7 +86,7 @@ public:
         scan_sub_ = this->create_subscription<sensor_msgs::msg::LaserScan>(
             "/scan", 10, std::bind(&EKFWithLandmarksNode::scan_callback, this, std::placeholders::_1));
 
-        filter_pose_pub_ = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("/ekf_estimated_pose", 10);
+        filter_pose_pub_ = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("/ekf_pose_landmark", 10);
         last_time_ = this->get_clock()->now();
         filter_timer_ = this->create_wall_timer(20ms, std::bind(&EKFWithLandmarksNode::filter_loop, this));
     }

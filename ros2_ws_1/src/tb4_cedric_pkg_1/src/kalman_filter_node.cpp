@@ -130,11 +130,13 @@ int main(int argc, char * argv[])
         pose_msg.pose.pose.position.x = x_hat(0);
         pose_msg.pose.pose.position.y = x_hat(1);
 
-        // Die 2x2 Positions-Kovarianz in das 6x6 ROS-Array (flach, 36 Elemente) mappen
-        pose_msg.pose.covariance[0]  = P(0,0); // P_xx (Zeile 0, Spalte 0)
-        pose_msg.pose.covariance[1]  = P(0,1); // P_xy (Zeile 0, Spalte 1)
-        pose_msg.pose.covariance[6]  = P(1,0); // P_yx (Zeile 1, Spalte 0)
-        pose_msg.pose.covariance[7]  = P(1,1); // P_yy (Zeile 1, Spalte 1)
+        // Zuweisung der berechneten Positions-Kovarianzen aus der 4x4 Matrix P
+        pose_msg.pose.covariance[0] = P(0, 0); // P_xx
+        pose_msg.pose.covariance[1] = P(0, 1); // P_xy
+        pose_msg.pose.covariance[6] = P(1, 0); // P_yx
+        pose_msg.pose.covariance[7] = P(1, 1); // P_yy
+
+        filter_pose_pub->publish(pose_msg);
 
 
         filter_pose_pub->publish(pose_msg);

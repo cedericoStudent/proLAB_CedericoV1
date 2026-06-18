@@ -272,6 +272,19 @@ uninstall/fast:
 .PHONY : uninstall/fast
 
 #=============================================================================
+# Target rules for targets named multi_recorder_node
+
+# Build rule for target.
+multi_recorder_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 multi_recorder_node
+.PHONY : multi_recorder_node
+
+# fast build rule for target.
+multi_recorder_node/fast:
+	$(MAKE) -f CMakeFiles/multi_recorder_node.dir/build.make CMakeFiles/multi_recorder_node.dir/build
+.PHONY : multi_recorder_node/fast
+
+#=============================================================================
 # Target rules for targets named noisy_odometry_node
 
 # Build rule for target.
@@ -445,6 +458,33 @@ src/landmark_test_node.cpp.s:
 	$(MAKE) -f CMakeFiles/landmark_test_node.dir/build.make CMakeFiles/landmark_test_node.dir/src/landmark_test_node.cpp.s
 .PHONY : src/landmark_test_node.cpp.s
 
+src/multi_recorder_node.o: src/multi_recorder_node.cpp.o
+
+.PHONY : src/multi_recorder_node.o
+
+# target to build an object file
+src/multi_recorder_node.cpp.o:
+	$(MAKE) -f CMakeFiles/multi_recorder_node.dir/build.make CMakeFiles/multi_recorder_node.dir/src/multi_recorder_node.cpp.o
+.PHONY : src/multi_recorder_node.cpp.o
+
+src/multi_recorder_node.i: src/multi_recorder_node.cpp.i
+
+.PHONY : src/multi_recorder_node.i
+
+# target to preprocess a source file
+src/multi_recorder_node.cpp.i:
+	$(MAKE) -f CMakeFiles/multi_recorder_node.dir/build.make CMakeFiles/multi_recorder_node.dir/src/multi_recorder_node.cpp.i
+.PHONY : src/multi_recorder_node.cpp.i
+
+src/multi_recorder_node.s: src/multi_recorder_node.cpp.s
+
+.PHONY : src/multi_recorder_node.s
+
+# target to generate assembly for a file
+src/multi_recorder_node.cpp.s:
+	$(MAKE) -f CMakeFiles/multi_recorder_node.dir/build.make CMakeFiles/multi_recorder_node.dir/src/multi_recorder_node.cpp.s
+.PHONY : src/multi_recorder_node.cpp.s
+
 src/noisy_odometry_node.o: src/noisy_odometry_node.cpp.o
 
 .PHONY : src/noisy_odometry_node.o
@@ -571,6 +611,7 @@ help:
 	@echo "... install/strip"
 	@echo "... particle_filter_node"
 	@echo "... uninstall"
+	@echo "... multi_recorder_node"
 	@echo "... test"
 	@echo "... noisy_odometry_node"
 	@echo "... rebuild_cache"
@@ -592,6 +633,9 @@ help:
 	@echo "... src/landmark_test_node.o"
 	@echo "... src/landmark_test_node.i"
 	@echo "... src/landmark_test_node.s"
+	@echo "... src/multi_recorder_node.o"
+	@echo "... src/multi_recorder_node.i"
+	@echo "... src/multi_recorder_node.s"
 	@echo "... src/noisy_odometry_node.o"
 	@echo "... src/noisy_odometry_node.i"
 	@echo "... src/noisy_odometry_node.s"

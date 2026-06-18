@@ -316,11 +316,14 @@ ament_cmake_symlink_install_directory("/home/cedric/Desktop/PROLAB/proLAB_Cederi
 # install("TARGETS" "test_node" "DESTINATION" "lib/tb4_cedric_pkg_1")
 include("/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
-# install("TARGETS" "joint_noise_node" "noisy_odometry_node" "kalman_filter_node" "extended_kalman_filter_node" "landmark_test_node" "ekf_landmark_node" "particle_filter_node" "DESTINATION" "lib/tb4_cedric_pkg_1")
+# install("TARGETS" "multi_recorder_node" "DESTINATION" "lib/tb4_cedric_pkg_1")
 include("/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1/ament_cmake_symlink_install_targets_1_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
-# install("TARGETS" "recorder_node" "DESTINATION" "lib/tb4_cedric_pkg_1")
+# install("TARGETS" "joint_noise_node" "noisy_odometry_node" "kalman_filter_node" "extended_kalman_filter_node" "landmark_test_node" "ekf_landmark_node" "particle_filter_node" "DESTINATION" "lib/tb4_cedric_pkg_1")
 include("/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1/ament_cmake_symlink_install_targets_2_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
+
+# install("TARGETS" "recorder_node" "DESTINATION" "lib/tb4_cedric_pkg_1")
+include("/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1/ament_cmake_symlink_install_targets_3_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
 # install(DIRECTORY "launch" "DESTINATION" "share/tb4_cedric_pkg_1")
 ament_cmake_symlink_install_directory("/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1" DIRECTORY "launch" "DESTINATION" "share/tb4_cedric_pkg_1")
