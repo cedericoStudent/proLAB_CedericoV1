@@ -17,7 +17,6 @@
 using namespace std;
 using namespace std::chrono_literals;
 
-// Struktur für ein einzelnes Partikel
 struct Particle {
     double x;
     double y;
@@ -28,49 +27,45 @@ struct Particle {
 class ParticleFilterNode : public rclcpp::Node {
 public:
     ParticleFilterNode() : Node("particle_filter_node") {
-        RCLCPP_INFO(this->get_logger(), "Partikelfilter für 35cm-Landmarke gestartet.");
+        RCLCPP_INFO(this->get_logger(), "Partikelfilter mit Ausgangs-Glättung gestartet.");
 
-        // Parameter deklarieren
-        this->declare_parameter<int>("num_particles", 500);
-        this->declare_parameter<double>("q_var_pos", 0.03);
-        this->declare_parameter<double>("q_var_theta", 0.015);
-        this->declare_parameter<double>("r_var_landmark_range", 0.04);
-        this->declare_parameter<double>("r_var_landmark_bearing", 0.03);
-
-        // Geometrie- & Geister-Filter-Parameter
+        // Parameter
+        this->declare_parameter<int>("num_particles", 1500);
+        this->declare_parameter<double>("q_var_pos", 0.001);
+        this->declare_parameter<double>("q_var_theta", 0.001);
+        
         this->declare_parameter<double>("target_radius", 0.35);
-        this->declare_parameter<double>("tolerance", 0.015);
+        this->declare_parameter<double>("tolerance", 0.01);
         this->declare_parameter<int>("stride", 4);
         this->declare_parameter<int>("scan_skip", 1);
-        this->declare_parameter<int>("min_votes", 4);
-        this->declare_parameter<double>("max_jump_distance", 0.2);
+        this->declare_parameter<int>("min_votes", 5);
+        this->declare_parameter<double>("max_jump_distance", 0.8);
+        
+        // NEU: Glättungsfaktor (0.0 = keine Aktualisierung, 1.0 = ungefiltert roher PF-Mittelwert)
+        this->declare_parameter<double>("alpha_smooth", 0.15); 
 
-        // Parameter einlesen
         num_particles_ = this->get_parameter("num_particles").as_int();
         q_pos_ = this->get_parameter("q_var_pos").as_double();
         q_theta_ = this->get_parameter("q_var_theta").as_double();
-        r_range_ = this->get_parameter("r_var_landmark_range").as_double();
-        r_bearing_ = this->get_parameter("r_var_landmark_bearing").as_double();
-
         target_radius_ = this->get_parameter("target_radius").as_double();
         tolerance_ = this->get_parameter("tolerance").as_double();
         stride_ = this->get_parameter("stride").as_int();
         scan_skip_ = this->get_parameter("scan_skip").as_int();
         min_votes_ = this->get_parameter("min_votes").as_int();
         max_jump_distance_ = this->get_parameter("max_jump_distance").as_double();
+        alpha_smooth_ = this->get_parameter("alpha_smooth").as_double();
 
-        // Feste Landmarken-Position (analog zum EKF)
         landmark_x_ = -1.2;
         landmark_y_ = 1.2;
 
-        // Partikel-Initialisierung um den Startpunkt (0,0,0)
         initialize_particles();
 
-        // Geister-Filter Status
+        // Internen geglätteten Zustand initialisieren
+        x_smooth_ = Eigen::Vector3d::Zero();
+
         has_previous_prediction_ = false;
         last_valid_center_ = Eigen::Vector2d::Zero();
 
-        // Subscriber & Publisher
         cmd_sub_ = this->create_subscription<geometry_msgs::msg::Twist>(
             "/cmd_vel", 10, [&](const geometry_msgs::msg::Twist::SharedPtr msg) {
                 u_input_(0) = msg->linear.x;
@@ -80,7 +75,7 @@ public:
         scan_sub_ = this->create_subscription<sensor_msgs::msg::LaserScan>(
             "/scan", 10, std::bind(&ParticleFilterNode::scan_callback, this, std::placeholders::_1));
 
-        filter_pose_pub_ = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("/pf_estimated_pose", 10);
+        filter_pose_pub = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("/pf_estimated_pose", 10);
         last_time_ = this->get_clock()->now();
         filter_timer_ = this->create_wall_timer(20ms, std::bind(&ParticleFilterNode::filter_loop, this));
     }
@@ -89,8 +84,6 @@ private:
     void initialize_particles() {
         particles_.resize(num_particles_);
         double initial_weight = 1.0 / num_particles_;
-        
-        // Initialer Zustand leicht verrauscht um (0, 0, 0) verteilen
         std::normal_distribution<double> d_pos(0.0, 0.05);
         std::normal_distribution<double> d_theta(0.0, 0.02);
 
@@ -158,7 +151,6 @@ private:
             }
         }
 
-        // Geister-Filter anwenden
         detected_landmarks_local_.clear();
         for (const auto& clus : clusters) {
             if (clus.votes >= min_votes_) {
@@ -170,7 +162,6 @@ private:
                     double jump_dist = (final_center - last_valid_center_).norm();
 
                     if ((x_sign_changed || y_sign_changed) && jump_dist > max_jump_distance_) {
-                        RCLCPP_WARN(this->get_logger(), "👻 PF-Korrektur verweigert Geisterwert bei X=%.2f, Y=%.2f", final_center.x(), final_center.y());
                         continue;
                     }
                 }
@@ -188,7 +179,7 @@ private:
         if (dt <= 0.0) return;
 
         // =====================================================================
-        // 1. PRÄDIKTIONS-SCHRITT (Partikel mit Prozessrauschen bewegen)
+        // 1. PRÄDIKTION
         // =====================================================================
         double v = u_input_(0);
         double omega = u_input_(1);
@@ -197,59 +188,46 @@ private:
         std::normal_distribution<double> noise_theta(0.0, std::sqrt(q_theta_ * dt));
 
         for (auto& p : particles_) {
-            // Kinematik + Rauschen addieren
             p.x += (v * std::cos(p.theta)) * dt + noise_pos(gen_);
-            p.y += (v * std::sin(p.theta)) * dt + noise_pos(gen_) * 0.1; // Querabweichung geringer analog zum EKF Setup
+            p.y += (v * std::sin(p.theta)) * dt + noise_pos(gen_) * 0.1; 
             p.theta += omega * dt + noise_theta(gen_);
             p.theta = std::atan2(std::sin(p.theta), std::cos(p.theta));
         }
 
         // =====================================================================
-        // 2. KORREKTUR-SCHRITT (Weights updaten basierend auf Messung)
+        // 2. KORREKTUR (Nur wenn Landmarke sichtbar)
         // =====================================================================
         if (!detected_landmarks_local_.empty()) {
-            // Wir nehmen die erste verifizierte Landmarken-Messung dieses Zyklus
             Eigen::Vector2d z_local = detected_landmarks_local_[0];
             double z_range = z_local.norm();
             double z_bearing = std::atan2(z_local.y(), z_local.x());
 
             double weight_sum = 0.0;
+            double r_var_euclidean = 0.08; // Erhöht für sanftere Übergänge
 
             for (auto& p : particles_) {
-                // Erwartete Messung aus Sicht dieses spezifischen Partikels berechnen
-                double dx = landmark_x_ - p.x;
-                double dy = landmark_y_ - p.y;
-                double h_range = std::hypot(dx, dy);
-                double h_bearing = std::atan2(dy, dx) - p.theta;
-                h_bearing = std::atan2(std::sin(h_bearing), std::cos(h_bearing));
+                double glob_x_meas = p.x + z_range * std::cos(p.theta + z_bearing);
+                double glob_y_meas = p.y + z_range * std::sin(p.theta + z_bearing);
 
-                // Residuen bestimmen
-                double error_r = z_range - h_range;
-                double error_b = z_bearing - h_bearing;
-                error_b = std::atan2(std::sin(error_b), std::cos(error_b));
+                double dx = landmark_x_ - glob_x_meas;
+                double dy = landmark_y_ - glob_y_meas;
+                double distance_error_sq = dx*dx + dy*dy;
 
-                // Gaußsche Wahrscheinlichkeitsdichte (Likelihood) berechnen
-                double prob_r = (1.0 / (std::sqrt(2.0 * M_PI * r_range_))) * std::exp(-(error_r * error_r) / (2.0 * r_range_));
-                double prob_b = (1.0 / (std::sqrt(2.0 * M_PI * r_bearing_))) * std::exp(-(error_b * error_b) / (2.0 * r_bearing_));
-                
-                // Gewicht multiplizieren (Verknüpfung der Messungen)
-                p.weight *= (prob_r * prob_b);
-                if (p.weight < 1e-300) p.weight = 1e-300; // Unterlauf verhindern
+                double likelihood = (1.0 / (std::sqrt(2.0 * M_PI * r_var_euclidean))) * std::exp(-distance_error_sq / (2.0 * r_var_euclidean));
+
+                p.weight *= likelihood;
+                if (p.weight < 1e-300) p.weight = 1e-300;
                 weight_sum += p.weight;
             }
 
-            // Gewichte normalisieren
             if (weight_sum > 0.0) {
-                for (auto& p : particles_) {
-                    p.weight /= weight_sum;
-                }
+                for (auto& p : particles_) p.weight /= weight_sum;
             } else {
-                // Falls alle Partikel "sterben", gleichmäßig reinitialisieren
                 for (auto& p : particles_) p.weight = 1.0 / num_particles_;
             }
 
             // =====================================================================
-            // 3. RESAMPLING (Systematisch, falls N_eff kritisch niedrig)
+            // 3. RESAMPLING (Jetzt sauber verschachtelt im Messungs-Block!)
             // =====================================================================
             double n_eff = 0.0;
             for (const auto& p : particles_) n_eff += p.weight * p.weight;
@@ -275,49 +253,65 @@ private:
         }
 
         // =====================================================================
-        // 4. MITTELWERTS-BILDUNG & PUBLISH
+        // 4. MITTELWERTS-BILDUNG & EXPONENTIELLE GLÄTTUNG (ALPHA-FILTER)
         // =====================================================================
-        double mean_x = 0.0, mean_y = 0.0;
+        double raw_mean_x = 0.0, raw_mean_y = 0.0;
         double sum_sin = 0.0, sum_cos = 0.0;
         double var_x = 0.0, var_y = 0.0;
 
         for (const auto& p : particles_) {
-            mean_x += p.x * p.weight;
-            mean_y += p.y * p.weight;
+            raw_mean_x += p.x * p.weight;
+            raw_mean_y += p.y * p.weight;
             sum_cos += std::cos(p.theta) * p.weight;
             sum_sin += std::sin(p.theta) * p.weight;
         }
-        double mean_theta = std::atan2(sum_sin, sum_cos);
+        double raw_mean_theta = std::atan2(sum_sin, sum_cos);
 
-        // Einfache Varianzschätzung für Kovarianzmatrix-Visualisierung im Plotter
-        for (const auto& p : particles_) {
-            var_x += p.weight * (p.x - mean_x) * (p.x - mean_x);
-            var_y += p.weight * (p.y - mean_y) * (p.y - mean_y);
+        // Der Glättungsschritt (Alpha-Filter) fängt Resampling-Sprünge ab
+        if (x_smooth_(0) == 0.0 && x_smooth_(1) == 0.0) {
+            // Beim allerersten Durchlauf direkt setzen
+            x_smooth_(0) = raw_mean_x;
+            x_smooth_(1) = raw_mean_y;
+            x_smooth_(2) = raw_mean_theta;
+        } else {
+            x_smooth_(0) = (1.0 - alpha_smooth_) * x_smooth_(0) + alpha_smooth_ * raw_mean_x;
+            x_smooth_(1) = (1.0 - alpha_smooth_) * x_smooth_(1) + alpha_smooth_ * raw_mean_y;
+            
+            // Winkelsprung-sichere Glättung der Orientierung
+            double s_theta = (1.0 - alpha_smooth_) * std::sin(x_smooth_(2)) + alpha_smooth_ * std::sin(raw_mean_theta);
+            double c_theta = (1.0 - alpha_smooth_) * std::cos(x_smooth_(2)) + alpha_smooth_ * std::cos(raw_mean_theta);
+            x_smooth_(2) = std::atan2(s_theta, c_theta);
         }
 
+        // Varianzschätzung auf Basis des glatten Zustands berechnen (für kleine Plotter-Ellipsen)
+        for (const auto& p : particles_) {
+            var_x += p.weight * (p.x - x_smooth_(0)) * (p.x - x_smooth_(0));
+            var_y += p.weight * (p.y - x_smooth_(1)) * (p.y - x_smooth_(1));
+        }
+
+        // PUBLISH
         geometry_msgs::msg::PoseWithCovarianceStamped pose_msg;
         pose_msg.header.stamp = current_time;
         pose_msg.header.frame_id = "odom";
-        pose_msg.pose.pose.position.x = mean_x;
-        pose_msg.pose.pose.position.y = mean_y;
-        pose_msg.pose.pose.orientation.z = std::sin(mean_theta / 2.0);
-        pose_msg.pose.pose.orientation.w = std::cos(mean_theta / 2.0);
+        pose_msg.pose.pose.position.x = x_smooth_(0);
+        pose_msg.pose.pose.position.y = x_smooth_(1);
+        pose_msg.pose.pose.orientation.z = std::sin(x_smooth_(2) / 2.0);
+        pose_msg.pose.pose.orientation.w = std::cos(x_smooth_(2) / 2.0);
 
-        // Kovarianz-Zuweisung analog zum EKF, damit der Plotter fehlerfrei rendert
         pose_msg.pose.covariance[0] = var_x;   pose_msg.pose.covariance[1] = 0.0;
         pose_msg.pose.covariance[6] = 0.0;     pose_msg.pose.covariance[7] = var_y;
 
-        filter_pose_pub_->publish(pose_msg);
+        filter_pose_pub->publish(pose_msg);
     }
 
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr cmd_sub_;
     rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr scan_sub_;
-    rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr filter_pose_pub_;
+    rclcpp::Publisher<geometry_msgs::msg::PoseWithCovarianceStamped>::SharedPtr filter_pose_pub;
     rclcpp::TimerBase::SharedPtr filter_timer_;
 
     int num_particles_;
-    double q_pos_, q_theta_, r_range_, r_bearing_;
-    double target_radius_, tolerance_, max_jump_distance_;
+    double q_pos_, q_theta_;
+    double target_radius_, tolerance_, max_jump_distance_, alpha_smooth_;
     int stride_, scan_skip_, min_votes_;
     int scan_counter_ = 0;
 
@@ -329,6 +323,8 @@ private:
     Eigen::Vector2d u_input_ = Eigen::Vector2d::Zero();
     std::vector<Eigen::Vector2d> detected_landmarks_local_;
     std::vector<Particle> particles_;
+    
+    Eigen::Vector3d x_smooth_; // Interner geglätteter Zustand
 
     std::mt19937 gen_{std::random_device{}()};
     rclcpp::Time last_time_;

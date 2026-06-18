@@ -1,0 +1,298 @@
+[0.000000] (-) TimerEvent: {}
+[0.000437] (tb4_cedric_pkg_1) JobQueued: {'identifier': 'tb4_cedric_pkg_1', 'dependencies': OrderedDict()}
+[0.000503] (tb4_cedric_pkg_1) JobStarted: {'identifier': 'tb4_cedric_pkg_1'}
+[0.015924] (tb4_cedric_pkg_1) JobProgress: {'identifier': 'tb4_cedric_pkg_1', 'progress': 'cmake'}
+[0.017569] (tb4_cedric_pkg_1) JobProgress: {'identifier': 'tb4_cedric_pkg_1', 'progress': 'build'}
+[0.019624] (tb4_cedric_pkg_1) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1', '--', '-j16', '-l16'], 'cwd': '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'cedric'), ('SSH_AGENT_PID', '2304'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LIBGL_ALWAYS_SOFTWARE', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/cedric'), ('CHROME_DESKTOP', 'code.desktop'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/cedric/.nvm/versions/node/v22.22.1/bin'), ('NVM_INC', '/home/cedric/.nvm/versions/node/v22.22.1/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '2109'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/cedric/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '6090'), ('NVM_DIR', '/home/cedric/.nvm'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'cedric'), ('JOURNAL_STREAM', '8:55609'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'cedric'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', ':/opt/ros/foxy/share/turtlebot3_gazebo/models:/opt/ros/foxy/share/turtlebot3_gazebo/models'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/cedric/.local/bin:/opt/ros/foxy/bin:/home/cedric/.nvm/versions/node/v22.22.1/bin:/home/cedric/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/cedric/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts:/home/cedric/.config/Code/User/globalStorage/github.copilot-chat/debugCommand'), ('SESSION_MANAGER', 'local/cedric-ThinkPad-E14-Gen-3:@/tmp/.ICE-unix/2378,unix/cedric-ThinkPad-E14-Gen-3:/tmp/.ICE-unix/2378'), ('INVOCATION_ID', '205b55de940e4f4d9b1b9a85ae64c7ec'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/cedric/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-a59349a2767692ef.txt'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('PYTHONSTARTUP', '/home/cedric/.config/Code/User/workspaceStorage/51e6f2381f63403292cf25461d463484/ms-python.python/pythonrc.py'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-45275ed3b2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1:/opt/ros/foxy'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1'), ('TURTLEBOT3_MODEL', 'waffle'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1:/opt/ros/foxy')]), 'shell': False}
+[0.099197] (-) TimerEvent: {}
+[0.116795] (tb4_cedric_pkg_1) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target particle_filter_node\x1b[0m\n'}
+[0.140223] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 11%] Built target test_node\n'}
+[0.141301] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 22%] Built target recorder_node\n'}
+[0.146306] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 33%] Built target kalman_filter_node\n'}
+[0.147929] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 44%] Built target landmark_test_node\n'}
+[0.153591] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 55%] Built target joint_noise_node\n'}
+[0.158297] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 66%] Built target noisy_odometry_node\n'}
+[0.158709] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 77%] Built target ekf_landmark_node\n'}
+[0.163544] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 88%] Built target extended_kalman_filter_node\n'}
+[0.184846] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 94%] \x1b[32mBuilding CXX object CMakeFiles/particle_filter_node.dir/src/particle_filter_node.cpp.o\x1b[0m\n'}
+[0.199360] (-) TimerEvent: {}
+[0.299946] (-) TimerEvent: {}
+[0.400464] (-) TimerEvent: {}
+[0.501031] (-) TimerEvent: {}
+[0.601605] (-) TimerEvent: {}
+[0.702165] (-) TimerEvent: {}
+[0.802759] (-) TimerEvent: {}
+[0.903315] (-) TimerEvent: {}
+[1.003910] (-) TimerEvent: {}
+[1.104468] (-) TimerEvent: {}
+[1.205017] (-) TimerEvent: {}
+[1.305531] (-) TimerEvent: {}
+[1.406011] (-) TimerEvent: {}
+[1.506505] (-) TimerEvent: {}
+[1.606989] (-) TimerEvent: {}
+[1.707513] (-) TimerEvent: {}
+[1.808218] (-) TimerEvent: {}
+[1.908688] (-) TimerEvent: {}
+[2.009150] (-) TimerEvent: {}
+[2.109667] (-) TimerEvent: {}
+[2.154938] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:306:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected unqualified-id before \xe2\x80\x98\x1b[01m\x1b[Kfor\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.155346] (tb4_cedric_pkg_1) StderrLine: {'line': b'  306 |         \x1b[01;31m\x1b[Kfor\x1b[m\x1b[K (const auto& p : particles_) {\n'}
+[2.155527] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[2.155694] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:315:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected unqualified-id before \xe2\x80\x98\x1b[01m\x1b[Kfor\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.155885] (tb4_cedric_pkg_1) StderrLine: {'line': b'  315 |         \x1b[01;31m\x1b[Kfor\x1b[m\x1b[K (const auto& p : particles_) {\n'}
+[2.156058] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~\x1b[m\x1b[K\n'}
+[2.156922] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:321:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpose_msg\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[2.157161] (tb4_cedric_pkg_1) StderrLine: {'line': b'  321 |         \x1b[01;31m\x1b[Kpose_msg\x1b[m\x1b[K.header.stamp = current_time;\n'}
+[2.157334] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.158831] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:322:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpose_msg\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[2.159072] (tb4_cedric_pkg_1) StderrLine: {'line': b'  322 |         \x1b[01;31m\x1b[Kpose_msg\x1b[m\x1b[K.header.frame_id = "odom";\n'}
+[2.159245] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.161130] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:323:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpose_msg\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[2.161396] (tb4_cedric_pkg_1) StderrLine: {'line': b'  323 |         \x1b[01;31m\x1b[Kpose_msg\x1b[m\x1b[K.pose.pose.position.x = mean_x;\n'}
+[2.161586] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.163155] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:324:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpose_msg\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[2.163404] (tb4_cedric_pkg_1) StderrLine: {'line': b'  324 |         \x1b[01;31m\x1b[Kpose_msg\x1b[m\x1b[K.pose.pose.position.y = mean_y;\n'}
+[2.163584] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.165140] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:325:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpose_msg\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[2.165416] (tb4_cedric_pkg_1) StderrLine: {'line': b'  325 |         \x1b[01;31m\x1b[Kpose_msg\x1b[m\x1b[K.pose.pose.orientation.z = std::sin(mean_theta / 2.0);\n'}
+[2.165590] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.167107] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:326:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpose_msg\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[2.167494] (tb4_cedric_pkg_1) StderrLine: {'line': b'  326 |         \x1b[01;31m\x1b[Kpose_msg\x1b[m\x1b[K.pose.pose.orientation.w = std::cos(mean_theta / 2.0);\n'}
+[2.167748] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.169132] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:329:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpose_msg\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[2.169391] (tb4_cedric_pkg_1) StderrLine: {'line': b'  329 |         \x1b[01;31m\x1b[Kpose_msg\x1b[m\x1b[K.pose.covariance[0] = var_x;   pose_msg.pose.covariance[1] = 0.0;\n'}
+[2.169577] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.171067] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:329:48:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpose_msg\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[2.171345] (tb4_cedric_pkg_1) StderrLine: {'line': b'  329 |         pose_msg.pose.covariance[0] = var_x;   \x1b[01;31m\x1b[Kpose_msg\x1b[m\x1b[K.pose.covariance[1] = 0.0;\n'}
+[2.171527] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                                \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.173112] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:330:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpose_msg\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[2.173368] (tb4_cedric_pkg_1) StderrLine: {'line': b'  330 |         \x1b[01;31m\x1b[Kpose_msg\x1b[m\x1b[K.pose.covariance[6] = 0.0;     pose_msg.pose.covariance[7] = var_y;\n'}
+[2.173549] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.175063] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:330:48:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kpose_msg\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[2.175306] (tb4_cedric_pkg_1) StderrLine: {'line': b'  330 |         pose_msg.pose.covariance[6] = 0.0;     \x1b[01;31m\x1b[Kpose_msg\x1b[m\x1b[K.pose.covariance[7] = var_y;\n'}
+[2.175483] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                                \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.179370] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:332:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kfilter_pose_pub_\x1b[m\x1b[K\xe2\x80\x99 does not name a type\n'}
+[2.179649] (tb4_cedric_pkg_1) StderrLine: {'line': b'  332 |         \x1b[01;31m\x1b[Kfilter_pose_pub_\x1b[m\x1b[K->publish(pose_msg);\n'}
+[2.179829] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.189600] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KParticleFilterNode::ParticleFilterNode()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.189874] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:49:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knum_particles_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.190083] (tb4_cedric_pkg_1) StderrLine: {'line': b'   49 |         \x1b[01;31m\x1b[Knum_particles_\x1b[m\x1b[K = this->get_parameter("num_particles").as_int();\n'}
+[2.190260] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.191754] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:50:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kq_pos_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.192046] (tb4_cedric_pkg_1) StderrLine: {'line': b'   50 |         \x1b[01;31m\x1b[Kq_pos_\x1b[m\x1b[K = this->get_parameter("q_var_pos").as_double();\n'}
+[2.192241] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[2.194798] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:51:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kq_theta_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.195071] (tb4_cedric_pkg_1) StderrLine: {'line': b'   51 |         \x1b[01;31m\x1b[Kq_theta_\x1b[m\x1b[K = this->get_parameter("q_var_theta").as_double();\n'}
+[2.195260] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.197768] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:52:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kr_range_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.198032] (tb4_cedric_pkg_1) StderrLine: {'line': b'   52 |         \x1b[01;31m\x1b[Kr_range_\x1b[m\x1b[K = this->get_parameter("r_var_landmark_range").as_double();\n'}
+[2.198219] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.201411] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:53:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kr_bearing_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.201882] (tb4_cedric_pkg_1) StderrLine: {'line': b'   53 |         \x1b[01;31m\x1b[Kr_bearing_\x1b[m\x1b[K = this->get_parameter("r_var_landmark_bearing").as_double();\n'}
+[2.202182] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.205959] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:55:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Ktarget_radius_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.206400] (tb4_cedric_pkg_1) StderrLine: {'line': b'   55 |         \x1b[01;31m\x1b[Ktarget_radius_\x1b[m\x1b[K = this->get_parameter("target_radius").as_double();\n'}
+[2.206672] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.209507] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:56:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Ktolerance_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.209727] (-) TimerEvent: {}
+[2.209821] (tb4_cedric_pkg_1) StderrLine: {'line': b'   56 |         \x1b[01;31m\x1b[Ktolerance_\x1b[m\x1b[K = this->get_parameter("tolerance").as_double();\n'}
+[2.209889] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.212840] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:57:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kstride_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.213084] (tb4_cedric_pkg_1) StderrLine: {'line': b'   57 |         \x1b[01;31m\x1b[Kstride_\x1b[m\x1b[K = this->get_parameter("stride").as_int();\n'}
+[2.213260] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[2.216472] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:58:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kscan_skip_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.216816] (tb4_cedric_pkg_1) StderrLine: {'line': b'   58 |         \x1b[01;31m\x1b[Kscan_skip_\x1b[m\x1b[K = this->get_parameter("scan_skip").as_int();\n'}
+[2.217017] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.220222] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:59:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kmin_votes_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.220499] (tb4_cedric_pkg_1) StderrLine: {'line': b'   59 |         \x1b[01;31m\x1b[Kmin_votes_\x1b[m\x1b[K = this->get_parameter("min_votes").as_int();\n'}
+[2.220629] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.226384] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:60:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kmax_jump_distance_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.226856] (tb4_cedric_pkg_1) StderrLine: {'line': b'   60 |         \x1b[01;31m\x1b[Kmax_jump_distance_\x1b[m\x1b[K = this->get_parameter("max_jump_distance").as_double();\n'}
+[2.227030] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.232031] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:63:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Klandmark_x_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.232273] (tb4_cedric_pkg_1) StderrLine: {'line': b'   63 |         \x1b[01;31m\x1b[Klandmark_x_\x1b[m\x1b[K = -1.2;\n'}
+[2.232401] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.235893] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:64:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Klandmark_y_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.236178] (tb4_cedric_pkg_1) StderrLine: {'line': b'   64 |         \x1b[01;31m\x1b[Klandmark_y_\x1b[m\x1b[K = 1.2;\n'}
+[2.236362] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.242969] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:70:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Khas_previous_prediction_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.243313] (tb4_cedric_pkg_1) StderrLine: {'line': b'   70 |         \x1b[01;31m\x1b[Khas_previous_prediction_\x1b[m\x1b[K = false;\n'}
+[2.243490] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.249512] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:71:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Klast_valid_center_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.249816] (tb4_cedric_pkg_1) StderrLine: {'line': b'   71 |         \x1b[01;31m\x1b[Klast_valid_center_\x1b[m\x1b[K = Eigen::Vector2d::Zero();\n'}
+[2.250003] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.269566] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:74:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kcmd_sub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[K_mm_sub_sd\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.269909] (tb4_cedric_pkg_1) StderrLine: {'line': b'   74 |         \x1b[01;31m\x1b[Kcmd_sub_\x1b[m\x1b[K = this->create_subscription<geometry_msgs::msg::Twist>(\n'}
+[2.270098] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.270271] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[32m\x1b[K_mm_sub_sd\x1b[m\x1b[K\n'}
+[2.274595] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:\x1b[m\x1b[K In lambda function:\n'}
+[2.274859] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:76:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Ku_input_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.275050] (tb4_cedric_pkg_1) StderrLine: {'line': b'   76 |                 \x1b[01;31m\x1b[Ku_input_\x1b[m\x1b[K(0) = msg->linear.x;\n'}
+[2.275241] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.299296] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KParticleFilterNode::ParticleFilterNode()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.299594] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:80:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kscan_sub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.299784] (tb4_cedric_pkg_1) StderrLine: {'line': b'   80 |         \x1b[01;31m\x1b[Kscan_sub_\x1b[m\x1b[K = this->create_subscription<sensor_msgs::msg::LaserScan>(\n'}
+[2.299990] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[2.309912] (-) TimerEvent: {}
+[2.316813] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:83:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kfilter_pose_pub_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.317171] (tb4_cedric_pkg_1) StderrLine: {'line': b'   83 |         \x1b[01;31m\x1b[Kfilter_pose_pub_\x1b[m\x1b[K = this->create_publisher<geometry_msgs::msg::PoseWithCovarianceStamped>("/pf_estimated_pose", 10);\n'}
+[2.317350] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.323328] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:84:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Klast_time_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.323696] (tb4_cedric_pkg_1) StderrLine: {'line': b'   84 |         \x1b[01;31m\x1b[Klast_time_\x1b[m\x1b[K = this->get_clock()->now();\n'}
+[2.323923] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.328400] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:85:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kfilter_timer_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.328703] (tb4_cedric_pkg_1) StderrLine: {'line': b'   85 |         \x1b[01;31m\x1b[Kfilter_timer_\x1b[m\x1b[K = this->create_wall_timer(20ms, std::bind(&ParticleFilterNode::filter_loop, this));\n'}
+[2.328904] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.340800] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid ParticleFilterNode::initialize_particles()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.341078] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:90:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kparticles_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KParticle\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.341280] (tb4_cedric_pkg_1) StderrLine: {'line': b'   90 |         \x1b[01;31m\x1b[Kparticles_\x1b[m\x1b[K.resize(num_particles_);\n'}
+[2.341457] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.341631] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[32m\x1b[KParticle\x1b[m\x1b[K\n'}
+[2.346148] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:90:27:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knum_particles_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.346410] (tb4_cedric_pkg_1) StderrLine: {'line': b'   90 |         particles_.resize(\x1b[01;31m\x1b[Knum_particles_\x1b[m\x1b[K);\n'}
+[2.346580] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                           \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.348725] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:98:37:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgen_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.348999] (tb4_cedric_pkg_1) StderrLine: {'line': b'   98 |             particles_[i].x = d_pos(\x1b[01;31m\x1b[Kgen_\x1b[m\x1b[K);\n'}
+[2.349181] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                     \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.355034] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid ParticleFilterNode::scan_callback(sensor_msgs::msg::LaserScan_<std::allocator<void> >::SharedPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.355293] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:106:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kscan_counter_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.355481] (tb4_cedric_pkg_1) StderrLine: {'line': b'  106 |         \x1b[01;31m\x1b[Kscan_counter_\x1b[m\x1b[K++;\n'}
+[2.355657] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.358518] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:107:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kscan_skip_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.358809] (tb4_cedric_pkg_1) StderrLine: {'line': b'  107 |         if (scan_counter_ % \x1b[01;31m\x1b[Kscan_skip_\x1b[m\x1b[K != 0) return;\n'}
+[2.358991] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.366496] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:130:36:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kstride_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.366774] (tb4_cedric_pkg_1) StderrLine: {'line': b'  130 |         for (size_t i = 0; i + 2 * \x1b[01;31m\x1b[Kstride_\x1b[m\x1b[K < num_points; i += 1) {\n'}
+[2.366960] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                    \x1b[01;31m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[2.379612] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:141:30:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Ktarget_radius_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.379966] (tb4_cedric_pkg_1) StderrLine: {'line': b'  141 |             if (std::abs(R - \x1b[01;31m\x1b[Ktarget_radius_\x1b[m\x1b[K) < tolerance_) {\n'}
+[2.380166] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                              \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.382826] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:141:48:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Ktolerance_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.383082] (tb4_cedric_pkg_1) StderrLine: {'line': b'  141 |             if (std::abs(R - target_radius_) < \x1b[01;31m\x1b[Ktolerance_\x1b[m\x1b[K) {\n'}
+[2.383269] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                                \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.410131] (-) TimerEvent: {}
+[2.414147] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:162:9:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kdetected_landmarks_local_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.414574] (tb4_cedric_pkg_1) StderrLine: {'line': b'  162 |         \x1b[01;31m\x1b[Kdetected_landmarks_local_\x1b[m\x1b[K.clear();\n'}
+[2.414829] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.417963] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:164:31:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kmin_votes_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.418340] (tb4_cedric_pkg_1) StderrLine: {'line': b'  164 |             if (clus.votes >= \x1b[01;31m\x1b[Kmin_votes_\x1b[m\x1b[K) {\n'}
+[2.418576] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                               \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.426216] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:167:21:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Khas_previous_prediction_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.426545] (tb4_cedric_pkg_1) StderrLine: {'line': b'  167 |                 if (\x1b[01;31m\x1b[Khas_previous_prediction_\x1b[m\x1b[K) {\n'}
+[2.426821] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                     \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.432459] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:168:91:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Klast_valid_center_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.432811] (tb4_cedric_pkg_1) StderrLine: {'line': b'  168 |                     bool x_sign_changed = (std::signbit(final_center.x()) != std::signbit(\x1b[01;31m\x1b[Klast_valid_center_\x1b[m\x1b[K.x()));\n'}
+[2.433056] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                                                                           \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.438359] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:172:75:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kmax_jump_distance_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.438678] (tb4_cedric_pkg_1) StderrLine: {'line': b'  172 |                     if ((x_sign_changed || y_sign_changed) && jump_dist > \x1b[01;31m\x1b[Kmax_jump_distance_\x1b[m\x1b[K) {\n'}
+[2.438926] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                                                           \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.444506] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:178:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Klast_valid_center_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.444889] (tb4_cedric_pkg_1) StderrLine: {'line': b'  178 |                 \x1b[01;31m\x1b[Klast_valid_center_\x1b[m\x1b[K = final_center;\n'}
+[2.445196] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.452235] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:179:17:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Khas_previous_prediction_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.452597] (tb4_cedric_pkg_1) StderrLine: {'line': b'  179 |                 \x1b[01;31m\x1b[Khas_previous_prediction_\x1b[m\x1b[K = true;\n'}
+[2.452845] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                 \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.455795] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid ParticleFilterNode::filter_loop()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.456104] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:186:37:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Klast_time_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.456315] (tb4_cedric_pkg_1) StderrLine: {'line': b'  186 |         double dt = (current_time - \x1b[01;31m\x1b[Klast_time_\x1b[m\x1b[K).seconds();\n'}
+[2.456511] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                     \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.458691] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:193:20:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Ku_input_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.458946] (tb4_cedric_pkg_1) StderrLine: {'line': b'  193 |         double v = \x1b[01;31m\x1b[Ku_input_\x1b[m\x1b[K(0);\n'}
+[2.459188] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                    \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.460852] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:196:67:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kq_pos_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.461125] (tb4_cedric_pkg_1) StderrLine: {'line': b'  196 |         std::normal_distribution<double> noise_pos(0.0, std::sqrt(\x1b[01;31m\x1b[Kq_pos_\x1b[m\x1b[K * dt));\n'}
+[2.461357] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                                                   \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[2.463786] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:197:69:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kq_theta_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.464120] (tb4_cedric_pkg_1) StderrLine: {'line': b'  197 |         std::normal_distribution<double> noise_theta(0.0, std::sqrt(\x1b[01;31m\x1b[Kq_theta_\x1b[m\x1b[K * dt));\n'}
+[2.464389] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                                                     \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.466462] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:199:24:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kparticles_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KParticle\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.466699] (tb4_cedric_pkg_1) StderrLine: {'line': b'  199 |         for (auto& p : \x1b[01;31m\x1b[Kparticles_\x1b[m\x1b[K) {\n'}
+[2.466793] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                        \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.466873] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                        \x1b[32m\x1b[KParticle\x1b[m\x1b[K\n'}
+[2.468462] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:201:61:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgen_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.468601] (tb4_cedric_pkg_1) StderrLine: {'line': b'  201 |             p.x += (v * std::cos(p.theta)) * dt + noise_pos(\x1b[01;31m\x1b[Kgen_\x1b[m\x1b[K);\n'}
+[2.468690] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                                             \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.476232] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:210:6:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kdetected_landmarks_local_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.476566] (tb4_cedric_pkg_1) StderrLine: {'line': b'  210 | if (!\x1b[01;31m\x1b[Kdetected_landmarks_local_\x1b[m\x1b[K.empty()) {\n'}
+[2.476811] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |      \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.478844] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:220:28:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kparticles_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KParticle\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.478959] (tb4_cedric_pkg_1) StderrLine: {'line': b'  220 |             for (auto& p : \x1b[01;31m\x1b[Kparticles_\x1b[m\x1b[K) {\n'}
+[2.479058] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                            \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.479138] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                            \x1b[32m\x1b[KParticle\x1b[m\x1b[K\n'}
+[2.482659] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:226:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Klandmark_x_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.483038] (tb4_cedric_pkg_1) StderrLine: {'line': b'  226 |                 double dx = \x1b[01;31m\x1b[Klandmark_x_\x1b[m\x1b[K - glob_x_meas;\n'}
+[2.483306] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.486208] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:227:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Klandmark_y_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.486531] (tb4_cedric_pkg_1) StderrLine: {'line': b'  227 |                 double dy = \x1b[01;31m\x1b[Klandmark_y_\x1b[m\x1b[K - glob_y_meas;\n'}
+[2.486775] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.489174] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:240:32:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kparticles_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KParticle\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.489510] (tb4_cedric_pkg_1) StderrLine: {'line': b'  240 |                 for (auto& p : \x1b[01;31m\x1b[Kparticles_\x1b[m\x1b[K) {\n'}
+[2.489712] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.489907] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                \x1b[32m\x1b[KParticle\x1b[m\x1b[K\n'}
+[2.492038] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:244:32:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kparticles_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KParticle\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.492337] (tb4_cedric_pkg_1) StderrLine: {'line': b'  244 |                 for (auto& p : \x1b[01;31m\x1b[Kparticles_\x1b[m\x1b[K) p.weight = 1.0 / num_particles_;\n'}
+[2.492543] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.492737] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                \x1b[32m\x1b[KParticle\x1b[m\x1b[K\n'}
+[2.496445] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:244:61:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knum_particles_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.496754] (tb4_cedric_pkg_1) StderrLine: {'line': b'  244 |                 for (auto& p : particles_) p.weight = 1.0 / \x1b[01;31m\x1b[Knum_particles_\x1b[m\x1b[K;\n'}
+[2.496942] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                                             \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.499246] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:251:34:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kparticles_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KParticle\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.499612] (tb4_cedric_pkg_1) StderrLine: {'line': b'  251 |             for (const auto& p : \x1b[01;31m\x1b[Kparticles_\x1b[m\x1b[K) n_eff += p.weight * p.weight;\n'}
+[2.499779] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                  \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.499954] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                  \x1b[32m\x1b[KParticle\x1b[m\x1b[K\n'}
+[2.503631] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:254:25:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knum_particles_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.503893] (tb4_cedric_pkg_1) StderrLine: {'line': b'  254 |             if (n_eff < \x1b[01;31m\x1b[Knum_particles_\x1b[m\x1b[K / 2.0) {\n'}
+[2.504038] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.508325] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:256:94:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgen_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.508596] (tb4_cedric_pkg_1) StderrLine: {'line': b'  256 |                 double r = std::uniform_real_distribution<double>(0.0, 1.0 / num_particles_)(\x1b[01;31m\x1b[Kgen_\x1b[m\x1b[K);\n'}
+[2.508773] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                                                                              \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.510296] (-) TimerEvent: {}
+[2.510811] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:257:28:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kparticles_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KParticle\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.511116] (tb4_cedric_pkg_1) StderrLine: {'line': b'  257 |                 double c = \x1b[01;31m\x1b[Kparticles_\x1b[m\x1b[K[0].weight;\n'}
+[2.511323] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                            \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.511518] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                            \x1b[32m\x1b[KParticle\x1b[m\x1b[K\n'}
+[2.513771] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:277:34:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kparticles_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KParticle\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.514085] (tb4_cedric_pkg_1) StderrLine: {'line': b'  277 |             for (const auto& p : \x1b[01;31m\x1b[Kparticles_\x1b[m\x1b[K) n_eff += p.weight * p.weight;\n'}
+[2.514294] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                  \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.514487] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                  \x1b[32m\x1b[KParticle\x1b[m\x1b[K\n'}
+[2.518549] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:280:25:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Knum_particles_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.518832] (tb4_cedric_pkg_1) StderrLine: {'line': b'  280 |             if (n_eff < \x1b[01;31m\x1b[Knum_particles_\x1b[m\x1b[K / 2.0) {\n'}
+[2.519010] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                         \x1b[01;31m\x1b[K^~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.521238] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:282:94:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kgen_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.521497] (tb4_cedric_pkg_1) StderrLine: {'line': b'  282 |                 double r = std::uniform_real_distribution<double>(0.0, 1.0 / num_particles_)(\x1b[01;31m\x1b[Kgen_\x1b[m\x1b[K);\n'}
+[2.521674] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                                                                                              \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.524317] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:283:28:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kparticles_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[KParticle\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[2.524619] (tb4_cedric_pkg_1) StderrLine: {'line': b'  283 |                 double c = \x1b[01;31m\x1b[Kparticles_\x1b[m\x1b[K[0].weight;\n'}
+[2.524825] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                            \x1b[01;31m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.525019] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |                            \x1b[32m\x1b[KParticle\x1b[m\x1b[K\n'}
+[2.530494] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:\x1b[m\x1b[K At global scope:\n'}
+[2.530751] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:335:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kspecializing member \xe2\x80\x98\x1b[01m\x1b[Krclcpp::Subscription<geometry_msgs::msg::Twist_<std::allocator<void> >, std::allocator<void>, rclcpp::message_memory_strategy::MessageMemoryStrategy<geometry_msgs::msg::Twist_<std::allocator<void> >, std::allocator<void> > >::SharedPtr\x1b[m\x1b[K\xe2\x80\x99 requires \xe2\x80\x98\x1b[01m\x1b[Ktemplate<>\x1b[m\x1b[K\xe2\x80\x99 syntax\n'}
+[2.530945] (tb4_cedric_pkg_1) StderrLine: {'line': b'  335 |     \x1b[01;31m\x1b[Krclcpp\x1b[m\x1b[K::Subscription<geometry_msgs::msg::Twist>::SharedPtr cmd_sub_;\n'}
+[2.531109] (tb4_cedric_pkg_1) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[2.542892] (tb4_cedric_pkg_1) StderrLine: {'line': b'\x1b[01m\x1b[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/particle_filter_node.cpp:357:1:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected declaration before \xe2\x80\x98\x1b[01m\x1b[K}\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[2.543180] (tb4_cedric_pkg_1) StderrLine: {'line': b'  357 | \x1b[01;31m\x1b[K}\x1b[m\x1b[K;\n'}
+[2.543360] (tb4_cedric_pkg_1) StderrLine: {'line': b'      | \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.610486] (-) TimerEvent: {}
+[2.710973] (-) TimerEvent: {}
+[2.811470] (-) TimerEvent: {}
+[2.911962] (-) TimerEvent: {}
+[3.012468] (-) TimerEvent: {}
+[3.112969] (-) TimerEvent: {}
+[3.213486] (-) TimerEvent: {}
+[3.314002] (-) TimerEvent: {}
+[3.414512] (-) TimerEvent: {}
+[3.515265] (-) TimerEvent: {}
+[3.615737] (-) TimerEvent: {}
+[3.716256] (-) TimerEvent: {}
+[3.816725] (-) TimerEvent: {}
+[3.917233] (-) TimerEvent: {}
+[4.017709] (-) TimerEvent: {}
+[4.118187] (-) TimerEvent: {}
+[4.218683] (-) TimerEvent: {}
+[4.319157] (-) TimerEvent: {}
+[4.330374] (tb4_cedric_pkg_1) StderrLine: {'line': b'make[2]: *** [CMakeFiles/particle_filter_node.dir/build.make:63: CMakeFiles/particle_filter_node.dir/src/particle_filter_node.cpp.o] Error 1\n'}
+[4.331381] (tb4_cedric_pkg_1) StderrLine: {'line': b'make[1]: *** [CMakeFiles/Makefile2:256: CMakeFiles/particle_filter_node.dir/all] Error 2\n'}
+[4.332146] (tb4_cedric_pkg_1) StderrLine: {'line': b'make: *** [Makefile:141: all] Error 2\n'}
+[4.338000] (tb4_cedric_pkg_1) CommandEnded: {'returncode': 2}
+[4.364267] (tb4_cedric_pkg_1) JobEnded: {'identifier': 'tb4_cedric_pkg_1', 'rc': 2}
+[4.375200] (-) EventReactorShutdown: {}

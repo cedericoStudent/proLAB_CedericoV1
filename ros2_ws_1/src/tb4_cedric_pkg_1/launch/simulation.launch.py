@@ -67,26 +67,26 @@ def generate_launch_description():
         #    output='screen'
         #),
 
-        Node(
-            package='tb4_cedric_pkg_1',
-            executable='ekf_landmark_node',
-            name='ekf_landmark_node',
-            output='screen',
-            parameters=[{
-                'q_var_pos': 0.03,
-                'q_var_theta': 0.015,
-                'r_var_odom': 0.06,
-                'r_var_landmark_range': 0.04,
-                'r_var_landmark_bearing': 0.03,
-                # Geometrische Detektions- und Filterparameter:
-                'target_radius': 0.35,
-                'tolerance': 0.015,
-                'stride': 4,
-                'scan_skip': 1,
-                'min_votes': 4,
-                'max_jump_distance': 0.2
-            }]
-        ),
+        #Node(
+        #    package='tb4_cedric_pkg_1',
+        #    executable='ekf_landmark_node',
+        #    name='ekf_landmark_node',
+        #    output='screen',
+        #    parameters=[{
+        #        'q_var_pos': 0.03,
+        #        'q_var_theta': 0.015,
+        #        'r_var_odom': 0.06,
+        #        'r_var_landmark_range': 0.04,
+        #        'r_var_landmark_bearing': 0.03,
+        #        # Geometrische Detektions- und Filterparameter:
+         #       'target_radius': 0.35,
+         #       'tolerance': 0.015,
+         #       'stride': 4,
+         #       'scan_skip': 1,
+         #       'min_votes': 4,
+         #       'max_jump_distance': 0.2
+         #   }]
+        #)#,
         Node(
             package='tb4_cedric_pkg_1',
             executable='particle_filter_node',
@@ -96,17 +96,17 @@ def generate_launch_description():
                 ('/pf_estimated_pose', '/ekf_estimated_pose')
             ],
             parameters=[{
-                'num_particles': 500,
-                'q_var_pos': 0.04,        # Partikelfilter vertragen oft etwas mehr Prozessrauschen zum "Spreizen"
-                'q_var_theta': 0.02,
+                'num_particles': 1200,
+                'q_var_pos': 0.005,        # Partikelfilter vertragen oft etwas mehr Prozessrauschen zum "Spreizen"
+                'q_var_theta': 0.005,
                 'r_var_landmark_range': 0.20,
                 'r_var_landmark_bearing': 0.03,
                 'target_radius': 0.35,
-                'tolerance': 0.015,
+                'tolerance': 0.01,
                 'stride': 4,
                 'scan_skip': 1,
                 'min_votes': 4,
-                'max_jump_distance': 0.2
+                'max_jump_distance': 0.8
             }]
         )
     ])
