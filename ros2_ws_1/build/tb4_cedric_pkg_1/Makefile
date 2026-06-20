@@ -90,6 +90,17 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -101,17 +112,6 @@ install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -168,17 +168,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named tb4_cedric_pkg_1_uninstall
+# Target rules for targets named uninstall
 
 # Build rule for target.
-tb4_cedric_pkg_1_uninstall: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tb4_cedric_pkg_1_uninstall
-.PHONY : tb4_cedric_pkg_1_uninstall
+uninstall: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 uninstall
+.PHONY : uninstall
 
 # fast build rule for target.
-tb4_cedric_pkg_1_uninstall/fast:
-	$(MAKE) -f CMakeFiles/tb4_cedric_pkg_1_uninstall.dir/build.make CMakeFiles/tb4_cedric_pkg_1_uninstall.dir/build
-.PHONY : tb4_cedric_pkg_1_uninstall/fast
+uninstall/fast:
+	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
+.PHONY : uninstall/fast
+
+#=============================================================================
+# Target rules for targets named multi_recorder_node
+
+# Build rule for target.
+multi_recorder_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 multi_recorder_node
+.PHONY : multi_recorder_node
+
+# fast build rule for target.
+multi_recorder_node/fast:
+	$(MAKE) -f CMakeFiles/multi_recorder_node.dir/build.make CMakeFiles/multi_recorder_node.dir/build
+.PHONY : multi_recorder_node/fast
 
 #=============================================================================
 # Target rules for targets named test_node
@@ -259,32 +272,6 @@ particle_filter_node/fast:
 .PHONY : particle_filter_node/fast
 
 #=============================================================================
-# Target rules for targets named uninstall
-
-# Build rule for target.
-uninstall: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 uninstall
-.PHONY : uninstall
-
-# fast build rule for target.
-uninstall/fast:
-	$(MAKE) -f CMakeFiles/uninstall.dir/build.make CMakeFiles/uninstall.dir/build
-.PHONY : uninstall/fast
-
-#=============================================================================
-# Target rules for targets named multi_recorder_node
-
-# Build rule for target.
-multi_recorder_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 multi_recorder_node
-.PHONY : multi_recorder_node
-
-# fast build rule for target.
-multi_recorder_node/fast:
-	$(MAKE) -f CMakeFiles/multi_recorder_node.dir/build.make CMakeFiles/multi_recorder_node.dir/build
-.PHONY : multi_recorder_node/fast
-
-#=============================================================================
 # Target rules for targets named noisy_odometry_node
 
 # Build rule for target.
@@ -322,6 +309,32 @@ ekf_landmark_node: cmake_check_build_system
 ekf_landmark_node/fast:
 	$(MAKE) -f CMakeFiles/ekf_landmark_node.dir/build.make CMakeFiles/ekf_landmark_node.dir/build
 .PHONY : ekf_landmark_node/fast
+
+#=============================================================================
+# Target rules for targets named tb4_cedric_pkg_1_uninstall
+
+# Build rule for target.
+tb4_cedric_pkg_1_uninstall: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tb4_cedric_pkg_1_uninstall
+.PHONY : tb4_cedric_pkg_1_uninstall
+
+# fast build rule for target.
+tb4_cedric_pkg_1_uninstall/fast:
+	$(MAKE) -f CMakeFiles/tb4_cedric_pkg_1_uninstall.dir/build.make CMakeFiles/tb4_cedric_pkg_1_uninstall.dir/build
+.PHONY : tb4_cedric_pkg_1_uninstall/fast
+
+#=============================================================================
+# Target rules for targets named trajectory_generator_node
+
+# Build rule for target.
+trajectory_generator_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 trajectory_generator_node
+.PHONY : trajectory_generator_node
+
+# fast build rule for target.
+trajectory_generator_node/fast:
+	$(MAKE) -f CMakeFiles/trajectory_generator_node.dir/build.make CMakeFiles/trajectory_generator_node.dir/build
+.PHONY : trajectory_generator_node/fast
 
 src/ekf_landmark.o: src/ekf_landmark.cpp.o
 
@@ -593,6 +606,33 @@ src/test_node.cpp.s:
 	$(MAKE) -f CMakeFiles/test_node.dir/build.make CMakeFiles/test_node.dir/src/test_node.cpp.s
 .PHONY : src/test_node.cpp.s
 
+src/trajectory_generator_node.o: src/trajectory_generator_node.cpp.o
+
+.PHONY : src/trajectory_generator_node.o
+
+# target to build an object file
+src/trajectory_generator_node.cpp.o:
+	$(MAKE) -f CMakeFiles/trajectory_generator_node.dir/build.make CMakeFiles/trajectory_generator_node.dir/src/trajectory_generator_node.cpp.o
+.PHONY : src/trajectory_generator_node.cpp.o
+
+src/trajectory_generator_node.i: src/trajectory_generator_node.cpp.i
+
+.PHONY : src/trajectory_generator_node.i
+
+# target to preprocess a source file
+src/trajectory_generator_node.cpp.i:
+	$(MAKE) -f CMakeFiles/trajectory_generator_node.dir/build.make CMakeFiles/trajectory_generator_node.dir/src/trajectory_generator_node.cpp.i
+.PHONY : src/trajectory_generator_node.cpp.i
+
+src/trajectory_generator_node.s: src/trajectory_generator_node.cpp.s
+
+.PHONY : src/trajectory_generator_node.s
+
+# target to generate assembly for a file
+src/trajectory_generator_node.cpp.s:
+	$(MAKE) -f CMakeFiles/trajectory_generator_node.dir/build.make CMakeFiles/trajectory_generator_node.dir/src/trajectory_generator_node.cpp.s
+.PHONY : src/trajectory_generator_node.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -602,7 +642,9 @@ help:
 	@echo "... install/local"
 	@echo "... install"
 	@echo "... list_install_components"
-	@echo "... tb4_cedric_pkg_1_uninstall"
+	@echo "... test"
+	@echo "... uninstall"
+	@echo "... multi_recorder_node"
 	@echo "... test_node"
 	@echo "... recorder_node"
 	@echo "... extended_kalman_filter_node"
@@ -610,14 +652,13 @@ help:
 	@echo "... joint_noise_node"
 	@echo "... install/strip"
 	@echo "... particle_filter_node"
-	@echo "... uninstall"
-	@echo "... multi_recorder_node"
-	@echo "... test"
 	@echo "... noisy_odometry_node"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... landmark_test_node"
 	@echo "... ekf_landmark_node"
+	@echo "... tb4_cedric_pkg_1_uninstall"
+	@echo "... trajectory_generator_node"
 	@echo "... src/ekf_landmark.o"
 	@echo "... src/ekf_landmark.i"
 	@echo "... src/ekf_landmark.s"
@@ -648,6 +689,9 @@ help:
 	@echo "... src/test_node.o"
 	@echo "... src/test_node.i"
 	@echo "... src/test_node.s"
+	@echo "... src/trajectory_generator_node.o"
+	@echo "... src/trajectory_generator_node.i"
+	@echo "... src/trajectory_generator_node.s"
 .PHONY : help
 
 

@@ -90,7 +90,8 @@ add_executable(multi_recorder_node src/multi_recorder_node.cpp)
 ament_target_dependencies(multi_recorder_node rclcpp nav_msgs geometry_msgs ament_index_cpp)
 install(TARGETS multi_recorder_node DESTINATION lib/${PROJECT_NAME})
 
-
+add_executable(trajectory_generator_node src/trajectory_generator_node.cpp)
+ament_target_dependencies(trajectory_generator_node rclcpp nav_msgs geometry_msgs)
 
 install(TARGETS
   joint_noise_node
@@ -100,6 +101,7 @@ install(TARGETS
   landmark_test_node
   ekf_landmark_node
   particle_filter_node
+  trajectory_generator_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
