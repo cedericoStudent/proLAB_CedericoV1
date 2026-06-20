@@ -1,0 +1,47 @@
+[35m[1mScanning dependencies of target evaluation_node[0m
+[ 41%] Built target extended_kalman_filter_node
+[ 41%] Built target trajectory_generator_node
+[ 41%] Built target joint_noise_node
+[ 41%] Built target noisy_odometry_node
+[ 41%] Built target multi_recorder_node
+[ 58%] Built target particle_filter_node
+[ 58%] Built target recorder_node
+[ 66%] Built target test_node
+[ 83%] Built target kalman_filter_node
+[ 83%] Built target ekf_landmark_node
+[ 91%] Built target landmark_test_node
+[ 95%] [32mBuilding CXX object CMakeFiles/evaluation_node.dir/src/evaluation_node.cpp.o[0m
+[01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/evaluation_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/evaluation_node.cpp:120:42:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator/[m[K’ (operand types are ‘[01m[Kstd::string[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>[m[K’} and ‘[01m[Kconst char [18][m[K’)
+  120 |     auto df_gt       = read_csv([32m[Kdir_path[m[K [01;31m[K/[m[K [34m[K"multi_path_gt.csv"[m[K);
+      |                                 [32m[K~~~~~~~~[m[K [01;31m[K^[m[K [34m[K~~~~~~~~~~~~~~~~~~~[m[K
+      |                                 [32m[K|[m[K          [34m[K|[m[K
+      |                                 [32m[K|[m[K          [34m[Kconst char [18][m[K
+      |                                 [32m[Kstd::string {aka std::__cxx11::basic_string<char>}[m[K
+[01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/evaluation_node.cpp:121:42:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator/[m[K’ (operand types are ‘[01m[Kstd::string[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>[m[K’} and ‘[01m[Kconst char [23][m[K’)
+  121 |     auto df_kf       = read_csv([32m[Kdir_path[m[K [01;31m[K/[m[K [34m[K"multi_path_ekf_std.csv"[m[K);  // Deine Zuordnung!
+      |                                 [32m[K~~~~~~~~[m[K [01;31m[K^[m[K [34m[K~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                 [32m[K|[m[K          [34m[K|[m[K
+      |                                 [32m[K|[m[K          [34m[Kconst char [23][m[K
+      |                                 [32m[Kstd::string {aka std::__cxx11::basic_string<char>}[m[K
+[01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/evaluation_node.cpp:122:42:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator/[m[K’ (operand types are ‘[01m[Kstd::string[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>[m[K’} and ‘[01m[Kconst char [18][m[K’)
+  122 |     auto df_ekf_std  = read_csv([32m[Kdir_path[m[K [01;31m[K/[m[K [34m[K"multi_path_kf.csv"[m[K);       // Deine Zuordnung!
+      |                                 [32m[K~~~~~~~~[m[K [01;31m[K^[m[K [34m[K~~~~~~~~~~~~~~~~~~~[m[K
+      |                                 [32m[K|[m[K          [34m[K|[m[K
+      |                                 [32m[K|[m[K          [34m[Kconst char [18][m[K
+      |                                 [32m[Kstd::string {aka std::__cxx11::basic_string<char>}[m[K
+[01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/evaluation_node.cpp:123:42:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator/[m[K’ (operand types are ‘[01m[Kstd::string[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>[m[K’} and ‘[01m[Kconst char [22][m[K’)
+  123 |     auto df_ekf_lm   = read_csv([32m[Kdir_path[m[K [01;31m[K/[m[K [34m[K"multi_path_ekf_lm.csv"[m[K);
+      |                                 [32m[K~~~~~~~~[m[K [01;31m[K^[m[K [34m[K~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                 [32m[K|[m[K          [34m[K|[m[K
+      |                                 [32m[K|[m[K          [34m[Kconst char [22][m[K
+      |                                 [32m[Kstd::string {aka std::__cxx11::basic_string<char>}[m[K
+[01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/evaluation_node.cpp:124:42:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator/[m[K’ (operand types are ‘[01m[Kstd::string[m[K’ {aka ‘[01m[Kstd::__cxx11::basic_string<char>[m[K’} and ‘[01m[Kconst char [18][m[K’)
+  124 |     auto df_pf       = read_csv([32m[Kdir_path[m[K [01;31m[K/[m[K [34m[K"multi_path_pf.csv"[m[K);
+      |                                 [32m[K~~~~~~~~[m[K [01;31m[K^[m[K [34m[K~~~~~~~~~~~~~~~~~~~[m[K
+      |                                 [32m[K|[m[K          [34m[K|[m[K
+      |                                 [32m[K|[m[K          [34m[Kconst char [18][m[K
+      |                                 [32m[Kstd::string {aka std::__cxx11::basic_string<char>}[m[K
+make[2]: *** [CMakeFiles/evaluation_node.dir/build.make:63: CMakeFiles/evaluation_node.dir/src/evaluation_node.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:397: CMakeFiles/evaluation_node.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

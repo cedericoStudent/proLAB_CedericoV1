@@ -311,6 +311,19 @@ ekf_landmark_node/fast:
 .PHONY : ekf_landmark_node/fast
 
 #=============================================================================
+# Target rules for targets named evaluation_node
+
+# Build rule for target.
+evaluation_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 evaluation_node
+.PHONY : evaluation_node
+
+# fast build rule for target.
+evaluation_node/fast:
+	$(MAKE) -f CMakeFiles/evaluation_node.dir/build.make CMakeFiles/evaluation_node.dir/build
+.PHONY : evaluation_node/fast
+
+#=============================================================================
 # Target rules for targets named tb4_cedric_pkg_1_uninstall
 
 # Build rule for target.
@@ -362,6 +375,33 @@ src/ekf_landmark.s: src/ekf_landmark.cpp.s
 src/ekf_landmark.cpp.s:
 	$(MAKE) -f CMakeFiles/ekf_landmark_node.dir/build.make CMakeFiles/ekf_landmark_node.dir/src/ekf_landmark.cpp.s
 .PHONY : src/ekf_landmark.cpp.s
+
+src/evaluation_node.o: src/evaluation_node.cpp.o
+
+.PHONY : src/evaluation_node.o
+
+# target to build an object file
+src/evaluation_node.cpp.o:
+	$(MAKE) -f CMakeFiles/evaluation_node.dir/build.make CMakeFiles/evaluation_node.dir/src/evaluation_node.cpp.o
+.PHONY : src/evaluation_node.cpp.o
+
+src/evaluation_node.i: src/evaluation_node.cpp.i
+
+.PHONY : src/evaluation_node.i
+
+# target to preprocess a source file
+src/evaluation_node.cpp.i:
+	$(MAKE) -f CMakeFiles/evaluation_node.dir/build.make CMakeFiles/evaluation_node.dir/src/evaluation_node.cpp.i
+.PHONY : src/evaluation_node.cpp.i
+
+src/evaluation_node.s: src/evaluation_node.cpp.s
+
+.PHONY : src/evaluation_node.s
+
+# target to generate assembly for a file
+src/evaluation_node.cpp.s:
+	$(MAKE) -f CMakeFiles/evaluation_node.dir/build.make CMakeFiles/evaluation_node.dir/src/evaluation_node.cpp.s
+.PHONY : src/evaluation_node.cpp.s
 
 src/extended_kalman_filter_node.o: src/extended_kalman_filter_node.cpp.o
 
@@ -657,11 +697,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... landmark_test_node"
 	@echo "... ekf_landmark_node"
+	@echo "... evaluation_node"
 	@echo "... tb4_cedric_pkg_1_uninstall"
 	@echo "... trajectory_generator_node"
 	@echo "... src/ekf_landmark.o"
 	@echo "... src/ekf_landmark.i"
 	@echo "... src/ekf_landmark.s"
+	@echo "... src/evaluation_node.o"
+	@echo "... src/evaluation_node.i"
+	@echo "... src/evaluation_node.s"
 	@echo "... src/extended_kalman_filter_node.o"
 	@echo "... src/extended_kalman_filter_node.i"
 	@echo "... src/extended_kalman_filter_node.s"
