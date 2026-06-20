@@ -1,0 +1,26 @@
+[0.023s] Invoking command in '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1 -- -j16 -l16
+[0.110s] [35m[1mScanning dependencies of target ekf_landmark_node[0m
+[0.125s] [ 10%] Built target noisy_odometry_node
+[0.134s] [ 25%] Built target kalman_filter_node
+[0.135s] [ 30%] Built target multi_recorder_node
+[0.135s] [ 40%] Built target recorder_node
+[0.136s] [ 60%] Built target joint_noise_node
+[0.136s] [ 60%] Built target particle_filter_node
+[0.136s] [ 70%] Built target landmark_test_node
+[0.136s] [ 80%] Built target test_node
+[0.141s] [ 90%] Built target extended_kalman_filter_node
+[0.176s] [ 95%] [32mBuilding CXX object CMakeFiles/ekf_landmark_node.dir/src/ekf_landmark.cpp.o[0m
+[2.152s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/ekf_landmark.cpp:[m[K In constructor ‘[01m[KEKFWithLandmarksNode::EKFWithLandmarksNode()[m[K’:
+[2.152s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/ekf_landmark.cpp:81:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kscan_sub[m[K’ was not declared in this scope; did you mean ‘[01m[Kscan_sub_[m[K’?
+[2.152s]    81 |         [01;31m[Kscan_sub[m[K = this->create_subscription<sensor_msgs::msg::LaserScan>(
+[2.152s]       |         [01;31m[K^~~~~~~~[m[K
+[2.152s]       |         [32m[Kscan_sub_[m[K
+[2.201s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/ekf_landmark.cpp:[m[K In member function ‘[01m[Kvoid EKFWithLandmarksNode::filter_loop()[m[K’:
+[2.202s] [01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/ekf_landmark.cpp:169:9:[m[K [01;31m[Kerror: [m[K‘[01m[Klast_time[m[K’ was not declared in this scope; did you mean ‘[01m[Klast_time_[m[K’?
+[2.202s]   169 |         [01;31m[Klast_time[m[K = current_time;
+[2.202s]       |         [01;31m[K^~~~~~~~~[m[K
+[2.202s]       |         [32m[Klast_time_[m[K
+[5.491s] make[2]: *** [CMakeFiles/ekf_landmark_node.dir/build.make:63: CMakeFiles/ekf_landmark_node.dir/src/ekf_landmark.cpp.o] Error 1
+[5.491s] make[1]: *** [CMakeFiles/Makefile2:393: CMakeFiles/ekf_landmark_node.dir/all] Error 2
+[5.491s] make: *** [Makefile:141: all] Error 2
+[5.497s] Invoked command in '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/foxy /usr/bin/cmake --build /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1 -- -j16 -l16

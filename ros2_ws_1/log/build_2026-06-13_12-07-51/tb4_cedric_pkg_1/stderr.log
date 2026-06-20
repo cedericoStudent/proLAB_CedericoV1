@@ -1,7 +1,0 @@
-[01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/joint_noise_node.cpp:[m[K In constructor ‘[01m[KJointNoiseNode::JointNoiseNode()[m[K’:
-[01m[K/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/joint_noise_node.cpp:33:106:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before numeric constant
-   33 |             "/joint_states", 10, std::bind(&JointNoiseNode::jointStateCallback, this, std::placeholders::[01;31m[K1[m[K));
-      |                                                                                                          [01;31m[K^[m[K
-make[2]: *** [CMakeFiles/joint_noise_node.dir/build.make:63: CMakeFiles/joint_noise_node.dir/src/joint_noise_node.cpp.o] Error 1
-make[1]: *** [CMakeFiles/Makefile2:82: CMakeFiles/joint_noise_node.dir/all] Error 2
-make: *** [Makefile:141: all] Error 2

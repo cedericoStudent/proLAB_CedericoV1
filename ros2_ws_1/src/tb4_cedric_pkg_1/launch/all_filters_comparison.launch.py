@@ -39,53 +39,51 @@ def generate_launch_description():
             output='screen'
         ),
 
-        # 5. Lineares Kalman Filter (KF) -> Sendet nativ auf /kf_estimated_pose
+        # 5. Lineares Kalman Filter (KF) -> Publiziert nativ auf /kf_estimated_pose (passt perfekt zum Recorder!)
         Node(
             package='tb4_cedric_pkg_1',
             executable='kalman_filter_node',
             name='kalman_filter_node',
             output='screen',
-            parameters=[{'q_var_pos': 0.002, 'q_var_vel': 0.02, 'r_var_pos': 0.08, 'r_var_vel': 0.15}]
+            parameters=[{'q_var_pos': 0.002, 'q_var_vel': 0.2, 'r_var_pos': 0.1, 'r_var_vel': 0.15}]
         ),
 
-        # 6. Standard EKF -> Wir mappen /ekf_estimated_pose um auf /ekf_pose_std
+        # 6. Standard EKF -> Publiziert nativ auf /ekf_estimated_pose (passt perfekt zum Recorder!)
         Node(
             package='tb4_cedric_pkg_1',
             executable='extended_kalman_filter_node',
             name='extended_kalman_filter_node',
             output='screen',
-            remappings=[('/ekf_estimated_pose', '/ekf_pose_std')],
             parameters=[{'q_var_pos': 0.05, 'q_var_theta': 0.02, 'r_var_odom': 0.08, 'r_var_imu': 0.05}]
         ),
 
-        # 7. EKF mit Landmarke -> Wir mappen /ekf_pose um auf /ekf_pose_landmark
+        # 7. EKF mit Landmarke -> Publiziert nativ auf /ekf_pose_landmark (passt perfekt zum Recorder!)
         Node(
             package='tb4_cedric_pkg_1',
             executable='ekf_landmark_node',
             name='ekf_landmark_node',
             output='screen',
-            remappings=[('/ekf_pose', '/ekf_pose_landmark')],
             parameters=[{
-                'q_var_pos': 0.03, 'q_var_theta': 0.015,
+                'q_var_pos': 0.01, 'q_var_theta': 0.01,
                 'r_var_odom': 0.06, 'r_var_landmark_range': 0.04, 'r_var_landmark_bearing': 0.03,
-                'target_radius': 0.35, 'tolerance': 0.015, 'stride': 4, 'scan_skip': 1, 'min_votes': 4, 'max_jump_distance': 0.4
+                'target_radius': 0.35, 'tolerance': 0.03, 'stride': 4, 'scan_skip': 1, 'min_votes': 4, 'max_jump_distance': 0.8
             }]
         ),
 
-        # 8. Partikelfilter (PF) -> Wir mappen /pf_estimated_pose um auf /pf_pose
+        # 8. Partikelfilter (PF) -> Hier aktivieren wir das Remapping, damit es auf /pf_estimated_pose rausgeht!
         Node(
             package='tb4_cedric_pkg_1',
             executable='particle_filter_node',
             name='particle_filter_node',
             output='screen',
-            remappings=[('/pf_estimated_pose', '/pf_pose')],
+            #remappings=[('/pf_pose', '/pf_estimated_pose')], # Korrigiert: Mappt das native Topic auf das Recorder-Topic um
             parameters=[{
-                'num_particles': 1200, 'q_var_pos': 0.005, 'q_var_theta': 0.005,
-                'target_radius': 0.35, 'tolerance': 0.01, 'stride': 4, 'scan_skip': 1, 'min_votes': 4, 'max_jump_distance': 0.4
+                'num_particles': 1500, 'q_var_pos': 0.005, 'q_var_theta': 0.005,
+                'target_radius': 0.35, 'tolerance': 0.01, 'stride': 4, 'scan_skip': 1, 'min_votes': 4, 'max_jump_distance': 0.5
             }]
         ),
 
-        # 9. Multi-Recorder (Hört auf die neu gemappten Topics)
+        # 9. Multi-Recorder (Hört jetzt exakt auf alle korrekten Kanäle)
         Node(
             package='tb4_cedric_pkg_1',
             executable='multi_recorder_node',

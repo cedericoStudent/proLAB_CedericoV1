@@ -17,8 +17,6 @@ rclcpp/rclcpp.hpp
 /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/rclcpp/rclcpp.hpp
 nav_msgs/msg/odometry.hpp
 /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/nav_msgs/msg/odometry.hpp
-geometry_msgs/msg/twist.hpp
-/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/geometry_msgs/msg/twist.hpp
 geometry_msgs/msg/pose_with_covariance_stamped.hpp
 /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1/src/geometry_msgs/msg/pose_with_covariance_stamped.hpp
 Eigen/Dense
@@ -302,16 +300,6 @@ stdint.h
 type_traits
 -
 
-/opt/ros/foxy/include/geometry_msgs/msg/detail/twist__builder.hpp
-geometry_msgs/msg/detail/twist__struct.hpp
-/opt/ros/foxy/include/geometry_msgs/msg/detail/geometry_msgs/msg/detail/twist__struct.hpp
-rosidl_runtime_cpp/message_initialization.hpp
--
-algorithm
--
-utility
--
-
 /opt/ros/foxy/include/geometry_msgs/msg/detail/twist__struct.hpp
 rosidl_runtime_cpp/bounded_vector.hpp
 -
@@ -341,14 +329,6 @@ type_traits
 -
 geometry_msgs/msg/detail/vector3__traits.hpp
 /opt/ros/foxy/include/geometry_msgs/msg/detail/geometry_msgs/msg/detail/vector3__traits.hpp
-
-/opt/ros/foxy/include/geometry_msgs/msg/detail/twist__type_support.hpp
-rosidl_typesupport_interface/macros.h
-/opt/ros/foxy/include/geometry_msgs/msg/detail/rosidl_typesupport_interface/macros.h
-geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
-/opt/ros/foxy/include/geometry_msgs/msg/detail/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
-rosidl_typesupport_cpp/message_type_support.hpp
-/opt/ros/foxy/include/geometry_msgs/msg/detail/rosidl_typesupport_cpp/message_type_support.hpp
 
 /opt/ros/foxy/include/geometry_msgs/msg/detail/twist_with_covariance__struct.hpp
 rosidl_runtime_cpp/bounded_vector.hpp
@@ -417,16 +397,6 @@ geometry_msgs/msg/detail/pose_with_covariance_stamped__type_support.hpp
 /opt/ros/foxy/include/geometry_msgs/msg/geometry_msgs/msg/detail/pose_with_covariance_stamped__type_support.hpp
 
 /opt/ros/foxy/include/geometry_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
-
-/opt/ros/foxy/include/geometry_msgs/msg/twist.hpp
-geometry_msgs/msg/detail/twist__struct.hpp
-/opt/ros/foxy/include/geometry_msgs/msg/geometry_msgs/msg/detail/twist__struct.hpp
-geometry_msgs/msg/detail/twist__builder.hpp
-/opt/ros/foxy/include/geometry_msgs/msg/geometry_msgs/msg/detail/twist__builder.hpp
-geometry_msgs/msg/detail/twist__traits.hpp
-/opt/ros/foxy/include/geometry_msgs/msg/geometry_msgs/msg/detail/twist__traits.hpp
-geometry_msgs/msg/detail/twist__type_support.hpp
-/opt/ros/foxy/include/geometry_msgs/msg/geometry_msgs/msg/detail/twist__type_support.hpp
 
 /opt/ros/foxy/include/libstatistics_collector/collector/collector.hpp
 mutex

@@ -27,7 +27,7 @@ public:
             if (file_gt_.is_open())      file_gt_      << "x,y\n";
             if (file_kf_.is_open())      file_kf_      << "x,y,p_xx,p_xy,p_yy\n";
             if (file_ekf_std_.is_open()) file_ekf_std_ << "x,y,p_xx,p_xy,p_yy\n";
-            if (file_ekf_lm_.is_open())  file_ekf_lm_  << "x,y,p_xx,p_xy,p_yy\n";
+            if (file_ekf_lm_.is_open())  file_ekf_lm_  << "x,y,p_xx,p_xy,p_yy,landmark_detected\n";
             if (file_pf_.is_open())      file_pf_      << "x,y,p_xx,p_xy,p_yy\n";
         } 
         catch (const std::exception &e) {
@@ -42,13 +42,13 @@ public:
             "/kf_estimated_pose", 10, std::bind(&MultiDataRecorder::kf_cb, this, std::placeholders::_1));
             
         sub_ekf_std_ = this->create_subscription<geometry_msgs::msg::PoseWithCovarianceStamped>(
-            "/ekf_pose_std", 10, std::bind(&MultiDataRecorder::ekf_std_cb, this, std::placeholders::_1));
+            "/ekf_estimated_pose", 10, std::bind(&MultiDataRecorder::ekf_std_cb, this, std::placeholders::_1));
             
         sub_ekf_lm_ = this->create_subscription<geometry_msgs::msg::PoseWithCovarianceStamped>(
             "/ekf_pose_landmark", 10, std::bind(&MultiDataRecorder::ekf_lm_cb, this, std::placeholders::_1));
             
         sub_pf_ = this->create_subscription<geometry_msgs::msg::PoseWithCovarianceStamped>(
-            "/pf_pose", 10, std::bind(&MultiDataRecorder::pf_cb, this, std::placeholders::_1));
+            "/pf_estimated_pose", 10, std::bind(&MultiDataRecorder::pf_cb, this, std::placeholders::_1));
     }
 
     ~MultiDataRecorder() {
@@ -80,7 +80,21 @@ private:
 
     void kf_cb(const geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr msg)      { write_filter_data(file_kf_, msg); }
     void ekf_std_cb(const geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr msg) { write_filter_data(file_ekf_std_, msg); }
-    void ekf_lm_cb(const geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr msg)  { write_filter_data(file_ekf_lm_, msg); }
+    void ekf_lm_cb(const geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr msg) {
+        if (file_ekf_lm_.is_open()) {
+            // Wir holen uns das Flag, das wir in der ekf_landmark.cpp in pose.covariance[5] versteckt haben
+            double landmark_flag = msg->pose.covariance[5]; 
+            
+            // Wir schreiben die normalen X/Y-Werte, die 3 Kovarianzwerte UND das Flag in die CSV
+            file_ekf_lm_ << msg->pose.pose.position.x << "," 
+                        << msg->pose.pose.position.y << ","
+                        << msg->pose.covariance[0] << ","  // p_xx
+                        << msg->pose.covariance[1] << ","  // p_xy
+                        << msg->pose.covariance[7] << ","  // p_yy
+                        << landmark_flag << "\n";          // 1.0 (erkannt) oder 0.0 (nicht erkannt)
+            file_ekf_lm_.flush();
+        }
+    }
     void pf_cb(const geometry_msgs::msg::PoseWithCovarianceStamped::SharedPtr msg)      { write_filter_data(file_pf_, msg); }
 
     rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr sub_gt_;

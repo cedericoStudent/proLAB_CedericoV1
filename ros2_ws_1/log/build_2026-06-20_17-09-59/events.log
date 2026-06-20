@@ -1,0 +1,346 @@
+[0.000000] (-) TimerEvent: {}
+[0.000440] (tb4_cedric_pkg_1) JobQueued: {'identifier': 'tb4_cedric_pkg_1', 'dependencies': OrderedDict()}
+[0.001194] (tb4_cedric_pkg_1) JobStarted: {'identifier': 'tb4_cedric_pkg_1'}
+[0.014111] (tb4_cedric_pkg_1) JobProgress: {'identifier': 'tb4_cedric_pkg_1', 'progress': 'cmake'}
+[0.016599] (tb4_cedric_pkg_1) Command: {'cmd': ['/usr/bin/cmake', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/src/tb4_cedric_pkg_1', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1'], 'cwd': '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'cedric'), ('SSH_AGENT_PID', '2290'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LIBGL_ALWAYS_SOFTWARE', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/cedric'), ('CHROME_DESKTOP', 'code.desktop'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/cedric/.nvm/versions/node/v22.22.1/bin'), ('NVM_INC', '/home/cedric/.nvm/versions/node/v22.22.1/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '2096'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/cedric/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4051'), ('NVM_DIR', '/home/cedric/.nvm'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'cedric'), ('JOURNAL_STREAM', '8:47750'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'cedric'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', ':/opt/ros/foxy/share/turtlebot3_gazebo/models:/opt/ros/foxy/share/turtlebot3_gazebo/models'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/cedric/.local/bin:/opt/ros/foxy/bin:/home/cedric/.nvm/versions/node/v22.22.1/bin:/home/cedric/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/cedric/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts:/home/cedric/.config/Code/User/globalStorage/github.copilot-chat/debugCommand'), ('SESSION_MANAGER', 'local/cedric-ThinkPad-E14-Gen-3:@/tmp/.ICE-unix/2364,unix/cedric-ThinkPad-E14-Gen-3:/tmp/.ICE-unix/2364'), ('INVOCATION_ID', 'd81b6fe176eb45b4bfeaabcb7b6aa371'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/cedric/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-31703b961155a312.txt'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('PYTHONSTARTUP', '/home/cedric/.config/Code/User/workspaceStorage/51e6f2381f63403292cf25461d463484/ms-python.python/pythonrc.py'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-45275ed3b2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1:/opt/ros/foxy'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1'), ('TURTLEBOT3_MODEL', 'waffle'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1:/opt/ros/foxy')]), 'shell': False}
+[0.099823] (-) TimerEvent: {}
+[0.178135] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.199960] (-) TimerEvent: {}
+[0.270234] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[0.283397] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[0.300128] (-) TimerEvent: {}
+[0.400553] (-) TimerEvent: {}
+[0.414105] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[0.416791] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.500736] (-) TimerEvent: {}
+[0.547496] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.567895] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.568257] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.571704] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[0.600910] (-) TimerEvent: {}
+[0.701368] (-) TimerEvent: {}
+[0.714500] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[0.715396] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.801551] (-) TimerEvent: {}
+[0.879432] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.897547] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.898004] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.901971] (-) TimerEvent: {}
+[0.905236] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.941274] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[0.941597] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[1.002148] (-) TimerEvent: {}
+[1.098018] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[1.102289] (-) TimerEvent: {}
+[1.152081] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)\n'}
+[1.202434] (-) TimerEvent: {}
+[1.211697] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.220677] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[1.302620] (-) TimerEvent: {}
+[1.403327] (-) TimerEvent: {}
+[1.456446] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[1.503536] (-) TimerEvent: {}
+[1.506688] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[1.603703] (-) TimerEvent: {}
+[1.614460] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.675041] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[1.676645] (tb4_cedric_pkg_1) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.677850] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[1.703883] (-) TimerEvent: {}
+[1.804337] (-) TimerEvent: {}
+[1.815324] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[1.815994] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[1.904533] (-) TimerEvent: {}
+[1.966960] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed\n'}
+[1.967499] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads\n'}
+[2.004703] (-) TimerEvent: {}
+[2.088084] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads - not found\n'}
+[2.088602] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Looking for pthread_create in pthread\n'}
+[2.104875] (-) TimerEvent: {}
+[2.205346] (-) TimerEvent: {}
+[2.242614] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Looking for pthread_create in pthread - found\n'}
+[2.245481] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[2.305472] (-) TimerEvent: {}
+[2.405812] (-) TimerEvent: {}
+[2.412556] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Found geometry_msgs: 2.0.5 (/opt/ros/foxy/share/geometry_msgs/cmake)\n'}
+[2.444148] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)\n'}
+[2.505956] (-) TimerEvent: {}
+[2.515295] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)\n'}
+[2.579425] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Found tf2: 0.13.14 (/opt/ros/foxy/share/tf2/cmake)\n'}
+[2.590394] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Found tf2_ros: 0.13.14 (/opt/ros/foxy/share/tf2_ros/cmake)\n'}
+[2.606134] (-) TimerEvent: {}
+[2.706499] (-) TimerEvent: {}
+[2.806864] (-) TimerEvent: {}
+[2.907243] (-) TimerEvent: {}
+[2.913868] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)\n'}
+[3.007386] (-) TimerEvent: {}
+[3.008296] (tb4_cedric_pkg_1) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[3.025084] (tb4_cedric_pkg_1) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[3.025488] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[3.025675] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[3.042058] (tb4_cedric_pkg_1) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[3.042315] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[3.044641] (tb4_cedric_pkg_1) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[3.049397] (tb4_cedric_pkg_1) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[3.053107] (tb4_cedric_pkg_1) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the style conventions in PEP 257\n"}
+[3.077019] (tb4_cedric_pkg_1) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[3.077343] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[3.079537] (tb4_cedric_pkg_1) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[3.084349] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Configuring done\n'}
+[3.107558] (-) TimerEvent: {}
+[3.136834] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Generating done\n'}
+[3.158562] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Build files have been written to: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1\n'}
+[3.173226] (tb4_cedric_pkg_1) CommandEnded: {'returncode': 0}
+[3.174327] (tb4_cedric_pkg_1) JobProgress: {'identifier': 'tb4_cedric_pkg_1', 'progress': 'build'}
+[3.179204] (tb4_cedric_pkg_1) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1', '--', '-j16', '-l16'], 'cwd': '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'cedric'), ('SSH_AGENT_PID', '2290'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LIBGL_ALWAYS_SOFTWARE', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/cedric'), ('CHROME_DESKTOP', 'code.desktop'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/cedric/.nvm/versions/node/v22.22.1/bin'), ('NVM_INC', '/home/cedric/.nvm/versions/node/v22.22.1/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '2096'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/cedric/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4051'), ('NVM_DIR', '/home/cedric/.nvm'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'cedric'), ('JOURNAL_STREAM', '8:47750'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'cedric'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', ':/opt/ros/foxy/share/turtlebot3_gazebo/models:/opt/ros/foxy/share/turtlebot3_gazebo/models'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/cedric/.local/bin:/opt/ros/foxy/bin:/home/cedric/.nvm/versions/node/v22.22.1/bin:/home/cedric/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/cedric/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts:/home/cedric/.config/Code/User/globalStorage/github.copilot-chat/debugCommand'), ('SESSION_MANAGER', 'local/cedric-ThinkPad-E14-Gen-3:@/tmp/.ICE-unix/2364,unix/cedric-ThinkPad-E14-Gen-3:/tmp/.ICE-unix/2364'), ('INVOCATION_ID', 'd81b6fe176eb45b4bfeaabcb7b6aa371'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/cedric/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-31703b961155a312.txt'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('PYTHONSTARTUP', '/home/cedric/.config/Code/User/workspaceStorage/51e6f2381f63403292cf25461d463484/ms-python.python/pythonrc.py'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-45275ed3b2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1:/opt/ros/foxy'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1'), ('TURTLEBOT3_MODEL', 'waffle'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1:/opt/ros/foxy')]), 'shell': False}
+[3.207728] (-) TimerEvent: {}
+[3.256380] (tb4_cedric_pkg_1) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target joint_noise_node\x1b[0m\n'}
+[3.256718] (tb4_cedric_pkg_1) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target recorder_node\x1b[0m\n'}
+[3.256827] (tb4_cedric_pkg_1) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target test_node\x1b[0m\n'}
+[3.256998] (tb4_cedric_pkg_1) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target kalman_filter_node\x1b[0m\n'}
+[3.257089] (tb4_cedric_pkg_1) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target extended_kalman_filter_node\x1b[0m\n'}
+[3.259023] (tb4_cedric_pkg_1) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target landmark_test_node\x1b[0m\n'}
+[3.260557] (tb4_cedric_pkg_1) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target ekf_landmark_node\x1b[0m\n'}
+[3.260788] (tb4_cedric_pkg_1) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target multi_recorder_node\x1b[0m\n'}
+[3.260870] (tb4_cedric_pkg_1) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target noisy_odometry_node\x1b[0m\n'}
+[3.261318] (tb4_cedric_pkg_1) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target particle_filter_node\x1b[0m\n'}
+[3.307844] (-) TimerEvent: {}
+[3.311631] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding CXX object CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o\x1b[0m\n'}
+[3.312062] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding CXX object CMakeFiles/joint_noise_node.dir/src/joint_noise_node.cpp.o\x1b[0m\n'}
+[3.328313] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding CXX object CMakeFiles/noisy_odometry_node.dir/src/noisy_odometry_node.cpp.o\x1b[0m\n'}
+[3.332227] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/test_node.dir/src/test_node.cpp.o\x1b[0m\n'}
+[3.332566] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/multi_recorder_node.dir/src/multi_recorder_node.cpp.o\x1b[0m\n'}
+[3.355182] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/kalman_filter_node.dir/src/kalman_filter_node.cpp.o\x1b[0m\n'}
+[3.357354] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/particle_filter_node.dir/src/particle_filter_node.cpp.o\x1b[0m\n'}
+[3.365402] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/landmark_test_node.dir/src/landmark_test_node.cpp.o\x1b[0m\n'}
+[3.368581] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object CMakeFiles/ekf_landmark_node.dir/src/ekf_landmark.cpp.o\x1b[0m\n'}
+[3.374018] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/extended_kalman_filter_node.dir/src/extended_kalman_filter_node.cpp.o\x1b[0m\n'}
+[3.408031] (-) TimerEvent: {}
+[3.508535] (-) TimerEvent: {}
+[3.608964] (-) TimerEvent: {}
+[3.709477] (-) TimerEvent: {}
+[3.809988] (-) TimerEvent: {}
+[3.910482] (-) TimerEvent: {}
+[4.011021] (-) TimerEvent: {}
+[4.111530] (-) TimerEvent: {}
+[4.212108] (-) TimerEvent: {}
+[4.312628] (-) TimerEvent: {}
+[4.413099] (-) TimerEvent: {}
+[4.513565] (-) TimerEvent: {}
+[4.614099] (-) TimerEvent: {}
+[4.714551] (-) TimerEvent: {}
+[4.815070] (-) TimerEvent: {}
+[4.915555] (-) TimerEvent: {}
+[5.016002] (-) TimerEvent: {}
+[5.116431] (-) TimerEvent: {}
+[5.216898] (-) TimerEvent: {}
+[5.317428] (-) TimerEvent: {}
+[5.417924] (-) TimerEvent: {}
+[5.518453] (-) TimerEvent: {}
+[5.619057] (-) TimerEvent: {}
+[5.719549] (-) TimerEvent: {}
+[5.820032] (-) TimerEvent: {}
+[5.920486] (-) TimerEvent: {}
+[6.020981] (-) TimerEvent: {}
+[6.121447] (-) TimerEvent: {}
+[6.221996] (-) TimerEvent: {}
+[6.322441] (-) TimerEvent: {}
+[6.423079] (-) TimerEvent: {}
+[6.523610] (-) TimerEvent: {}
+[6.624072] (-) TimerEvent: {}
+[6.724547] (-) TimerEvent: {}
+[6.825048] (-) TimerEvent: {}
+[6.925651] (-) TimerEvent: {}
+[7.026148] (-) TimerEvent: {}
+[7.126638] (-) TimerEvent: {}
+[7.227118] (-) TimerEvent: {}
+[7.327569] (-) TimerEvent: {}
+[7.428050] (-) TimerEvent: {}
+[7.528555] (-) TimerEvent: {}
+[7.629046] (-) TimerEvent: {}
+[7.729577] (-) TimerEvent: {}
+[7.830260] (-) TimerEvent: {}
+[7.930754] (-) TimerEvent: {}
+[8.031311] (-) TimerEvent: {}
+[8.131841] (-) TimerEvent: {}
+[8.232542] (-) TimerEvent: {}
+[8.333087] (-) TimerEvent: {}
+[8.433645] (-) TimerEvent: {}
+[8.534215] (-) TimerEvent: {}
+[8.634746] (-) TimerEvent: {}
+[8.735360] (-) TimerEvent: {}
+[8.835840] (-) TimerEvent: {}
+[8.936359] (-) TimerEvent: {}
+[9.036872] (-) TimerEvent: {}
+[9.137373] (-) TimerEvent: {}
+[9.237895] (-) TimerEvent: {}
+[9.339080] (-) TimerEvent: {}
+[9.439556] (-) TimerEvent: {}
+[9.540099] (-) TimerEvent: {}
+[9.640704] (-) TimerEvent: {}
+[9.741360] (-) TimerEvent: {}
+[9.841899] (-) TimerEvent: {}
+[9.942479] (-) TimerEvent: {}
+[10.043733] (-) TimerEvent: {}
+[10.145111] (-) TimerEvent: {}
+[10.246246] (-) TimerEvent: {}
+[10.347000] (-) TimerEvent: {}
+[10.447545] (-) TimerEvent: {}
+[10.548201] (-) TimerEvent: {}
+[10.648717] (-) TimerEvent: {}
+[10.749196] (-) TimerEvent: {}
+[10.849716] (-) TimerEvent: {}
+[10.950207] (-) TimerEvent: {}
+[10.997883] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 55%] \x1b[32m\x1b[1mLinking CXX executable noisy_odometry_node\x1b[0m\n'}
+[11.050374] (-) TimerEvent: {}
+[11.150990] (-) TimerEvent: {}
+[11.251680] (-) TimerEvent: {}
+[11.352259] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 60%] \x1b[32m\x1b[1mLinking CXX executable joint_noise_node\x1b[0m\n'}
+[11.352630] (-) TimerEvent: {}
+[11.453142] (-) TimerEvent: {}
+[11.465633] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 65%] \x1b[32m\x1b[1mLinking CXX executable test_node\x1b[0m\n'}
+[11.553345] (-) TimerEvent: {}
+[11.643327] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 65%] Built target noisy_odometry_node\n'}
+[11.653624] (-) TimerEvent: {}
+[11.754303] (-) TimerEvent: {}
+[11.854813] (-) TimerEvent: {}
+[11.955337] (-) TimerEvent: {}
+[12.005781] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 65%] Built target joint_noise_node\n'}
+[12.055527] (-) TimerEvent: {}
+[12.156071] (-) TimerEvent: {}
+[12.182489] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 65%] Built target test_node\n'}
+[12.189098] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 70%] \x1b[32m\x1b[1mLinking CXX executable landmark_test_node\x1b[0m\n'}
+[12.256236] (-) TimerEvent: {}
+[12.356740] (-) TimerEvent: {}
+[12.457338] (-) TimerEvent: {}
+[12.557804] (-) TimerEvent: {}
+[12.658303] (-) TimerEvent: {}
+[12.758812] (-) TimerEvent: {}
+[12.788371] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 70%] Built target landmark_test_node\n'}
+[12.859041] (-) TimerEvent: {}
+[12.959579] (-) TimerEvent: {}
+[13.060044] (-) TimerEvent: {}
+[13.160568] (-) TimerEvent: {}
+[13.261054] (-) TimerEvent: {}
+[13.361511] (-) TimerEvent: {}
+[13.462002] (-) TimerEvent: {}
+[13.562165] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX executable recorder_node\x1b[0m\n'}
+[13.562421] (-) TimerEvent: {}
+[13.572881] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 80%] \x1b[32m\x1b[1mLinking CXX executable multi_recorder_node\x1b[0m\n'}
+[13.662658] (-) TimerEvent: {}
+[13.763149] (-) TimerEvent: {}
+[13.863665] (-) TimerEvent: {}
+[13.964185] (-) TimerEvent: {}
+[14.064636] (-) TimerEvent: {}
+[14.128151] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 80%] Built target multi_recorder_node\n'}
+[14.164780] (-) TimerEvent: {}
+[14.184250] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 80%] Built target recorder_node\n'}
+[14.264973] (-) TimerEvent: {}
+[14.365416] (-) TimerEvent: {}
+[14.465850] (-) TimerEvent: {}
+[14.518832] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 85%] \x1b[32m\x1b[1mLinking CXX executable kalman_filter_node\x1b[0m\n'}
+[14.566015] (-) TimerEvent: {}
+[14.666504] (-) TimerEvent: {}
+[14.767033] (-) TimerEvent: {}
+[14.867462] (-) TimerEvent: {}
+[14.967858] (-) TimerEvent: {}
+[15.003167] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 85%] Built target kalman_filter_node\n'}
+[15.068034] (-) TimerEvent: {}
+[15.168492] (-) TimerEvent: {}
+[15.235251] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 90%] \x1b[32m\x1b[1mLinking CXX executable particle_filter_node\x1b[0m\n'}
+[15.268686] (-) TimerEvent: {}
+[15.369156] (-) TimerEvent: {}
+[15.469662] (-) TimerEvent: {}
+[15.540786] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 95%] \x1b[32m\x1b[1mLinking CXX executable extended_kalman_filter_node\x1b[0m\n'}
+[15.569837] (-) TimerEvent: {}
+[15.670334] (-) TimerEvent: {}
+[15.770808] (-) TimerEvent: {}
+[15.825847] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 95%] Built target particle_filter_node\n'}
+[15.871376] (-) TimerEvent: {}
+[15.971760] (-) TimerEvent: {}
+[16.015409] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[ 95%] Built target extended_kalman_filter_node\n'}
+[16.071922] (-) TimerEvent: {}
+[16.172404] (-) TimerEvent: {}
+[16.272910] (-) TimerEvent: {}
+[16.373378] (-) TimerEvent: {}
+[16.473836] (-) TimerEvent: {}
+[16.574384] (-) TimerEvent: {}
+[16.674861] (-) TimerEvent: {}
+[16.775342] (-) TimerEvent: {}
+[16.875804] (-) TimerEvent: {}
+[16.976285] (-) TimerEvent: {}
+[17.076763] (-) TimerEvent: {}
+[17.177201] (-) TimerEvent: {}
+[17.277958] (-) TimerEvent: {}
+[17.378380] (-) TimerEvent: {}
+[17.478862] (-) TimerEvent: {}
+[17.579367] (-) TimerEvent: {}
+[17.679824] (-) TimerEvent: {}
+[17.780285] (-) TimerEvent: {}
+[17.881011] (-) TimerEvent: {}
+[17.981390] (-) TimerEvent: {}
+[18.081812] (-) TimerEvent: {}
+[18.182324] (-) TimerEvent: {}
+[18.282787] (-) TimerEvent: {}
+[18.383278] (-) TimerEvent: {}
+[18.483759] (-) TimerEvent: {}
+[18.584208] (-) TimerEvent: {}
+[18.684675] (-) TimerEvent: {}
+[18.785127] (-) TimerEvent: {}
+[18.821838] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable ekf_landmark_node\x1b[0m\n'}
+[18.885289] (-) TimerEvent: {}
+[18.985788] (-) TimerEvent: {}
+[19.086315] (-) TimerEvent: {}
+[19.186817] (-) TimerEvent: {}
+[19.287317] (-) TimerEvent: {}
+[19.387772] (-) TimerEvent: {}
+[19.420945] (tb4_cedric_pkg_1) StdoutLine: {'line': b'[100%] Built target ekf_landmark_node\n'}
+[19.442789] (tb4_cedric_pkg_1) CommandEnded: {'returncode': 0}
+[19.443664] (tb4_cedric_pkg_1) JobProgress: {'identifier': 'tb4_cedric_pkg_1', 'progress': 'install'}
+[19.466498] (tb4_cedric_pkg_1) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1'], 'cwd': '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'cedric'), ('SSH_AGENT_PID', '2290'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LIBGL_ALWAYS_SOFTWARE', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib'), ('HOME', '/home/cedric'), ('CHROME_DESKTOP', 'code.desktop'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/cedric/.nvm/versions/node/v22.22.1/bin'), ('NVM_INC', '/home/cedric/.nvm/versions/node/v22.22.1/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '2096'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/cedric/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/libs/debugpy'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4051'), ('NVM_DIR', '/home/cedric/.nvm'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'cedric'), ('JOURNAL_STREAM', '8:47750'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'cedric'), ('TERM', 'xterm-256color'), ('GAZEBO_MODEL_PATH', ':/opt/ros/foxy/share/turtlebot3_gazebo/models:/opt/ros/foxy/share/turtlebot3_gazebo/models'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/cedric/.local/bin:/opt/ros/foxy/bin:/home/cedric/.nvm/versions/node/v22.22.1/bin:/home/cedric/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/cedric/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts:/home/cedric/.config/Code/User/globalStorage/github.copilot-chat/debugCommand'), ('SESSION_MANAGER', 'local/cedric-ThinkPad-E14-Gen-3:@/tmp/.ICE-unix/2364,unix/cedric-ThinkPad-E14-Gen-3:/tmp/.ICE-unix/2364'), ('INVOCATION_ID', 'd81b6fe176eb45b4bfeaabcb7b6aa371'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/cedric/.vscode/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-31703b961155a312.txt'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('PYTHONSTARTUP', '/home/cedric/.config/Code/User/workspaceStorage/51e6f2381f63403292cf25461d463484/ms-python.python/pythonrc.py'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-45275ed3b2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1:/opt/ros/foxy'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/build/tb4_cedric_pkg_1'), ('TURTLEBOT3_MODEL', 'waffle'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1:/opt/ros/foxy')]), 'shell': False}
+[19.486189] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[19.486576] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[19.487189] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/launch/all_filters_comparison.launch.py\n'}
+[19.487908] (-) TimerEvent: {}
+[19.507380] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/launch/my_turtlebot3_world.launch.py\n'}
+[19.529087] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/launch/simulation.launch.py\n'}
+[19.542413] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/test_node\n'}
+[19.563370] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/multi_recorder_node\n'}
+[19.584895] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/joint_noise_node\n'}
+[19.588094] (-) TimerEvent: {}
+[19.605889] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/noisy_odometry_node\n'}
+[19.623532] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/kalman_filter_node\n'}
+[19.641499] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/extended_kalman_filter_node\n'}
+[19.659011] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/landmark_test_node\n'}
+[19.674587] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/ekf_landmark_node\n'}
+[19.688246] (-) TimerEvent: {}
+[19.693315] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/particle_filter_node\n'}
+[19.711931] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/lib/tb4_cedric_pkg_1/recorder_node\n'}
+[19.731188] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/launch/all_filters_comparison.launch.py\n'}
+[19.731592] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/launch/my_turtlebot3_world.launch.py\n'}
+[19.732134] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Up-to-date symlink: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/launch/simulation.launch.py\n'}
+[19.733322] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/trajectories/robot_path.csv\n'}
+[19.754620] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/worlds/cedric_landmark_world.world\n'}
+[19.766082] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/worlds/my_world.world\n'}
+[19.778505] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/worlds/waffle.model\n'}
+[19.788403] (-) TimerEvent: {}
+[19.788937] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/ament_index/resource_index/package_run_dependencies/tb4_cedric_pkg_1\n'}
+[19.806526] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/ament_index/resource_index/parent_prefix_path/tb4_cedric_pkg_1\n'}
+[19.825264] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/environment/ament_prefix_path.sh\n'}
+[19.842737] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/environment/ament_prefix_path.dsv\n'}
+[19.858323] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/environment/path.sh\n'}
+[19.871218] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/environment/path.dsv\n'}
+[19.888566] (-) TimerEvent: {}
+[19.890223] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/local_setup.bash\n'}
+[19.910838] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/local_setup.sh\n'}
+[19.933140] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/local_setup.zsh\n'}
+[19.951374] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/local_setup.dsv\n'}
+[19.969203] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/package.dsv\n'}
+[19.987370] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/ament_index/resource_index/packages/tb4_cedric_pkg_1\n'}
+[19.988699] (-) TimerEvent: {}
+[20.005262] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/cmake/tb4_cedric_pkg_1Config.cmake\n'}
+[20.023715] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/cmake/tb4_cedric_pkg_1Config-version.cmake\n'}
+[20.041469] (tb4_cedric_pkg_1) StdoutLine: {'line': b'-- Symlinking: /home/cedric/Desktop/PROLAB/proLAB_CedericoV1/ros2_ws_1/install/tb4_cedric_pkg_1/share/tb4_cedric_pkg_1/package.xml\n'}
+[20.065566] (tb4_cedric_pkg_1) CommandEnded: {'returncode': 0}
+[20.086652] (tb4_cedric_pkg_1) JobEnded: {'identifier': 'tb4_cedric_pkg_1', 'rc': 0}
+[20.087731] (-) EventReactorShutdown: {}

@@ -14,11 +14,11 @@ int main(int argc, char * argv[])
     auto node = rclcpp::Node::make_shared("joint_noise_node");
 
     // Parameter deklarieren und auslesen
-    node->declare_parameter<double>("noise_std_dev_vel", 0.08);
-    node->declare_parameter<double>("noise_std_dev_pos", 0.02);
+    node->declare_parameter<double>("noise_std_dev_vel", 0.2);
+    node->declare_parameter<double>("noise_std_dev_pos", 0.1);
 
-    double std_dev_vel = 0.08;
-    double std_dev_pos = 0.02;
+    double std_dev_vel = 0.2;
+    double std_dev_pos = 0.1;
     node->get_parameter("noise_std_dev_vel", std_dev_vel);
     node->get_parameter("noise_std_dev_pos", std_dev_pos);
 

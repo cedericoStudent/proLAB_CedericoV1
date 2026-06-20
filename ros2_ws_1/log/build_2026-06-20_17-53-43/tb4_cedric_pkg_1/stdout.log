@@ -1,0 +1,11 @@
+[35m[1mScanning dependencies of target ekf_landmark_node[0m
+[ 10%] Built target noisy_odometry_node
+[ 25%] Built target kalman_filter_node
+[ 30%] Built target multi_recorder_node
+[ 40%] Built target recorder_node
+[ 60%] Built target joint_noise_node
+[ 60%] Built target particle_filter_node
+[ 70%] Built target landmark_test_node
+[ 80%] Built target test_node
+[ 90%] Built target extended_kalman_filter_node
+[ 95%] [32mBuilding CXX object CMakeFiles/ekf_landmark_node.dir/src/ekf_landmark.cpp.o[0m

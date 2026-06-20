@@ -1,9 +1,0 @@
-[35m[1mScanning dependencies of target recorder_node[0m
-[35m[1mScanning dependencies of target kalman_filter_node[0m
-[ 20%] Built target noisy_odometry_node
-[ 40%] Built target test_node
-[ 60%] Built target joint_noise_node
-[ 70%] [32mBuilding CXX object CMakeFiles/recorder_node.dir/src/recorder_node.cpp.o[0m
-[ 80%] [32mBuilding CXX object CMakeFiles/kalman_filter_node.dir/src/kalman_filter_node.cpp.o[0m
-[ 90%] [32m[1mLinking CXX executable recorder_node[0m
-[ 90%] Built target recorder_node
