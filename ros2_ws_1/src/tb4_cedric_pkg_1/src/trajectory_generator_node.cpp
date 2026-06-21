@@ -15,7 +15,8 @@ enum class DriveState {
     LEFT_DIAGONAL_45_A,     // 6. 45° Linkskurve + 1m Fahrt
     LEFT_DIAGONAL_45_B,     // 7. Erneut 45° Linkskurve + 1m Fahrt
     NOCHMAL_DREHEN,        // 8. Zum Landmark nochmal finden
-    STOP                    // 9. Ziel erreicht
+    KURZ_GERADEAUS,            // 9. Kurz geradeaus fahren, um vllt nochmal Landmark zu sehen
+    STOP                    // 10. Ziel erreicht
 };
 
 class TrajectoryGeneratorNode : public rclcpp::Node {
@@ -111,7 +112,13 @@ private:
             case DriveState::NOCHMAL_DREHEN:
                 // Zum Landmark nochmal drehen
                 cmd_msg.angular.z = 0.5;
-                if (elapsed_time >= 4.0) switch_state(DriveState::STOP);
+                if (elapsed_time >= 4.0) switch_state(DriveState::KURZ_GERADEAUS);
+                break;
+
+            case DriveState::KURZ_GERADEAUS:
+                // Kurz geradeaus fahren, um vllt nochmal Landmark zu sehen
+                cmd_msg.linear.x = 0.1;
+                if (elapsed_time >= 3.5) switch_state(DriveState::STOP);
                 break;
 
             case DriveState::STOP:
@@ -138,6 +145,7 @@ private:
             case DriveState::LEFT_DIAGONAL_45_A:  state_name = "LEFT_DIAGONAL_45_A (45° + 1m)"; break;
             case DriveState::LEFT_DIAGONAL_45_B:  state_name = "LEFT_DIAGONAL_45_B (45° + 1m)"; break;
             case DriveState::NOCHMAL_DREHEN:      state_name = "NOCHMAL_DREHEN"; break;
+            case DriveState::KURZ_GERADEAUS:      state_name = "KURZ_GERADEAUS"; break;
             case DriveState::STOP:                state_name = "STOP"; break;
         }
         RCLCPP_INFO(this->get_logger(), "Wechsle in Phase: %s", state_name.c_str());
